@@ -12,11 +12,16 @@ Personas de cualquier género, entre 15 y 60 años, que viven en AMBA o Córdoba
 ### Sitios referentes
 
 - Con productos similares
-  - https://atelierbotanico.com.ar/
-  - http://www.bio-botanica.com/
+  - https://atelierbotanico.com.ar
+  - http://www.bio-botanica.com
+  - https://www.verdeyorganico.com.ar
+  - https://www.viverokirken.com
 - Con clientes similares
+  - https://www.verdeesvida.es
 - Con estética similar
+  - https://maurele.com
 - Con funcionalidades o componentes similares
+  - https://www.monoware.com
 
 ### Sobre el equipo
 
