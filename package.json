@@ -2,13 +2,13 @@
   "name": "proyecto-garden",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "appit add .js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "package": "^1.0.1"
+    "express": "^4.17.1"
   }
 }
