@@ -1,11 +1,11 @@
-.articulo1-parte1 {
-    width: auto;
+.articulo1-parte1{
     display:flex;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
     flex-direction:row;
     justify-content:space-around;
 }
-.articulo1, .articulo2 {
-border: solid 1px black
-
+.articulo1,.articulo2{
+border: solid 1px black;
+background-color: chartreuse;
+width:50%;
 }
