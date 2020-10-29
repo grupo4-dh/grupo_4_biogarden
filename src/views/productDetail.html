@@ -7,31 +7,34 @@
     <title class="titulo1">Descripcion del Producto</title>
 </head>
 <body>
-    <header><h1 class="titulo2">DETALLE DEL PRODUCTO</h1></header>
+    <header><h1 class="titulo2">DETALLE DEL PRODUCTO</h1>
     <img src="" alt=""><!--colocar la imagen del logo-->
-    
+    </header>
     <br>
-    <div class="articulo1-parte1">
-        
-        <section class='articulo1'>
-            <h2 class="suculentas">SUCULENTAS</h2> <br>
+    <div class ="principal">
+     
+        <section class='primera'>
+            <h2 class="suculentas">SUCULENTAS</h2> 
+            <br>
             <div class = "imagenes">
-                <article class="img1"><img class="suculenta1"height="300px"width="300px"src="/Images/suculenta.jpg"alt="suculenta"></article>
-                <br>
-                <article class= "img2"><img class="suculenta2"height="300px"width="300px"src="/Images/suculentas2.jpg"alt="suculenta"></article>
+                 <img class="suculenta1"height="300px"width="300px"src="/Images/suculenta.jpg"alt="suculenta">
+                <div class ="imagenespequeñas">
+                 <img class="suculenta2"height="100px"width="100px"src="/Images/suculentas2.jpg"alt="suculenta">
+                 <img  class="suculenta3"height="100px" width="100px" src="/Images/suculenta3.jpg" alt="suculenta2">
+                </div>
             </div>
-            <article><h3 class="titulo3">DESCRIPCION</h3></article>
+            <h3 class="titulo3">DESCRIPCION</h3>
             <p>
                 Plantas rústicas y fuertes.Es necesario ubicarlas en un lugar muy luminoso y si reciben sol de mañana es ideal.
                 Evitar el rayo solar del mediodía. No pulverizar sus hojas y regar siempre cuando el sustrato se encuentra bien seco</p>
-                <p><label for="Deja tu comentario">Dejanos tu comentario</label></p>
+                <p><label for="Deja tu comentario">Dejános tu comentario</label></p>
                 
                 <form action="/productDetail" method="get">
                     <textarea name="Comentario" id="" cols="30" rows="10"></textarea>
                     <p><input type="submit" value="Enviar"></p>
                 </form>
-            </section>
-            <section class="articulo2">
+        </section>
+            <section class="segunda">
                 <h1 class ="titulo4">SUCULENTAS</h1>
                 <h2 class ="titulo5">PRECIO:$200</h2>
                 <h3 class="titulo6">18 cuotas de $23,21</h3>
@@ -52,12 +55,12 @@
                         <input type="number" id="cantidad" name="cantidad">
                         <br>
                         <p ><button class="carritoenviar" type="submit"><img height ="30 px" width="30 px" src="/Images/carrito.svg" alt=""> AGREGAR AL CARRRITO</button></p>
-                        
+                      
                     </form>
+            </section>        
                     
-                    
-                </div>
+            
                 
-                
+    </div>
             </body>
             </html>
