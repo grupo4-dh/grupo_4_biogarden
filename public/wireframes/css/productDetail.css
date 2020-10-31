@@ -19,14 +19,15 @@ text-align: center;
 font-weight: bold;
 }
 
+
 .principal{
     display:flex;
     flex-wrap:nowrap;
     flex-direction:row;
     justify-content:space-around;
     padding:30px 10px 20px 15px;
-    margin: 2%;
     border-color: 1px solid grey;
+    margin:0px;
 
 }
 
@@ -36,22 +37,26 @@ font-weight: bold;
     flex-direction:column;
     align-items:space-around;
     padding:30px 10px 20px 15px;
-    width:100%;
+    width:50%;
     border: 2px solid grey;
     
 }
-.imagenes{
+
+.padreimagenes{
     display:flex;
     flex-wrap:nowrap;
     flex-direction: row;
-    justify-content:flex-start;
+    justify-content:space-around;
    
 }
 .imagenespequeñas{
     display:flex;
     flex-wrap:nowrap;
     flex-direction: column;
-    justify-content:space-around;
+    
+}
+.suculenta2{
+    padding-bottom:5px;
 }
 .segunda{
     display: flex;
@@ -59,6 +64,8 @@ font-weight: bold;
     flex-direction:column;
     justify-content:space-around;
     padding:30px 10px 20px 15px;
+    width:50%;
+    border: 2px solid grey;
 }
 
 .carritoenviar{
