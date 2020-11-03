@@ -1,0 +1,237 @@
+/* =================
+- GENERAL
+================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+@import url("https://use.fontawesome.com/releases/v5.15.1/css/all.css");
+@import url("https://coolors.co/22577a-38a3a5-57cc99-80ed99-c7f9cc");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Roboto';
+}
+
+/* =================
+- HEADER
+================= */
+
+header{
+    padding:10px;
+    margin:0px;
+    /* background-color:rgb(194, 241, 202); */
+    background-color: white;
+}
+
+header .brand {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+}
+
+header .brand form {
+    display: flex;
+    width: 15%;
+    padding: 10px;
+    border: solid 1px black;
+    background-color: white;
+    align-items: flex-start;
+    text-align: left;
+}
+
+header .brand form input[type="text"] {
+    width: 90%;
+    border: none;
+    font-size: 15px;
+}
+
+header .brand form button[type="submit"] {
+    width: 10%;
+    border: none;
+    background: none;
+    font-size: 15px;
+    text-align: center;
+}
+
+header .brand img.logo{
+    width: 150px;
+    align-items: center;
+    /* padding: 0 400px; */
+}
+
+header .brand .cart-and-account{
+    width: 15%;
+    display: flex;
+    flex-direction: column;
+} 
+
+/* header .brand .cart-and-account button {
+    width: 100%;
+} */
+
+/* header .brand .cart-and-account .account {
+    width: 100%;    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
+header .brand .cart-and-account .account ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+}
+
+header .brand .cart-and-account .account ul li {
+    display: inline;
+    width: 50%;
+    text-align: center;
+}
+
+header .nav-bar {
+    text-align: center;
+    text-transform: uppercase;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+}
+
+header .nav-bar ul {
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+}
+
+header .nav-bar ul li {
+    padding: 5px;
+    display: inline;
+}
+/* header .nav-bar ul li a {} */
+
+/* =================
+- MAIN
+================= */
+
+.main {
+    padding: 10px;
+}
+
+.main .promo {
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+.main .promo span {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: stretch;
+}
+
+.main .promo .middle {
+    border-left: solid 1px gray;
+    border-right: solid 1px gray;
+}
+
+.main .promo span i {
+    padding: 0px 15px;
+    font-size: 30px;
+    /* align-self: stretch; */
+}
+
+.main .promo span p {
+    padding: 0px 15px;
+    display: inline;
+    text-align: center;
+    /* align-self: center; */
+}
+
+.main .products {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.main .products img.workshop {
+    width: 30%;
+}
+.main .products section {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.main .products section article {
+    width: 50%;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.main .products section article img {
+    padding: 15px;
+    width: 100%;
+}
+
+.main .products section article p {
+    height: 10%;
+}
+
+.main .products iframe {
+    width: 30%;
+    align-self: center;
+}
+
+/* =================
+- FOOTER
+================= */
+
+footer{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+footer .contact{
+    width: 30%;
+}
+
+footer .contact strong {
+    padding-bottom: 5px;
+}
+
+footer .contact ul {
+    list-style: none;
+}
+
+footer .contact ul li {
+    padding: 5px 0px;
+}
+
+footer p.copyright {
+    width: 30%;
+    text-align: center;
+    align-self: flex-end;
+}
+
+footer .social {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
