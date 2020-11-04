@@ -32,18 +32,18 @@ header{
     
     
 }
-header .titulo{
+ .titulo{
     text-transform: uppercase;
     letter-spacing: 0.5px;
     font-family:"Roboto";
     margin-top:12px;
+    flex-grow:2;
    
 }
 
-header .boton1 {
+.boton1 {
     height:30px;
     width:30%;
-    align-self:flex-start;
-  
+    flex-grow:1;
   }
 

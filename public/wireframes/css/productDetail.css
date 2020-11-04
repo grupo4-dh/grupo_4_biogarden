@@ -61,6 +61,10 @@ font-weight: bold;
     flex-wrap:nowrap;
     flex-direction: column;
     
+    
+}
+.imagenes{
+    flex-grow:0.7;
 }
 .suculenta2{
     padding-bottom:5px;
@@ -70,6 +74,7 @@ font-weight: bold;
     flex-wrap:nowrap;
     flex-direction:column;
     align-items:space-around;
+    padding-left:25px;
     width:50%;
     border: 2px solid grey;
 }
