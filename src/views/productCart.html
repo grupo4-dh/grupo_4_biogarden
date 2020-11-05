@@ -10,12 +10,10 @@
     <main class="principal">
         <section class="fondo"></section>
         <section class="carrito">
-            
             <div class="header">
                 <h2 class="titulo">Carrito de compras</h2> 
                 <button class="boton1"type="submit">X</button>
             </div>
-            
             
             <div class="subtitulos">
                 <h3 class="producto">Producto</h3>
@@ -23,14 +21,11 @@
             </div>
             
             <div class="contenedorProductos">
-                
-                <article class="articulo1">
+                <article class="articulo">
                     <div class="Imagen1">
                         <img class="suculenta2"height="150 px"width="150 px"src="/Images/suculentas2.jpg"alt="suculentas con maceta">                        
                     </div>
-                    
-                    <div class="Centro"> 
-                        
+                    <div class="centro"> 
                         <div class="caja1">
                             <a href="/views/productDetail/suculentas2.jpg" title="Maceta Cactus">
                                 Maceta suculenta
@@ -44,35 +39,24 @@
                             <button>
                                 -
                             </button>
-                            <input value="0" />
+                            <input type="number" name="quantity" value="0" >
                             <button>
                                 +
                             </button>
                         </div>
-                        
                     </div>
-                    
-                    
                     <div class="precioSubtotal1">
-                        
-                        <button type="button" class="cart-btn-delete ajax-cart-btn-delete pull-right p-top-none" onclick="LS.removeItem(345375532, true)"> <div class="cart-delete-svg-icon svg-icon-text"> <svg class="svg-trash-icon" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" viewBox="598 -476.1 1792 1792"><path d="M1302 260v576c0 9.2-3 17-9 23s-13.7 9-23 9h-64c-9.3 0-17-3-23-9s-9-13.8-9-23V260c0-9.4 3-17 9-23s13.7-9 23-9h64c9.3 0 17 3 23 9s9 13.6 9 23zm256 0v576c0 9.2-3 17-9 23s-13.7 9-23 9h-64c-9.3 0-17-3-23-9s-9-13.8-9-23V260c0-9.4 3-17 9-23s13.7-9 23-9h64c9.3 0 17 3 23 9s9 13.6 9 23zm256 0v576c0 9.2-3 17-9 23s-13.7 9-23 9h-64c-9.3 0-17-3-23-9s-9-13.8-9-23V260c0-9.4 3-17 9-23s13.7-9 23-9h64c9.3 0 17 3 23 9s9 13.6 9 23zm128 724V36h-896v948c0 14.6 2.3 28 7 40.4s9.5 21.3 14.5 27 8.5 8.5 10.5 8.5h832c2 0 5.5-3 10.5-8.6s9.8-14.7 14.5-27 7-25.8 7-40.5zM1270-92h448l-48-117c-4.7-6-10.3-9.8-17-11h-317c-6.7 1.2-12.3 5-17 11l-49 117zm928 32V4c0 9.2-3 17-9 23s-13.7 9-23 9h-96v948c0 55.2-15.7 103-47 143.4-31.3 40.3-69 60.5-113 60.5h-832c-44 0-81.7-19.6-113-58.6s-47-86.2-47-141.5V36h-96c-9.3 0-17-3-23-9s-9-13.8-9-23v-64c0-9.4 3-17 9-23s13.7-9 23-9h309l70-167c10-24.8 28-45.8 54-63 26-17.4 52.3-26 79-26h320c26.7 0 53 8.6 79 26 26 17.2 44 38.2 54 63l70 167h309c9.3 0 17 3 23 9s9 13.6 9 23z"></path></svg>			</div> </button>
                         <span>$850</span>
+                        <button><i class="fas fa-trash-alt"></i></button>
+                        <!-- <button type="button" class="cart-btn-delete ajax-cart-btn-delete pull-right p-top-none" onclick="LS.removeItem(345375532, true)"> <div class="cart-delete-svg-icon svg-icon-text"> <svg class="svg-trash-icon" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" viewBox="598 -476.1 1792 1792"><path d="M1302 260v576c0 9.2-3 17-9 23s-13.7 9-23 9h-64c-9.3 0-17-3-23-9s-9-13.8-9-23V260c0-9.4 3-17 9-23s13.7-9 23-9h64c9.3 0 17 3 23 9s9 13.6 9 23zm256 0v576c0 9.2-3 17-9 23s-13.7 9-23 9h-64c-9.3 0-17-3-23-9s-9-13.8-9-23V260c0-9.4 3-17 9-23s13.7-9 23-9h64c9.3 0 17 3 23 9s9 13.6 9 23zm256 0v576c0 9.2-3 17-9 23s-13.7 9-23 9h-64c-9.3 0-17-3-23-9s-9-13.8-9-23V260c0-9.4 3-17 9-23s13.7-9 23-9h64c9.3 0 17 3 23 9s9 13.6 9 23zm128 724V36h-896v948c0 14.6 2.3 28 7 40.4s9.5 21.3 14.5 27 8.5 8.5 10.5 8.5h832c2 0 5.5-3 10.5-8.6s9.8-14.7 14.5-27 7-25.8 7-40.5zM1270-92h448l-48-117c-4.7-6-10.3-9.8-17-11h-317c-6.7 1.2-12.3 5-17 11l-49 117zm928 32V4c0 9.2-3 17-9 23s-13.7 9-23 9h-96v948c0 55.2-15.7 103-47 143.4-31.3 40.3-69 60.5-113 60.5h-832c-44 0-81.7-19.6-113-58.6s-47-86.2-47-141.5V36h-96c-9.3 0-17-3-23-9s-9-13.8-9-23v-64c0-9.4 3-17 9-23s13.7-9 23-9h309l70-167c10-24.8 28-45.8 54-63 26-17.4 52.3-26 79-26h320c26.7 0 53 8.6 79 26 26 17.2 44 38.2 54 63l70 167h309c9.3 0 17 3 23 9s9 13.6 9 23z"></path></svg>			</div> </button> -->
                     </div>
-                    
-                    
-                    
-                    
-                </article>
-                
-                
-                
-                <article class="articulo2">
+                </article>                       
+
+                <article class="articulo">
                     <div class="Imagen2">
                         <img class="suculenta4"height="150 px"width="150 px"src="/Images/suculenta4.jpg"alt="suculentas con maceta">                        
                     </div>
-                    
-                    <div class="Centro"> 
-                        
+                    <div class="centro"> 
                         <div class="caja1">
                             <a href="public/Images/suculentas4.jpg" title="Maceta Cactus">
                                 Maceta Cactus
@@ -81,35 +65,23 @@
                                 $550
                             </h4>
                         </div>
-                        
                         <div class="caja2">
                             <button>
                                 -
                             </button>
-                            <input value="0" />
+                            <input type="number" name="quantity" value="0" >
                             <button>
                                 +
                             </button>
                         </div>
-                        
                     </div>
-                    
-                    
                     <div class="precioSubtotal2">
-                        
-                        <button type="button" class="cart-btn-delete ajax-cart-btn-delete pull-right p-top-none" onclick="LS.removeItem(345375532, true)"> <div class="cart-delete-svg-icon svg-icon-text"> <svg class="svg-trash-icon" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" viewBox="598 -476.1 1792 1792"><path d="M1302 260v576c0 9.2-3 17-9 23s-13.7 9-23 9h-64c-9.3 0-17-3-23-9s-9-13.8-9-23V260c0-9.4 3-17 9-23s13.7-9 23-9h64c9.3 0 17 3 23 9s9 13.6 9 23zm256 0v576c0 9.2-3 17-9 23s-13.7 9-23 9h-64c-9.3 0-17-3-23-9s-9-13.8-9-23V260c0-9.4 3-17 9-23s13.7-9 23-9h64c9.3 0 17 3 23 9s9 13.6 9 23zm256 0v576c0 9.2-3 17-9 23s-13.7 9-23 9h-64c-9.3 0-17-3-23-9s-9-13.8-9-23V260c0-9.4 3-17 9-23s13.7-9 23-9h64c9.3 0 17 3 23 9s9 13.6 9 23zm128 724V36h-896v948c0 14.6 2.3 28 7 40.4s9.5 21.3 14.5 27 8.5 8.5 10.5 8.5h832c2 0 5.5-3 10.5-8.6s9.8-14.7 14.5-27 7-25.8 7-40.5zM1270-92h448l-48-117c-4.7-6-10.3-9.8-17-11h-317c-6.7 1.2-12.3 5-17 11l-49 117zm928 32V4c0 9.2-3 17-9 23s-13.7 9-23 9h-96v948c0 55.2-15.7 103-47 143.4-31.3 40.3-69 60.5-113 60.5h-832c-44 0-81.7-19.6-113-58.6s-47-86.2-47-141.5V36h-96c-9.3 0-17-3-23-9s-9-13.8-9-23v-64c0-9.4 3-17 9-23s13.7-9 23-9h309l70-167c10-24.8 28-45.8 54-63 26-17.4 52.3-26 79-26h320c26.7 0 53 8.6 79 26 26 17.2 44 38.2 54 63l70 167h309c9.3 0 17 3 23 9s9 13.6 9 23z"></path></svg>			</div> </button>
                         <span>$550</span>
+                        <button><i class="fas fa-trash-alt"></i></button>
+                        <!-- <button type="button" class="cart-btn-delete ajax-cart-btn-delete pull-right p-top-none" onclick="LS.removeItem(345375532, true)"> <div class="cart-delete-svg-icon svg-icon-text"> <svg class="svg-trash-icon" baseProfile="tiny" xmlns="http://www.w3.org/2000/svg" viewBox="598 -476.1 1792 1792"><path d="M1302 260v576c0 9.2-3 17-9 23s-13.7 9-23 9h-64c-9.3 0-17-3-23-9s-9-13.8-9-23V260c0-9.4 3-17 9-23s13.7-9 23-9h64c9.3 0 17 3 23 9s9 13.6 9 23zm256 0v576c0 9.2-3 17-9 23s-13.7 9-23 9h-64c-9.3 0-17-3-23-9s-9-13.8-9-23V260c0-9.4 3-17 9-23s13.7-9 23-9h64c9.3 0 17 3 23 9s9 13.6 9 23zm256 0v576c0 9.2-3 17-9 23s-13.7 9-23 9h-64c-9.3 0-17-3-23-9s-9-13.8-9-23V260c0-9.4 3-17 9-23s13.7-9 23-9h64c9.3 0 17 3 23 9s9 13.6 9 23zm128 724V36h-896v948c0 14.6 2.3 28 7 40.4s9.5 21.3 14.5 27 8.5 8.5 10.5 8.5h832c2 0 5.5-3 10.5-8.6s9.8-14.7 14.5-27 7-25.8 7-40.5zM1270-92h448l-48-117c-4.7-6-10.3-9.8-17-11h-317c-6.7 1.2-12.3 5-17 11l-49 117zm928 32V4c0 9.2-3 17-9 23s-13.7 9-23 9h-96v948c0 55.2-15.7 103-47 143.4-31.3 40.3-69 60.5-113 60.5h-832c-44 0-81.7-19.6-113-58.6s-47-86.2-47-141.5V36h-96c-9.3 0-17-3-23-9s-9-13.8-9-23v-64c0-9.4 3-17 9-23s13.7-9 23-9h309l70-167c10-24.8 28-45.8 54-63 26-17.4 52.3-26 79-26h320c26.7 0 53 8.6 79 26 26 17.2 44 38.2 54 63l70 167h309c9.3 0 17 3 23 9s9 13.6 9 23z"></path></svg>			</div> </button> -->
                     </div>
-                    
-                    
-                    
-                    
-                </article>      
-                
-                
-                
+                </article>     
                 <div class="final">
-            <
                     <div class="final1">
                         <h5>Subtotal(sin envío)</h5>
                         
@@ -128,11 +100,10 @@
                         <button type="submit">Iniciar Compra</button>
                     </div>
                 
-            </div>
-                
+                </div>
             </div>
         </section>
-            
-        </body>
-        
-        </html>
+    </main> 
+</body>
+
+</html>
