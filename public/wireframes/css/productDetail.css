@@ -80,6 +80,8 @@ font-weight: bold;
     width:50%;
     border: 2px solid grey;
     padding:30px 10px 20px 15px;
+    margin-bottom: 30px;
+   
 }
 .form1{
     display:flex;
@@ -89,7 +91,7 @@ font-weight: bold;
 
 }
 .form1 > *{
-    margin-bottom: 15px;
+    margin-bottom: 30px;
 
 }
 
