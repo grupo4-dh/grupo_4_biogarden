@@ -1,42 +1,89 @@
 @import url('https://fonts.googleapis.com/css2? family = Heebo: wght @ 500 & family = Roboto: wght @ 400; 700 & display = swap');
 @import url('https://fonts.googleapis.com/css2? family = Open + Sans + Condensed: wght @ 700 & display = swap');
+@import url("https://use.fontawesome.com/releases/v5.15.1/css/all.css");
 
-*{
+* {
     padding: 0;
     margin: 0;
     font-family:'Roboto';
     box-sizing: border-box;
-   
-    
-}
-main.principal{
-    display:flex;
-    width: 100%;
-    
-    
-}
-         .fondo{
-            width:70%;
-            height:800px;
-            border: 1px solid black;
-            display: flex;
-            background-image:url("/images/fondo.jpg");
-            background-size:118%;
-         }
-         .carrrito{
-           width:30%;
-           height:300px;
-           border:1px solid black;
-           display: flex;
-           padding:15px;
-         
 }
 
-.header{
+main.principal{
+    display: flex;
+    width: 100%;
+}
+
+.fondo{
+    width:70%;
+    height:800px;
+    border: 1px solid black;
+    display: flex;
+    background-image:url("/images/fondo.jpg");
+    background-size:118%;
+}
+
+main.principal section.carrito {
+    width:30%;
+    border:1px solid black;
+    display: flex;
+    flex-direction: column;
+    padding:15px;         
+}
+
+main.principal section.carrito .header{
     display:flex;
     justify-content:space-between;
     align-items: flex-start;
     flex-direction:row;
 }
-    
-    
+
+/* SE AGREGA FLEX PARA SEPARAR LOS H3 */
+main.principal section.carrito .subtitulos{
+    display:flex;
+    justify-content:space-between;
+    align-items: flex-start;
+    flex-direction:row;
+}
+
+/* SE AGREGA FLEX PARA ORDENAR VERTICALMENTE LOS COMPONENTES DE PRODUCTO: ARTICULOx2 Y FINAL */
+main.principal section.carrito .contenedorProductos{
+    display: flex;
+    flex-direction: column;
+}
+
+/* SE AGREGA FLEX PARA ORDENAR HORIZONTALMENTE LOS COMPONENTES DE ARTICULO: IMG, CENTRO Y PRECIO SUBTOTAL*/
+main.principal section.carrito .contenedorProductos article.articulo {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+main.principal section.carrito .contenedorProductos article.articulo .centro {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+main.principal section.carrito .contenedorProductos article.articulo .centro .caja2 {
+    display: flex;
+    flex-direction: row;
+}
+
+main.principal section.carrito .contenedorProductos article.articulo .centro .caja2 input {
+    width: 25%;
+}
+
+/* SE AGREGA FLEX PARA ORDENAR VERTICALMENTE LOS COMPONENTES DE FINAL: FINAL 1, 2, 3 */
+main.principal section.carrito .contenedorProductos .final {
+    display: flex;
+    flex-direction: column;
+}
+
+/* SE AGREGA FLEX PARA ORDENAR HORIZONTALMENTE A LOS COMPONENTES HIJOS DE PRODUCTO */
+main.principal section.carrito .contenedorProductos .final > * {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
