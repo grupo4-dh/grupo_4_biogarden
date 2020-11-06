@@ -43,3 +43,6 @@ Una breve descripción de los integrantes del equipo.
 
   *Mi nombre es Florencia Bornancini, soy de Córdoba capital y soy odontóloga, asique incursionando en el mundo de la programación, me parece super interesante todo este mundo, el año pasado hice un curso de diseño gráfico y vimos algo de web y ahí es cuando dije ¿por qué no? Y bueno acá estamos en este nuevo desafío por delante.*
   
+## Tablero del equipo
+
+https://trello.com/b/jWu4GH8t/bio-garden
