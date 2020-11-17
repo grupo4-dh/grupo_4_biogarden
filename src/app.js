@@ -1,26 +1,29 @@
 const express = require('express');
 const app = express();
 const path = require('path');
-app.use(express.static(path.join(__dirname,"../public")))
+const router = require('./routes/main');
 
-app.get("/",function(req,res){
-    res.sendFile(path.join( __dirname,"/views/index.html" ))
-}) 
+// Configuramos el motor de vistas
+app.set('view engine', 'ejs');
 
-app.get("/home",function(req,res){
-    res.sendFile(path.join( __dirname,"/views/index.html" ))
-}) 
+// Seteamos la carpeta de vistas
+app.set('views', path.join(__dirname, 'views'));
 
-app.get("/producto",function(req,res){
-    res.sendFile(path.join( __dirname,"/views/productDetail.html" ))
-}) 
+// Seteamos la carpeta public
+app.use(express.static(path.join(__dirname, '../public')));
+
+const routerMain = require('./routes/main');
+const routerProducts = require('./routes/products');
+
+app.use("/", routerMain);
+app.use("/productos",routerProducts); 
 
 app.get("/carrito",function(req,res){
-    res.sendFile(path.join( __dirname,"/views/productCart.html" ))
+    res.sendFile(path.join( __dirname,"/views/productCart.ejs" ))
 }) 
 
 app.get("/registro",function(req,res){
-    res.sendFile(path.join( __dirname,"/views/register.html" ))
+    res.sendFile(path.join( __dirname,"/views/register.ejs" ))
 }) 
 
 app.get("/login",function(req,res){
