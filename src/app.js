@@ -1,36 +1,30 @@
+// Librerias
+const path = require('path');
+
+// Express
 const express = require('express');
 const app = express();
-const path = require('path');
-const router = require('./routes/main');
 
-// Configuramos el motor de vistas
+// Routers
+const mainRouter = require('./routes/main');
+const usersRouter = require('./routes/users');
+const productsRouter = require('./routes/products');
+
+// Configuramos el motor de vistas y la carpeta de vistas
 app.set('view engine', 'ejs');
-
-// Seteamos la carpeta de vistas
 app.set('views', path.join(__dirname, 'views'));
 
-// Seteamos la carpeta public
+// Seteamos la carpeta public con contenido estático
 app.use(express.static(path.join(__dirname, '../public')));
 
-const routerMain = require('./routes/main');
-const routerProducts = require('./routes/products');
+// Seteamos los routers
+app.use("/", mainRouter);
+app.use("/users",usersRouter); 
+app.use("/products",productsRouter); 
 
-app.use("/", routerMain);
-app.use("/productos",routerProducts); 
-
-app.get("/carrito",function(req,res){
-    res.sendFile(path.join( __dirname,"/views/productCart.ejs" ))
-}) 
-
-app.get("/registro",function(req,res){
-    res.sendFile(path.join( __dirname,"/views/register.ejs" ))
-}) 
-
-app.get("/login",function(req,res){
-    res.sendFile(path.join( __dirname,"/views/login.html" ))
-}) 
-
-app.listen(3000,function(){
+// Levantamos el server en el puerto indicado en la variable de entorno PORT, o en el puerto 3000 si no hay nada ahí.
+// Más info en: https://stackoverflow.com/questions/18864677/what-is-process-env-port-in-node-js
+app.listen(process.env.PORT || 3000,function() {
     console.log("Server running...")
     console.log("http://localhost:3000/")
 })
