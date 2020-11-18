@@ -1,16 +1,24 @@
 const fs = require('fs')
 const path = require('path')
 
+// Usamos archivos JSON como base de datos momentáneamente
+// Los leemos (fs.readFileSync) y parseamos (JSON.parse) en una sola linea
 let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'))
+let cart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'))
 
 module.exports = {
-    detail: function(req,res){
-        for (let i=0; i < products.length; i++){
-            if (products[i].id == req.params.product_id) {
-                return res.render('./product/productDetail.ejs', { product: products[i]})
+    all: function(req, res) {
+        res.send('Próximamente: Listado de productos')
+        //return res.render('./products/productsList.ejs', { product: product })
+    },
+    detail: function(req, res) {
+        for (product of products) {
+            if (product.id == req.params.product_id) {
+                return res.render('./products/productDetail.ejs', { product: product })
             }         
         }
-        
-        let product = req.params.product_id
+    },
+    cart: function(req, res) {
+        return res.render('./products/productsCart.ejs', { product: product })
     }
 }
