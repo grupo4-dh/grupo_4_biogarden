@@ -1,16 +1,17 @@
+// ENRUTADOR PRODUCTS
+
 const express = require('express')
 const router = express.Router()
 
 const productsController = require('../controllers/productsController')
 
-// LISTADO
-//router.get('/list', productsController.list)
+// Products list
+router.get('/', productsController.all)
 
-// DETALLE
-router.get('/detalle/:product_id', productsController.detail)
+// Products detail
+router.get('/detail/:product_id', productsController.detail)
 
-// CART
-//router.get('/cart', productsController.index)
-
+// Products cart
+router.get('/cart', productsController.cart)
 
 module.exports = router;

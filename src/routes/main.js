@@ -1,9 +1,11 @@
+// ENRUTADOR MAIN
+
 const express = require('express')
 const router = express.Router()
 
-const homeController = require('../controllers/homeController')
+const mainController = require('../controllers/mainController')
 
-// HOME
-router.get('/', homeController.index)
+// Home
+router.get('/', mainController.index)
 
 module.exports = router;
