@@ -8,7 +8,7 @@ let cart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json
 
 module.exports = {
     all: function(req, res) {
-        res.send('Próximamente: Listado de productos')
+        res.render('./products/productCreate.ejs')
         //return res.render('./products/productsList.ejs', { product: product })
     },
     detail: function(req, res) {
