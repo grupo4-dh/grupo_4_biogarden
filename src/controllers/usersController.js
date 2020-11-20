@@ -13,6 +13,6 @@ module.exports = {
         return res.render('./users/login.ejs')
     },
     profile: function(req, res) {
-        return res.send('Próximamente perfil del usuario: ' + req.params.user_id)
+        return res.render('./users/profile.ejs')
     }
 }

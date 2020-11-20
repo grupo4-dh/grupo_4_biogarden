@@ -1,29 +1,16 @@
-// formulario para generar un producto nuevo.
-//hacer la vista ( EJS y CSS).
-//Imput type File ( para imagen).
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="">
-    <title>Creacion de productos</title>
-</head>
-<body>
-    <header><h1 class = "titulo">Bio Garden-Ceacion de productos</h1></header> 
-</body>
-<body>
-    <form class = "form">
-        <p class = "subtitulo" >Creacion de  Productos</p>
-        <input type="name" id="name" name="nombre" class = "Nombre" placeholder = "Nombre..."><br><br>
-        <input type="text" id="text" name="Clase" class = "clase" placeholder = "clase"><br><br>
-        <input type="file" id ="imagen"  name="imagen" class = "imagen" placeholder = "imagen."><br><br>
-        <input type="text" id="descripcion" name="descripcion" class = "descripcion" placeholder = "descripcion"><br><br>
-
-
-       
-    </form>
-</body>
-
+    <%- include('../partials/head.ejs', { title: 'Crear producto', stylesheet: 'products/productCreate.css'}); %>
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <h1 class = "titulo">Bio Garden-Ceacion de productos</h1> 
+        <form class = "form">
+            <p class = "subtitulo" >Creacion de  Productos</p>
+            <input type="name" id="name" name="nombre" class = "Nombre" placeholder = "Nombre..."><br><br>
+            <input type="text" id="text" name="Clase" class = "clase" placeholder = "clase"><br><br>
+            <input type="file" id ="imagen"  name="imagen" class = "imagen" placeholder = "imagen."><br><br>
+            <input type="text" id="descripcion" name="descripcion" class = "descripcion" placeholder = "descripcion"><br><br>
+        </form>
+        <%- include('../partials/footer.ejs') %>
+    </body>
 </html>
