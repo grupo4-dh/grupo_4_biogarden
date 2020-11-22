@@ -3,7 +3,7 @@
         "id": "1",
         "name": "Suculenta",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio suscipit rem porro mollitia commodi a sunt labore, nam beatae sapiente.",
-        "imagen": "ruta/de/la/imagen",
+        "image": "ruta/de/la/imagen",
         "category": "Categoria",
         "price": 100.00,
         "attributes": [
@@ -17,7 +17,7 @@
         "id": "2",
         "name": "Margarita",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio suscipit rem porro mollitia commodi a sunt labore, nam beatae sapiente.",
-        "imagen": "ruta/de/la/imagen",
+        "image": "ruta/de/la/imagen",
         "category": "Categoria",
         "price": 100.00,
         "attributes": [
@@ -31,7 +31,7 @@
         "id": "3",
         "name": "Violeta",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio suscipit rem porro mollitia commodi a sunt labore, nam beatae sapiente.",
-        "imagen": "ruta/de/la/imagen",
+        "image": "ruta/de/la/imagen",
         "category": "Categoria",
         "price": 100.00,
         "attributes": [
