@@ -3,12 +3,15 @@ const path = require('path')
 
 // Usamos archivos JSON como base de datos momentáneamente
 // Los leemos (fs.readFileSync) y parseamos (JSON.parse) en una sola linea
-let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'))
-let cart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'))
+//let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'))
+//let cart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'))
 
 module.exports = {
     all: function(req, res) {
-        return res.render('./products/productsList.ejs')
+        let products = fs.readFileSync(path.join(__dirname, '../database/products.json'), 'utf8');
+        let arrayProducts = JSON.parse(products)
+        return res.render('./products/productsList.ejs', {productosEnLaVista: arrayProducts})
+
     },
     cart: function(req, res) {
         return res.render('./products/productsCart.ejs')
@@ -27,3 +30,4 @@ module.exports = {
         return res.render('./products/productEdit.ejs')
     }
 }
+

@@ -4,7 +4,26 @@
     <body>
         <%- include('../partials/header.ejs') %>
         <h1 class = "titulo">Listado de productos</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem animi aspernatur ullam, nobis laboriosam tenetur consequuntur. Quam maxime quo quibusdam placeat voluptatibus nisi numquam sapiente neque doloremque, ratione ipsa dolorum quos facere aut ad minus veniam explicabo distinctio nostrum animi commodi corrupti dolorem. Sequi, ullam eligendi? Consequatur enim quam molestias adipisci culpa, impedit esse commodi veniam unde magnam doloremque voluptatem dolorem ipsum fugit deleniti delectus placeat aperiam velit quod officia. Expedita vero atque illo impedit, nobis tempore voluptatem odio quas officiis totam velit suscipit doloribus saepe amet cum aut qui quisquam, sed dolorum culpa rem. Voluptatum placeat aut non repudiandae!</p>
+        <main>
+        <section class="titulo">
+            <h1>Productos</h1>
+        </section>
+
+        <section class="listado">
+            <% for(let i = 0; i < productosEnLaVista.length; i++) { %>
+                <article>
+                    <h2><%= productosEnLaVista[i].name %></h2>
+                    <p><%= productosEnLaVista[i].description %></p>
+                    <p><%= productosEnLaVista[i].imagen %></p>
+                    <button>Más info</button>
+                </article>
+            <% } %>
+        </section>
+        </main>
+ 
         <%- include('../partials/footer.ejs') %>
     </body>
 </html>
+
+
+
