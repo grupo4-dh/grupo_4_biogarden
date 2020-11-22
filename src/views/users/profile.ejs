@@ -1,11 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <%- include('../partials/head.ejs', { title: 'Perfil', stylesheet: 'users/profile.css'}); %>
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <h1 class = "titulo">Perfil de usuario</h1>
+
+        <div class="padre">
+            <div class="hijo1">
+            <h2>Datos Personales</h2>
+            <img src="" alt="">
+        </div>
+            <div class="hijo2">
+            <ul>
+                <li>Nombre</li>
+                <li>Apellido</li>
+                <li>Telefono</li>
+                <li>Direccion</li>
+                <button class="Modificar Perfil" type="submit">Modificar Mi Perfil</button>
+
+            </ul>
+        </div>
+            </div>       
+            <div class="padre1">
+                <h2>Mis Órdenes</h2>
+                <ul class ="lista">
+                    <li>Orden</li>
+                    <li>Fecha</li>
+                    <li>Estado</li>
+                    <li>Pago</li>
+                    <li>Envio</li>
+                    <li>Total</li>
+                </ul>
+            </div>
+        
+        
+        <footer class ="footer"><%- include('../partials/footer.ejs') %></footer>
+
+        
+
+        
+    </body>
 </html>

@@ -8,8 +8,10 @@ let cart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json
 
 module.exports = {
     all: function(req, res) {
-        res.render('./products/productCreate.ejs')
-        //return res.render('./products/productsList.ejs', { product: product })
+        return res.render('./products/productsList.ejs')
+    },
+    cart: function(req, res) {
+        return res.render('./products/productsCart.ejs')
     },
     detail: function(req, res) {
         for (product of products) {
@@ -18,7 +20,10 @@ module.exports = {
             }         
         }
     },
-    cart: function(req, res) {
-        return res.render('./products/productsCart.ejs', { product: product })
+    create: function(req, res) {
+        return res.render('./products/productCreate.ejs')
+    },
+    edit: function(req, res) {
+        return res.render('./products/productEdit.ejs')
     }
 }
