@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/wireframes/css/productDetail.css">
     <title class="titulo1">Descripcion del Producto</title>
-</head>
+    
 <body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <header><h1 class="titulo2">DETALLE DEL PRODUCTO</h1>
     <img class="logo" height ="150px" width="150px" src="/Images/logo.png" alt=""><!--colocar la imagen del logo-->
     </header>
@@ -46,17 +47,17 @@
                     <a href=""><img height ="40 px" width="60 px" src="/Images/card.svg" alt=""></a></article>
                     
                     <a href=""><H4 class="titulo6">VER MEDIO DE PAGO</H4></a>
-                    <br>
-                    <forductCm action="/views/productCart" method="get">
-                        <p><label for="TAMANO">TAMAÑO</label></p>
+        
+                    <form class="form1" action="/views/productCart" method="get">
+                        <label for="TAMANO">TAMAÑO</label>
                         <select name="TAMANO" id="tamano" name= "tamano">
                             <option value="grande">Grande</option>
                             <option value="pequeno">Pequeño</option>
                         </select>
-                        <p><label for="cantidad">CANTIDAD</label></p>
+                        <label for="cantidad">CANTIDAD</label>
                         <input type="number" id="cantidad" name="cantidad">
-                        <br>
-                        <p ><button class="carritoenviar" type="submit"><img height ="30 px" width="30 px" src="/Images/carrito.svg" alt=""> AGREGAR AL CARRRITO</button></p>
+                        
+                        <button class="carritoenviar" type="submit"><img height ="30 px" width="30 px" src="/Images/carrito.svg" alt=""> AGREGAR AL CARRRITO</button>
                       
                     </form>
             </section>        

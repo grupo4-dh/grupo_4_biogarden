@@ -6,6 +6,13 @@
 
 @import url("https://coolors.co/22577a-38a3a5-57cc99-80ed99-c7f9cc");
 
+*{
+    padding: 0;
+    margin: 0;
+    font-family:'Roboto';
+    box-sizing: border-box;
+}
+
 header{
     padding:10px 10px 20px 15px;
     margin:0px;
@@ -77,6 +84,18 @@ font-weight: bold;
     padding-left:25px;
     width:50%;
     border: 2px solid grey;
+    padding:30px 10px 20px 15px;
+}
+.form1{
+    display:flex;
+    flex-direction:column;
+    flex-wrap:wrap;
+    align-items:flex-start;
+
+}
+.form1 > *{
+    margin-bottom: 15px;
+
 }
 
 .carritoenviar{

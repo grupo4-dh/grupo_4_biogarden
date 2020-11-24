@@ -5,6 +5,7 @@
     padding: 0;
     margin: 0;
     font-family:'Roboto';
+    
    
     
 }
@@ -12,16 +13,25 @@ main.principal{
     display:flex;
     width: 100%;
     flex-direction:row;
+    
 }
          .fondo{
-            width:60%;
-            height:300px;
+            width:70%;
+            height:800px;
             border: 1px solid black;
-}
+            display: flex;
+            flex-direction: column;
+            background-image:url("/images/fondo.jpg");
+            background-size:118%;
+         }
          .carrrito{
-           width:40%;
+           width:30%;
            height:300px;
            border:1px solid black;
+           display: flex;
+           flex-direction: column;
+           padding:15px;
+         
 }
 
 header{
@@ -32,11 +42,19 @@ header{
     
     
 }
+<<<<<<< HEAD
  .titulo{
     text-transform: uppercase;
     letter-spacing: 0.5px;
+=======
+header .titulo{
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+>>>>>>> abf7a48e6982ff36cd745ff5b681da171d32d7fb
     font-family:"Roboto";
+    font-size:18px;
     margin-top:12px;
+<<<<<<< HEAD
     flex-grow:2;
    
 }
@@ -45,5 +63,31 @@ header{
     height:30px;
     width:30%;
     flex-grow:1;
+=======
+    margin-right:120px;
+    
+    }
+
+header .boton1 {
+    height:20px;
+    width:20px;
+    align-self:flex-start;
+  
+>>>>>>> abf7a48e6982ff36cd745ff5b681da171d32d7fb
   }
 
+  section {
+ display:flex;
+flex-wrap:wrap;
+flex-direction:column;
+justify-content:space-between;
+border-bottom:1px solid #e3e3e3;
+border-top:1px solid #e3e3e3;
+
+  }
+  .producto.subtotal{
+    text-transform: uppercase;
+    color: #646464;
+    font-weight: lighter;
+    margin: 10px 10px;
+}
