@@ -28,7 +28,7 @@ a {
 }
 
 /* Dimensiones  para tablet y mobile */
-@media (max-width: 769px) {
+@media (max-width: 768px) {
     .container {
         max-width: 724px;
         margin: 0 auto;
@@ -42,6 +42,10 @@ a {
 header {
     padding: 10px 10px 0 10px;
     background-color: white;
+}
+
+header .header-mobile {
+    display: none;
 }
 
 header .brand {
@@ -131,6 +135,79 @@ header .nav-bar ul {
 header .nav-bar ul li {
     padding: 5px;
     display: inline;
+}
+
+@media (max-width: 768px) {
+    header .brand {
+        display: none;
+    }
+
+    header .nav-bar {
+        display: none;
+    }
+
+    header .header-mobile {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding-bottom: 15px;
+        border-bottom: solid 1px black;
+    }
+
+    header .header-mobile .menu {
+        width: 20%;
+    }
+
+    header .header-mobile .menu .nav-bar-mobile {
+        display: none;
+    } 
+
+    header .header-mobile .menu .account-mobile {
+        display: none;
+    } 
+
+    header .header-mobile .logo {
+        width: 20%;
+    }
+
+    header .header-mobile .search-and-cart {
+        width: 20%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        align-items: flex-start;
+    }
+
+    header .header-mobile .search-and-cart form {
+        width: 20px;
+        border: none;
+        background-color: white;
+        display: flex;
+        align-items: flex-start;
+        text-align: right;
+    }
+    
+    header .header-mobile .search-and-cart form input[type="text"] {
+        width: 0;
+        border: none;
+    }
+    
+    header .header-mobile .search-and-cart form button[type="submit"] {
+        width: 100%;
+        border: none;
+        background: none;
+        text-align: center;
+    }
+
+    header .header-mobile .search-and-cart button {
+        width: 20px;
+        border: none;
+        background: none;
+        text-align: right;
+    }
+
 }
 
 /* =================
