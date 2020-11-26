@@ -1,77 +1,85 @@
-header{
-    padding:10px 10px 20px 15px;
-    margin:0px;
-    font-family:'Roboto';
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    background-color:rgb(194, 241, 202);
-}
 
-header h1.titulo2{
-    font-family:'Times New Roman', Times, serif;
-    font-size: 30px;
-    text-align: center;
-}
 .suculentas{
 text-align: center;
 font-weight: bold;
+text-transform: uppercase;
 }
 
 
 .principal{
     display:flex;
     flex-wrap:nowrap;
-    flex-direction:row;
-    justify-content:space-around;
+    justify-content:center;
     padding:30px 10px 20px 15px;
-    border-color: 1px solid grey;
     margin:0px;
+   
 
 }
+
+
 
 .primera{
     display: flex;
     flex-wrap:nowrap;
     flex-direction:column;
-    align-items:space-around;
     padding:30px 10px 20px 15px;
-    width:50%;
     border: 2px solid grey;
+    width:70%;
     
 }
 
-.padreimagenes{
+
+.caja1{
     display:flex;
     flex-wrap:nowrap;
     flex-direction: row;
     justify-content:space-around;
    
 }
-.imagenespequeñas{
+
+.suculenta1{
+    width:300px;
+    height:300px;
+}
+.suculenta2{
+    width:200px;
+    height:200px;
+}
+.suculenta3{
+    width:200px;
+    height:200px;
+}
+.caja1-2{
     display:flex;
     flex-wrap:nowrap;
     flex-direction: column;
     
 }
+
+.caja1-3{
+    display:flex;
+    flex-wrap:nowrap;
+    flex-direction: column;
+
+}
 .suculenta2{
     padding-bottom:5px;
 }
-.segunda{
+
+
+section .segunda .caja2{
     display: flex;
     flex-wrap:nowrap;
     flex-direction:column;
     align-items:space-around;
     width:50%;
-    border: 2px solid grey;
-    padding:30px 10px 20px 15px;
     margin-bottom: 30px;
    
 }
 .form1{
     display:flex;
     flex-direction:column;
-    flex-wrap:wrap;
+    flex-wrap:nowrap;
     align-items:flex-start;
 
 }
@@ -94,4 +102,26 @@ button:hover{
 
 }
 
+@media (max-width:768px){
+    .caja1{
+        width: 80%;
+        display: flex;
+     flex-direction: column;
+     justify-content: center;
+    }
+}
 
+@media(max-width:768px){
+    .principal{
+        flex-direction:column;
+       
+    }
+    .primera{
+        width:90%;
+        align-items:center;
+    }
+    .suculenta1{
+        width:200px;
+        height:200px;
+    }
+}
