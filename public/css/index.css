@@ -46,14 +46,20 @@
 }
 
 .main .banner span.middle {
-    width: 40%;
+    width: 35%;
     border-left: solid 1px gray;
     border-right: solid 1px gray;
 }
 
 @media (max-width:768px){
     .main .banner span.left {
-        width: 80%;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .main .banner span.left i {
+        padding-bottom: 10px;
+        font-size: 30px;
     }
 
     .main .banner span.middle {
