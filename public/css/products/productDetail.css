@@ -1,8 +1,9 @@
-
+/*titulo*/
 .suculentas{
 text-align: center;
 font-weight: bold;
 text-transform: uppercase;
+font-size:20px;
 }
 
 
@@ -16,15 +17,13 @@ text-transform: uppercase;
 
 }
 
-
-
 .primera{
     display: flex;
     flex-wrap:nowrap;
     flex-direction:column;
     padding:30px 10px 20px 15px;
     border: 2px solid grey;
-    width:70%;
+    width:60%;
     
 }
 
@@ -34,16 +33,24 @@ text-transform: uppercase;
     flex-wrap:nowrap;
     flex-direction: row;
     justify-content:space-around;
-   
 }
 
+.caja1-1{
+    margin:10px;
+    display:flex;
+    align-items: center;
+}
+
+/*--imagenes--*/
 .suculenta1{
     width:300px;
     height:300px;
+    
 }
 .suculenta2{
     width:200px;
     height:200px;
+    padding-bottom:5px;
 }
 .suculenta3{
     width:200px;
@@ -60,21 +67,30 @@ text-transform: uppercase;
     display:flex;
     flex-wrap:nowrap;
     flex-direction: column;
+}
+.titulo3{
+    font-weight: bold;
+}
+.comentario{
+    margin-bottom: 15px;
+}
+
+
+.segunda{
+    padding:25px;
 
 }
-.suculenta2{
-    padding-bottom:5px;
-}
-
-
-section .segunda .caja2{
+.caja2{
     display: flex;
-    flex-wrap:nowrap;
-    flex-direction:column;
-    align-items:space-around;
+    flex-direction: column;
     width:50%;
     margin-bottom: 30px;
    
+}
+.caja2-2{
+    display: flex;
+    margin-bottom: 15px;
+
 }
 .form1{
     display:flex;
@@ -101,8 +117,21 @@ button:hover{
     background-color: grey;
 
 }
-
+/*laptop*/
 @media (max-width:768px){
+    .suculenta1{
+
+        width:200px;
+        height:200px;
+
+        
+    }
+}
+    
+
+
+
+@media (max-width:375px){
     .caja1{
         width: 80%;
         display: flex;
@@ -111,7 +140,7 @@ button:hover{
     }
 }
 
-@media(max-width:768px){
+@media(max-width:375px){
     .principal{
         flex-direction:column;
        
@@ -124,4 +153,19 @@ button:hover{
         width:200px;
         height:200px;
     }
+    .caja1-3{
+        align-items: center;
+
+    }
+    .caja2{
+        align-items: center;  
+    }
+
+    .caja2-2{
+        
+        margin-left:70px;
+
+    }
 }
+
+
