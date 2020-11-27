@@ -1,0 +1,43 @@
+
+.flexListado{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content:center;
+    flex-grow: inherit;
+    position: relative;
+    left: 400px;
+    font-family:'Times New Roman', Times, serif;
+    background-color: #f8f8f8;
+    font-style: 'Times New Roman';
+    width: 45%;
+
+}
+
+
+.imagen{
+    width: 20%;
+    height: auto;
+
+}
+.imagenListado{
+    display:flex;
+    width: 30%;
+    height: auto;
+}
+
+.productosListado{
+    position: relative;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 40px;
+    left: 200px;
+    bottom: 190px;
+}
+
+.descripcionProducto{
+
+    overflow:hidden;
+    text-overflow: ellipsis;
+    width: 60%;
+   
+}

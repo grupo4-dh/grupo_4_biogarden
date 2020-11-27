@@ -3,14 +3,69 @@
     <%- include('../partials/head.ejs', { title: 'Crear producto', stylesheet: 'products/productCreate.css'}); %>
     <body>
         <%- include('../partials/header.ejs') %>
-        <h1 class = "titulo">Bio Garden-Ceacion de productos</h1> 
-        <form class = "form">
-            <p class = "subtitulo" >Creacion de  Productos</p>
-            <input type="name" id="name" name="nombre" class = "Nombre" placeholder = "Nombre..."><br><br>
-            <input type="text" id="text" name="Clase" class = "clase" placeholder = "clase"><br><br>
+        <form class="flexProducto">
+            <img class="imagen" src="/images/suculenta2.jpg" alt="suculenta2">
             <input type="file" id ="imagen"  name="imagen" class = "imagen" placeholder = "imagen."><br><br>
-            <input type="text" id="descripcion" name="descripcion" class = "descripcion" placeholder = "descripcion"><br><br>
+            <input class="flexNombre" type="name" id="name" name="nombre" class = "Nombre" placeholder = "Nombre..."><br><br><br><br>
+            <textarea class="flexDescripcion" type="text" id="descripcion" name="descripcion" class = "descripcion" placeholder = "descripcion..."></textarea> 
+            <input type="number" class= "flexPrecio" placeholder = "Precio"></p><br><br><br><br>
+
+            <select name="Categoria" class="flexCategoria">
+
+                <option>Plantas</option>
+                
+                <option>Macetas</option>
+                
+                <option>Otra...</option>
+                
+                </select>
+            
         </form>
+        <div class="flexListado">
+            <h1 class = "titulo">Tus Productos</h1><br><br>
+            <div>
+
+                <img class="imagenListado" src="/images/suculenta2.jpg" alt="suculenta2">
+                
+                <div class="productosListado">
+                    <p> Suculenta </p>
+                    <p> $100 </p>
+                    <p> Plantas </p>
+                    <p class="descripcionProducto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem porro pariatur laudantium quia maiores! Qui eligendi esse in dolores at corrupti. Voluptates eius quibusdam beatae unde ratione inventore enim voluptatem? </p>
+                 
+                </div>
+
+            </div>
+            <div>
+
+                <img class="imagenListado" src="/images/suculenta2.jpg" alt="suculenta2">
+                
+                <div class="productosListado">
+                    <p> Suculenta </p>
+                    <p> $100 </p>
+                    <p> Plantas </p>
+                    <p class="descripcionProducto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem porro pariatur laudantium quia maiores! Qui eligendi esse in dolores at corrupti. Voluptates eius quibusdam beatae unde ratione inventore enim voluptatem? </p>
+                 
+                </div>
+
+            </div>
+            <div>
+
+                <img class="imagenListado" src="/images/suculenta2.jpg" alt="suculenta2">
+                
+                <div class="productosListado">
+                    <p> Suculenta </p>
+                    <p> $100 </p>
+                    <p> Plantas </p>
+                    <p class="descripcionProducto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem porro pariatur laudantium quia maiores! Qui eligendi esse in dolores at corrupti. Voluptates eius quibusdam beatae unde ratione inventore enim voluptatem? </p>
+                 
+                </div>
+
+            </div>
+            <button onclick="/products/create" class="sumarProducto">Agregar nuevo producto</button>
+        </div>
+        
         <%- include('../partials/footer.ejs') %>
     </body>
+   
 </html>

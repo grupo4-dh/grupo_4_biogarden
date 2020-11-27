@@ -1,28 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head.ejs', { title: 'Productos', stylesheet: 'products/productList.css'}); %>
-    <body>
+    <%- include('../partials/head.ejs', { title: 'Productos', stylesheet: 'products/productsList.css'}); %>
+    <body >
         <%- include('../partials/header.ejs') %>
-        <h1 class = "titulo">Listado de productos</h1>
-        <main>
-        <section class="titulo">
-            <h1>Productos</h1>
-        </section>
+        <div class="flexListado">
+            <h1 class = "titulo">Tus Productos</h1><br><br>
+            <div>
 
-        <section class="listado">
-            <% for(let i = 0; i < productosEnLaVista.length; i++) { %>
-                <article>
-                    <h2><%= productosEnLaVista[i].name %></h2>
-                    <p><%= productosEnLaVista[i].description %></p>
-                    <p><%= productosEnLaVista[i].imagen %></p>
-                    <button>Más info</button>
-                </article>
-            <% } %>
-        </section>
-        </main>
- 
-        <%- include('../partials/footer.ejs') %>
+                <img class="imagenListado" src="/images/suculenta2.jpg" alt="suculenta2">
+                
+                <div class="productosListado">
+                    <p> Suculenta </p>
+                    <p> $100 </p>
+                    <p> Plantas </p>
+                    <p class="descripcionProducto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem porro pariatur laudantium quia maiores! Qui eligendi esse in dolores at corrupti. Voluptates eius quibusdam beatae unde ratione inventore enim voluptatem? </p>
+                 
+                </div>
+
+            </div>
+            <div>
+
+                <img class="imagenListado" src="/images/suculenta2.jpg" alt="suculenta2">
+                
+                <div class="productosListado">
+                    <p> Suculenta </p>
+                    <p> $100 </p>
+                    <p> Plantas </p>
+                    <p class="descripcionProducto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem porro pariatur laudantium quia maiores! Qui eligendi esse in dolores at corrupti. Voluptates eius quibusdam beatae unde ratione inventore enim voluptatem? </p>
+                 
+                </div>
+
+            </div>
+            <div>
+
+                <img class="imagenListado" src="/images/suculenta2.jpg" alt="suculenta2">
+                
+                <div class="productosListado">
+                    <p> Suculenta </p>
+                    <p> $100 </p>
+                    <p> Plantas </p>
+                    <p class="descripcionProducto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem porro pariatur laudantium quia maiores! Qui eligendi esse in dolores at corrupti. Voluptates eius quibusdam beatae unde ratione inventore enim voluptatem? </p>
+                 
+                </div>
+
+            </div>
+        </div>
+
+        <%- include('../partials/footer.ejs') %>    
+
+        
     </body>
+        
 </html>
 
 
