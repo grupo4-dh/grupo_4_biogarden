@@ -1,0 +1,220 @@
+/* =================
+- GENERAL
+================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+@import url("https://use.fontawesome.com/releases/v5.15.1/css/all.css");
+@import url("https://coolors.co/22577a-38a3a5-57cc99-80ed99-c7f9cc");
+
+/* CSS básico para toda la página */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Roboto', sans-serif;
+    font-size:14px;
+    font-weight: 300;
+    color: #30312f
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Anchos máximos de los componentes website */
+.container {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+/* Dimensiones  para tablet y mobile */
+@media (max-width: 769px) {
+    .container {
+        max-width: 724px;
+        margin: 0 auto;
+    }
+}
+
+/* =================
+- HEADER
+================= */
+
+header {
+    padding: 10px 10px 0 10px;
+    background-color: white;
+}
+
+header .brand {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Search */
+
+header .brand form {
+    width: 25%;
+    padding: 10px;
+    border: solid 1px black;
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+}
+
+header .brand form input[type="text"] {
+    width: 90%;
+    border: none;
+}
+
+header .brand form button[type="submit"] {
+    width: 10%;
+    border: none;
+    background: none;
+    text-align: center;
+}
+
+/* Logo */
+
+header .brand img.logo{
+    width: 150px;
+    align-items: center;
+    /* padding: 0 400px; */
+}
+
+/* Carrito y cuenta */
+
+header .brand .cart-and-account{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+header .brand .cart-and-account > *{
+    padding: 5px;
+}
+
+header .brand .cart-and-account .account ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    
+}
+
+header .brand .cart-and-account .account ul li {
+    width: 50%;
+    display: inline;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Barra de navegación */
+
+header .nav-bar {
+    text-align: center;
+    text-transform: uppercase;
+    border-top: solid 1px black;
+    border-bottom: solid 1px black;
+    margin-top: 10px;
+}
+
+header .nav-bar ul {
+    width: 100%;
+    padding: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+}
+
+header .nav-bar ul li {
+    padding: 5px;
+    display: inline;
+}
+
+/* =================
+- FOOTER
+================= */
+
+footer .footer {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+
+footer .footer h4 {
+    font-weight: 500;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+footer .footer .contact{
+    width: 40%;
+}
+
+footer .footer .contact ul {
+    list-style: none;
+    line-height:25px;
+}
+
+footer .footer .social {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+footer .footer .social .socialmedia a i{
+    font-size: 25px;
+    padding-right: 10px;
+}
+
+footer .footer .social form {
+    width: 75%;
+    padding: 5px;
+    border: solid 1px black;
+    background-color: white;
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+}
+
+footer .footer .social form input[type="email"] {
+    width: 90%;
+    border: none;
+}
+
+footer .footer .social form button[type="submit"] {
+    width: 10%;
+    border: none;
+    background: none;
+    text-align: center;
+}
+
+footer p.copyright {
+    width: 30%;
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+}
+
+@media (max-width:768px){
+    footer .footer {
+        flex-direction: column-reverse;
+    }
+
+    footer .footer .contact{
+        width: 100%;
+    }
+
+    footer .footer .social {
+        width: 100%;
+    }
+
+    footer p.copyright {
+        width: 100%;
+    }    
+}

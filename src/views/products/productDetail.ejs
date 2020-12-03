@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs', { title: 'Descripcion del Producto', stylesheet: 'products/productDetail.css'}); %>
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <br>
+        <div class ="principal">
+        
+            <section class='primera'>
+                <h2 class="suculentas"><%= product.name %> </h2> 
+                <br>
+            <div class="padreimagenes">
+                <div class = "imagenes">
+                    <img class="suculenta1"height="300px"width="300px"src="/Images/suculenta.jpg"alt="suculenta">
+                </div>
+                <div class ="imagenespequeñas">
+                    <img class="suculenta2"height="200px"width="200px"src="/Images/suculentas2.jpg"alt="suculenta">
+                    <img  class="suculenta3"height="200px" width="200px" src="/Images/suculenta3.jpg" alt="suculenta2">
+                </div>
+            </div>   
+                <h3 class="titulo3">DESCRIPCION</h3>
+                <p> <%= product.description %> </p>
+                    <p><label for="Deja tu comentario">Dejános tu comentario</label></p>
+                    
+                    <form action="/productDetail" method="get">
+                        <textarea name="Comentario" id="" cols="30" rows="10"></textarea>
+                        <p><input type="submit" value="Enviar"></p>
+                    </form>
+            </section>
+                <section class="segunda">
+                    
+                    <h2 class ="titulo5">PRECIO:$200</h2>
+                    <h3 class="titulo6">18 cuotas de $23,21</h3>
+                    <article class="tarjetas"><a href=""><img  height ="40 px" width="60 px"src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" class="product-payment-logos-img card-img lazyloaded"></a>
+                        <a href=""><img  height ="40 px" width="60 px"src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png" class="product-payment-logos-img card-img lazyloaded"></a>
+                        <a href=""><img  height ="40 px" width="60 px"src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png" class="product-payment-logos-img card-img lazyloaded"></a>
+                        <a href=""><img height ="40 px" width="60 px" src="/Images/card.svg" alt=""></a></article>
+                        
+                        <a href=""><H4 class="titulo6">VER MEDIO DE PAGO</H4></a>
+            
+                        <form class="form1" action="/views/productCart" method="get">
+                            <label for="TAMANO">TAMAÑO</label>
+                            <select name="TAMANO" id="tamano" name= "tamano">
+                                <option value="grande">Grande</option>
+                                <option value="pequeno">Pequeño</option>
+                            </select>
+                            <label for="cantidad">CANTIDAD</label>
+                            <input type="number" id="cantidad" name="cantidad">
+                            
+                            <button class="carritoenviar" type="submit"><img height ="30 px" width="30 px" src="/Images/carrito.svg" alt=""> AGREGAR AL CARRRITO</button>
+                        
+                        </form>
+                </section>        
+                        
+                
+                    
+        </div>
+        <%- include('../partials/footer.ejs') %>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs', { title: 'Crear producto', stylesheet: 'products/productCreate.css'}); %>
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <h1 class = "titulo">Bio Garden-Ceacion de productos</h1> 
+        <form class = "form">
+            <p class = "subtitulo" >Creacion de  Productos</p>
+            <input type="name" id="name" name="nombre" class = "Nombre" placeholder = "Nombre..."><br><br>
+            <input type="text" id="text" name="Clase" class = "clase" placeholder = "clase"><br><br>
+            <input type="file" id ="imagen"  name="imagen" class = "imagen" placeholder = "imagen."><br><br>
+            <input type="text" id="descripcion" name="descripcion" class = "descripcion" placeholder = "descripcion"><br><br>
+        </form>
+        <%- include('../partials/footer.ejs') %>
+    </body>
+</html>

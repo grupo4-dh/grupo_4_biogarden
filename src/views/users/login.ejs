@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs', { title: 'Iniciar sesión', stylesheet: 'users/login.css'}); %>
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <h1 class = "titulo">Iniciar Sesion</h1>
+        <form class = "form">
+            <input type="email" id="Email" name="email" class = "emailInput" placeholder = "Email..."><br><br>
+            <input type="password" id="pwd" name="pwd"class = "emailInput" placeholder = "Contraseña..."><br><br>
+            <a href="">¿Olvidaste tu contraseña?</a>
+            <a>|</a>
+            <a href="/registro">Registrarse</a>
+            <br><br>
+            <input type="submit" value="Iniciar Sesion" class = "botonInicio">
+
+        </form>
+        <%- include('../partials/footer.ejs') %>
+    </body>
+</html>

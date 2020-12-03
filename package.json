@@ -2,13 +2,14 @@
   "name": "proyecto-garden",
   "version": "1.0.0",
   "description": "",
-  "main": "appit add .js",
+  "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "ejs": "^3.1.5",
     "express": "^4.17.1"
   }
 }

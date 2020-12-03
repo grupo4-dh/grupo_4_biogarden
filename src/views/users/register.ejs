@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs', { title: 'Crear cuenta', stylesheet: 'users/register.css'}); %>
+    <body>
+        <%- include('../partials/header.ejs') %>
+        <h1 class = "titulo">Bio Garden</h1> 
+        <form class = "form">
+            <p class = "subtitulo" >Crear cuenta </p>
+            <input type="name" id="name" name="nombre" class = "formularioNombre" placeholder = "Nombre...">
+            <input type="sureName" id="sName" name="sureName"class = "formularioNombre" placeholder = "Apellido..."><br><br>
+            <label for="birthday" class = "cumpleañosNombre"> Fecha de nacimiento:</label>
+            <input type="date" id="birthday" name="birthday" class = "cumpleaños"><br><br>
+            <input type="email" id="email" name="email"class = "estiloFormulario" placeholder = "Email..."><br><br>
+            <input type="telephone" id="telephone" name="telefono" class = "estiloFormulario" placeholder = "Telefono..."><br><br>
+            <input type="password" id="pwd" name="pwd"class = "estiloFormulario" placeholder = "Contraseña..."><br><br>
+            <input type="password" id="repwd" name="pwd"class = "estiloFormulario" placeholder = "Repetir Contraseña..."><br><br>
+            <input type="submit" value="Registrarse" class = "botonInicio">
+            
+        </form>
+        <%- include('../partials/footer.ejs') %>
+    </body>
+</html>
