@@ -8,9 +8,14 @@ header h1.titulo{
     font-size: 50px;
     text-align: center;
 }
-.form{
-    text-align: center;  
-    font-family:'Times New Roman', Times, serif;
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content:center;
+    flex-grow: inherit;
+    position: relative;
+    left: 500px;
 }
 .emailInput{
     width: 30%;
@@ -21,14 +26,24 @@ header h1.titulo{
     background-color: #f2f2f2;
     background-repeat: no-repeat;
 }
+.flex2{
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 30%;
+    justify-content:center;
+    position: relative;
+    left: 60px;
+
+
+}
 .botonInicio{
     font-family: 'Times New Roman', Times, serif;
     background-color: #000000; 
     border: none;
     color: white;
     padding: 15px 60px;
-    text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    width: 30%;
 }

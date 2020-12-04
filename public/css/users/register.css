@@ -8,15 +8,23 @@ header h1.titulo{
     font-size: 50px;
     text-align: center;
 }
-
-.form{
-    text-align: center;  
-    font-family:'Times New Roman', Times, serif;
+.container.error{
+    display: flex;
+    justify-content:center;
+    font-style: italic;
+}
+.flex{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content:center;
+    flex-grow: inherit;
+    position: relative;
+    left: 500px;
 }
 
 .estiloFormulario{
     width: 30%;
-    box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
@@ -25,7 +33,6 @@ header h1.titulo{
 }
 .formularioNombre{
     width: 15%;
-    box-sizing: border-box;
     border: 2px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
@@ -38,30 +45,25 @@ header h1.titulo{
     border: none;
     color: white;
     padding: 15px 60px;
-    text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    width: 30%;
 }
 .subtitulo{
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
-    text-align: center;
-    width: 77%;
 }
 .cumpleaños{
     font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
-    text-align: center;
-    width: 20%;
+    width: 30%;
     background-color: #f2f2f2;
     border: 2px solid #ccc;
-    box-sizing: border-box;
 
 }
 .cumpleañosNombre{
     font-family: 'Times New Roman', Times, serif;
     font-size: 16px;
-    text-align: center;
-    
 }
+
