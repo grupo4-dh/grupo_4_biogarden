@@ -5,7 +5,7 @@ const path = require('path');
 const express = require('express');
 const app = express();
 //session
-const session=require('express-session');
+const session = require('express-session');
 
 // Routers
 const mainRouter = require('./routes/main');
@@ -23,8 +23,6 @@ app.use(express.urlencoded({extended : false}))
 app.use(express.json())
 //seteamos session
 app.use(session({secret:'secret'}));
-
-
 
 // Seteamos los routers
 app.use("/", mainRouter);

@@ -5,7 +5,7 @@ const router = express.Router()
 const usersController = require('../controllers/usersController')
 const multer =require('multer');
 const path=require('path');
-const registerValidator=require('../validations/registerValidator.js');
+const registerValidator = require('../validations/registerValidator.js');
 
 //para uploads de imagenes
 var storage = multer.diskStorage({
@@ -21,7 +21,7 @@ var storage = multer.diskStorage({
 
 // Users register
 router.get('/register', usersController.register)
-router.post('/register',upload.single('avatar'),registerValidator,usersController.save)//guardamos el usuario y agregamos el middelware
+router.post('/register', upload.single('avatar'), registerValidator, usersController.save)//guardamos el usuario y agregamos el middelware
 
 
 // Users login
