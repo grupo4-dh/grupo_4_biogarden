@@ -86,14 +86,11 @@ font-size:20px;
 }
 .caja2{
     display: flex;
-<<<<<<< HEAD
     flex-wrap:nowrap;
     flex-direction:column;
     align-items:space-around;
     padding-left:25px;
-=======
     flex-direction: column;
->>>>>>> d21265494baf8392d273ef6e2bb18ac6b59eadac
     width:50%;
     margin-bottom: 30px;
    

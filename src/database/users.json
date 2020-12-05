@@ -38,5 +38,21 @@
         "email": "asdasdasd@gmail.com",
         "password": "$2b$12$Wlq.o7AIzq2czRTndDkrsu38EkiGTBlO.wqhabMb7OmvJF1FAJgny",
         "avatar": "asdasdasd@gmail.com-.jpg"
+    },
+    {
+        "id": 5,
+        "name": "melisa",
+        "last_name": "cabagnero",
+        "email": "meli@hotmail.com",
+        "password": "$2b$12$22V.GvRtND9PARowXWyZzOTQDgp2ylo/X5IOadt8e5gyT60AxEFR2",
+        "avatar": "meli@hotmail.com-.jpg"
+    },
+    {
+        "id": 6,
+        "name": "melisa",
+        "last_name": "cabagnero",
+        "email": "melicabagnero@hotmail.com",
+        "password": "$2b$12$WO0wngTJLOBTcmuLX7sqz.SRx6wvwZPKzCGlrv.Y9liY0fE/SiKnG",
+        "avatar": "melicabagnero@hotmail.com-.PNG"
     }
 ]
