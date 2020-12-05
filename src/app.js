@@ -7,9 +7,6 @@ const app = express();
 //session
 const session=require('express-session');
 
-
-
-
 // Routers
 const mainRouter = require('./routes/main');
 const usersRouter = require('./routes/users');
@@ -18,6 +15,8 @@ const productsRouter = require('./routes/products');
 // Configuramos el motor de vistas y la carpeta de vistas-
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+// Seteamos la carpeta public con contenido estático
+app.use(express.static(path.join(__dirname, '../public')));
 
 //debemos requerir e instalar multer
 app.use(express.urlencoded({extended : false}))
@@ -25,8 +24,7 @@ app.use(express.json())
 //seteamos session
 app.use(session({secret:'secret'}));
 
-// Seteamos la carpeta public con contenido estático
-app.use(express.static(path.join(__dirname, '../public')));
+
 
 // Seteamos los routers
 app.use("/", mainRouter);

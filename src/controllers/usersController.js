@@ -18,7 +18,7 @@ module.exports = {
     register: function(req, res) {
         return res.render('./users/register.ejs')
     },
-//guardamos la info 
+//guardamos la info en la bbdd
     save: function(req,res){
         //validamos los errores del usuario
         let errors= validationResult(req);
@@ -43,10 +43,9 @@ module.exports = {
     }else{
         //si hay errores sigo por aca
         return res.render('users/register',{
-            errors:errors.errors})
+            errors:errors.mapped()})
         }
-        
-            
+                 
     },
     login: function(req, res) {
         return res.render('./users/login.ejs');
