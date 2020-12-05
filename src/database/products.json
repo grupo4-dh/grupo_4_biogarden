@@ -3,41 +3,71 @@
         "id": "1",
         "name": "Suculenta",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio suscipit rem porro mollitia commodi a sunt labore, nam beatae sapiente.",
-        "imagen": "ruta/de/la/imagen",
-        "category": "Categoria",
+        "image": "/images/suculenta1.jpg",
+        "category": "plants",
         "price": 100.00,
         "attributes": [
             {
                 "name": "color",
                 "value": "verde"
+            },
+            {
+                "name": "tamaño",
+                "value": "grande"
             }
         ]
     },
     {
         "id": "2",
-        "name": "Margarita",
+        "name": "Suculenta 2",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio suscipit rem porro mollitia commodi a sunt labore, nam beatae sapiente.",
-        "imagen": "ruta/de/la/imagen",
-        "category": "Categoria",
+        "image": "/images/suculenta2.jpg",
+        "category": "plants",
         "price": 100.00,
         "attributes": [
             {
                 "name": "color",
-                "value": "blanca"
+                "value": "rojo"
+            },
+            {
+                "name": "tamaño",
+                "value": "grande"
             }
         ]
     },
     {
         "id": "3",
-        "name": "Violeta",
+        "name": "Suculenta 3",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio suscipit rem porro mollitia commodi a sunt labore, nam beatae sapiente.",
-        "imagen": "ruta/de/la/imagen",
-        "category": "Categoria",
+        "image": "/images/suculenta3.jpg",
+        "category": "plants",
         "price": 100.00,
         "attributes": [
             {
                 "name": "color",
-                "value": "violeta"
+                "value": "azul"
+            },
+            {
+                "name": "tamaño",
+                "value": "grande"
+            }
+        ]
+    },
+    {
+        "id": "4",
+        "name": "Suculenta 4",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio suscipit rem porro mollitia commodi a sunt labore, nam beatae sapiente.",
+        "image": "/images/suculenta4.jpg",
+        "category": "plants",
+        "price": 100.00,
+        "attributes": [
+            {
+                "name": "color",
+                "value": "amarillo"
+            },
+            {
+                "name": "tamaño",
+                "value": "grande"
             }
         ]
     }

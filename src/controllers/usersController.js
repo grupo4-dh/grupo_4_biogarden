@@ -27,8 +27,9 @@ module.exports = {
             //si no hay errores continuamos
             let nuevoUsuario={
             //guardo la BBDD del usuario
-            id:ultimoId +1,
-            name:req.body.name,
+            id: ultimoId + 1,
+            name: req.body.name,
+            last_name: req.body.last_name,
             email:req.body.email,
             password:bcrypt.hashSync(req.body.password,12),//contrasena hasheada
             avatar:req.file.filename,//si es un solo archivo file
@@ -38,7 +39,7 @@ module.exports = {
             //escribimos el usuario
             fs.writeFileSync(path.join(__dirname,'../database/users.json'), JSON.stringify(users,null,4));
             
-            res.redirect('./users/login.ejs')
+            res.redirect('./login')
         }else{
             //si hay errores sigo por aca
             return res.render('users/register',{
