@@ -3,8 +3,32 @@
     <%- include('../partials/head.ejs', { title: 'Editar producto', stylesheet: 'products/productEdit.css'}); %>
     <body>
         <%- include('../partials/header.ejs') %>
-        <h1 class = "titulo">Edición de producto</h1>
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Autem animi aspernatur ullam, nobis laboriosam tenetur consequuntur. Quam maxime quo quibusdam placeat voluptatibus nisi numquam sapiente neque doloremque, ratione ipsa dolorum quos facere aut ad minus veniam explicabo distinctio nostrum animi commodi corrupti dolorem. Sequi, ullam eligendi? Consequatur enim quam molestias adipisci culpa, impedit esse commodi veniam unde magnam doloremque voluptatem dolorem ipsum fugit deleniti delectus placeat aperiam velit quod officia. Expedita vero atque illo impedit, nobis tempore voluptatem odio quas officiis totam velit suscipit doloribus saepe amet cum aut qui quisquam, sed dolorum culpa rem. Voluptatum placeat aut non repudiandae!</p>
+       
+        <div class= "container-1">
+            <h2 class ="titulo ">EDITAR PRODUCTOS</h2>
+          
+            <div class= "caja-container-1">
+            <form action="" method="POST" enctype="multipart/form-data">
+                <p ><label  for="nombre">Nombre del Producto</label></p>
+                <input class= "titulo1" type="text" name="titulo" id="titulo"><br>
+                <p ><label  for="precio">Precio</label></p>
+                <input class= "precio" type="text" name="precio" id="precio" ><br>
+                <p ><label  for="categoria">Categoría</label></p>
+                <input class= "categoria" type="text" name="categoria" id="categoria" ><br>
+                <p ><label  for="Color">Color</label></p>
+                <input class= "color" type="text" name="color" id="color" ><br>
+                <p class = "descripcion1" ><label  for="Descripcion">Descripcion</label></p><textarea name="Comentario" id="" cols="20" rows="10"></textarea><br>
+                <input type="file" id ="imagen"  name="producto" class = "imagen" placeholder = "Cargar imagen"><br><br>
+                <button type="submit" class= "editarProducto">Editar Producto</button>
+               
+
+            </form>
+        
+
+             </div>
+
+
+        </div>
         <%- include('../partials/footer.ejs') %>
     </body>
 </html>
