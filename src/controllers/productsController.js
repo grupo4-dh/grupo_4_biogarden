@@ -3,8 +3,8 @@ const path = require('path')
 
 // Usamos archivos JSON como base de datos momentáneamente
 // Los leemos (fs.readFileSync) y parseamos (JSON.parse) en una sola linea
-let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'))
-let cart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'))
+let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'));
+let productsCart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'));
 
 let ultimoId = 0;
 for ( let i = 0; i < products.length; i++ ) {
@@ -16,7 +16,7 @@ for ( let i = 0; i < products.length; i++ ) {
 module.exports = {
     // Listado de productos
     all: function(req, res) {
-        return res.render('./products/productsList.ejs', { products: products})
+        return res.render('./products/productsList.ejs', { products: products } )
     },
     // Vista de creación de producto 
     create: function(req, res) {
@@ -65,6 +65,10 @@ module.exports = {
     },
     // Vista de carrito de compras
     cart: function(req, res) {
-        return res.render('./products/productsCart.ejs') // { products: cart }
+        let total = 0;
+        for (product of productsCart) {
+            total += product.price
+        }
+        return res.render('./products/productsCart.ejs', { products: productsCart, total: total } )
     }
 }
