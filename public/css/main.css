@@ -83,6 +83,7 @@ header .brand form button[type="submit"] {
 header .brand img.logo{
     width: 150px;
     align-items: center;
+    border-radius: 50px;
     /* padding: 0 400px; */
 }
 
@@ -167,8 +168,9 @@ header .nav-bar ul li {
         display: none;
     } 
 
-    header .header-mobile .logo {
+    header .header-mobile img.logo {
         width: 20%;
+        border-radius: 50px;
     }
 
     header .header-mobile .search-and-cart {
