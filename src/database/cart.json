@@ -1,1 +1,32 @@
-[]
+[
+    {
+        "id": 8,
+        "name": "Fringed Fescue",
+        "description": "Elit velit est amet aliqua Lorem enim ipsum non sit reprehenderit ipsum. Nostrud ea culpa fugiat dolore reprehenderit sunt do cupidatat. Mollit anim nostrud cupidatat consequat proident. Mollit culpa ea eu excepteur magna elit laboris.",
+        "image": "product_8.jpg",
+        "category": "Poaceae",
+        "price": 876,
+        "quantity": 2,
+        "colors": "Teal"
+    },
+    {
+        "id": 12,
+        "name": "Sharktail Cyanea",
+        "description": "Elit velit est amet aliqua Lorem enim ipsum non sit reprehenderit ipsum. Nostrud ea culpa fugiat dolore reprehenderit sunt do cupidatat. Mollit anim nostrud cupidatat consequat proident. Mollit culpa ea eu excepteur magna elit laboris.",
+        "image": "product_12.jpg",
+        "category": "Campanulaceae",
+        "price": 1580,
+        "quantity": 6,
+        "colors": "Indigo"
+    },
+    {
+        "id": 13,
+        "name": "Map Lichen",
+        "description": "Elit velit est amet aliqua Lorem enim ipsum non sit reprehenderit ipsum. Nostrud ea culpa fugiat dolore reprehenderit sunt do cupidatat. Mollit anim nostrud cupidatat consequat proident. Mollit culpa ea eu excepteur magna elit laboris.",
+        "image": "product_13.jpg",
+        "category": "Rhizocarpaceae",
+        "price": 2898,
+        "quantity": 13,
+        "colors": "Purple"
+    }
+]

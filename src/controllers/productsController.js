@@ -2,24 +2,21 @@ const fs = require('fs')
 const path = require('path')
 
 // Usamos archivos JSON como base de datos momentáneamente
- //Los leemos (fs.readFileSync) y parseamos (JSON.parse) en una sola linea
+// Los leemos (fs.readFileSync) y parseamos (JSON.parse) en una sola linea
 let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'))
 let cart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'))
 
-let ultimoId=0;
-for (let i=0; i<cart.length; i++){
-    if(ultimoId <cart[i].id){
-        ultimoId=cart[i].id
+let ultimoId = 0;
+for ( let i = 0; i < products.length; i++ ) {
+    if ( ultimoId < products[i].id ) {
+        ultimoId = products[i].id
     }
 }
 
 module.exports = {
     // Listado de productos
     all: function(req, res) {
-        let products = fs.readFileSync(path.join(__dirname, '../database/products.json'), 'utf8');
-        let arrayProducts = JSON.parse(products)
-        return res.render('./products/productsList.ejs', {productosEnLaVista: arrayProducts})
-
+        return res.render('./products/productsList.ejs', { products: products})
     },
     // Vista de creación de producto 
     create: function(req, res) {
@@ -27,23 +24,24 @@ module.exports = {
     },
     // Acción de creación de producto 
     save: function(req, res) {
-// guardar en la base de datos la info de los prodcutos
-        let nuevoProducto={
+        // Creamos el objeto literal y lo guardamos en el array de products
+        let nuevoProducto = {
             id: ultimoId + 1,
-            titulo:req.body.titulo,
-            precio:req.body.precio,
-            categoria:req.body.categoria,
-            color:req.body.color,
-            descripcion:req.body.color,
-            producto:req.file.filename,
-
+            name: req.body.titulo,
+            description: req.body.color,
+            image: req.file.filename,
+            category: req.body.categoria,
+            price: req.body.precio,
+            quantity: 10,
+            colors: req.body.color
         }
-        cart.push(nuevoProducto);
-            //escribimos el producto nuevo
-            fs.writeFileSync(path.join(__dirname,'../database/products.json'), JSON.stringify(cart,null,4));
-            
-            res.redirect('/')
-
+        products.push( nuevoProducto );
+        
+        //Escribimos el producto nuevo
+        fs.writeFileSync( path.join( __dirname, '../database/products.json' ), JSON.stringify( products, null, 4 ) );
+        
+        // Redirigimos a la siguiente página
+        res.redirect( '/' )
     },
     // Detalle de producto
     detail: function(req, res) {
@@ -65,7 +63,8 @@ module.exports = {
     delete: function(req, res) {
         // TBD
     },
+    // Vista de carrito de compras
     cart: function(req, res) {
-        return res.render('./products/productsCart.ejs')
+        return res.render('./products/productsCart.ejs') // { products: cart }
     }
 }
