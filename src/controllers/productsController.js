@@ -29,7 +29,7 @@ module.exports = {
             id: ultimoId + 1,
             name: req.body.titulo,
             description: req.body.color,
-            image: req.file.filename,
+            producto: req.file.filename,
             category: req.body.categoria,
             price: req.body.precio,
             quantity: 10,
@@ -58,7 +58,24 @@ module.exports = {
     },
     // Acción de edición de productos
     update: function(req, res) {
-        // TBD
+        let editarProducto = {
+            id: ultimoId + 1,
+            name: req.body.titulo,
+            description: req.body.color,
+            image: req.file.filename,
+            category: req.body.categoria,
+            price: req.body.precio,
+            quantity: 10,
+            colors: req.body.color
+        }
+        products.push(editarProducto);
+        
+        //Escribimos el producto nuevo
+        fs.writeFileSync( path.join( __dirname, '../database/products.json' ), JSON.stringify( products, null, 4 ) );
+        
+        // Redirigimos a la siguiente página home
+        res.redirect( '/' )
+        
     },
     // Acción de borrado de productos
     delete: function(req, res) {

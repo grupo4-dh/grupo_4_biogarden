@@ -148,5 +148,55 @@
         "price": 947,
         "quantity": 13,
         "colors": "Pink"
+    },
+    {
+        "id": 16,
+        "name": "calendula",
+        "description": "verde",
+        "image": "undefined-.PNG",
+        "category": "planta",
+        "price": "200",
+        "quantity": 10,
+        "colors": "verde"
+    },
+    {
+        "id": 17,
+        "name": "margarita",
+        "description": "verde",
+        "image": "undefined-.PNG",
+        "category": "planta",
+        "price": "300",
+        "quantity": 10,
+        "colors": "verde"
+    },
+    {
+        "id": 18,
+        "name": "rosa",
+        "description": "verde",
+        "image": "undefined-.jpg",
+        "category": "planta",
+        "price": "300",
+        "quantity": 10,
+        "colors": "verde"
+    },
+    {
+        "id": 19,
+        "name": "arbol",
+        "description": "verde",
+        "producto": "undefined-.jpg",
+        "category": "arbol",
+        "price": "300",
+        "quantity": 10,
+        "colors": "verde"
+    },
+    {
+        "id": 20,
+        "name": "hola",
+        "description": "asdfasdf",
+        "producto": "undefined-.pdf",
+        "category": "casdf",
+        "price": "25525",
+        "quantity": 10,
+        "colors": "asdfasdf"
     }
 ]

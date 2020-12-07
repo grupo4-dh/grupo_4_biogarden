@@ -1,10 +1,13 @@
 // ENRUTADOR PRODUCTS
 
+// Módulos y controlador
 const express = require('express')
-const router = express.Router()
 const multer = require('multer');
 const path = require('path');
 const productsController = require('../controllers/productsController')
+
+// Creamos el router
+const router = express.Router()
 
 // Configuramos multer en la variable upload para subida de archivos
 var storage = multer.diskStorage({
@@ -12,37 +15,28 @@ var storage = multer.diskStorage({
       cb(null, path.join(__dirname,'../../public/uploads/productos'))
     },
     filename: function (req, file, cb) {
-      cb(null, req.body.email + '-' + path.extname(file.originalname))//recordar lo de la extension
+      cb(null, req.body.name + '-' + path.extname(file.originalname))//recordar lo de la extension
     }
   })
-   
 var upload = multer({ storage: storage })
 
 //  --- RUTAS --- 
 //  Listado de productos
-//  GET '/' | Vista
-router.get('/', productsController.all)
+router.get('/', productsController.all)                     // Vista del Listado de productos
 
 //  Creación de productos
-//  GET '/create' -> Formulario de creación de productos
-//  POST '/create' -> Acción de creación de producto
-router.get('/create', productsController.create)
-router.post('/create',upload.single('producto'), productsController.save)
+router.get('/create', productsController.create)            // Formulario de creación de productos
+router.post('/create',upload.single('producto'), productsController.save)   // Acción de creación de producto
 
 //  Carrito de compras
-//  GET '/cart' -> Vista
-router.get('/cart', productsController.cart)
+router.get('/cart', productsController.cart)                // Vista del Carrito de compras
 
 //  Detalle de producto
-//  GET '/:product_id' -> Detalle de producto
-router.get('/:product_id', productsController.detail)
+router.get('/:product_id', productsController.detail)       // Vista del Detalle de producto
 
 //  Edición y borrado de producto
-//  GET '/:product_id/edit' -> Formulario de edición de productos
-//  PUT '/:product_id' -> Acción de edición de producto
-//  DELETE '/:product_id' -> Acción de borrado de producto
-router.get('/:product_id/edit', productsController.edit)
-router.put('/:product_id', productsController.update)
-router.delete('/:product_id', productsController.delete)
+router.get('/:product_id/edit', productsController.edit)    // Vista del Formulario de edición de productos
+router.put('/:product_id', productsController.update)       // Acción de edición de producto
+router.delete('/:product_id', productsController.delete)    // Acción de borrado de producto
 
 module.exports = router; 
