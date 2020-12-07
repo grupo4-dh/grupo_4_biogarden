@@ -12,7 +12,7 @@ var storage = multer.diskStorage({
       cb(null, path.join(__dirname,'../../public/uploads/productos'))
     },
     filename: function (req, file, cb) {
-      cb(null, req.body.email + '-' + path.extname(file.originalname))//recordar lo de la extension
+      cb(null, req.body.name + '-' + path.extname(file.originalname))//recordar lo de la extension
     }
   })
    
@@ -39,9 +39,9 @@ router.get('/:product_id/edit', productsController.edit)
 router.post('/create',upload.single('producto'), productsController.save)
 
 // Acción de edición de productos
-router.put('/:product_id', productsController.update)
+router.put('/:product_id/edit', upload.single('producto'),productsController.update)
 
 // Acción de edición de productos
-router.delete('/:product_id', productsController.delete)
+router.delete('/:product_id/edit', productsController.delete)
 
 module.exports = router; 
