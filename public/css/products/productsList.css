@@ -57,12 +57,17 @@
     align-items: center;
 }
 
+.list .product-container .actions a {
+    width: 50%;
+    margin-top: 10px;
+}
+
 .list .product-container .actions form {
     width: 50%;
     margin-top: 10px;
 }
 
-.list .product-container .actions form button {
+.list .product-container .actions button {
     width: 100%;
     padding: 3px 20px;
 }
