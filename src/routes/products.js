@@ -6,7 +6,7 @@ const multer = require('multer');
 const path = require('path');
 const productsController = require('../controllers/productsController')
 
-// Para uploads de imagenes
+// Configuramos multer en la variable upload para subida de archivos
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
       cb(null, path.join(__dirname,'../../public/uploads/productos'))
@@ -18,30 +18,31 @@ var storage = multer.diskStorage({
    
 var upload = multer({ storage: storage })
 
-// --- VISTAS ---
-// Vista de Listado de producto del usuario
+//  --- RUTAS --- 
+//  Listado de productos
+//  GET '/' | Vista
 router.get('/', productsController.all)
 
-// Vista de Formulario de Creación de productos
+//  Creación de productos
+//  GET '/create' -> Formulario de creación de productos
+//  POST '/create' -> Acción de creación de producto
 router.get('/create', productsController.create)
-
-// Vista de Carrito de compras
-router.get('/cart', productsController.cart)
-
-// Vista de Detalle de producto
-router.get('/:product_id', productsController.detail)
-
-// Vista de edición de producto
-router.get('/:product_id/edit', productsController.edit)
-
-// --- ACCIONES ---
-// Acción de creación de productos
 router.post('/create',upload.single('producto'), productsController.save)
 
-// Acción de edición de productos
-router.put('/:product_id', productsController.update)
+//  Carrito de compras
+//  GET '/cart' -> Vista
+router.get('/cart', productsController.cart)
 
-// Acción de edición de productos
+//  Detalle de producto
+//  GET '/:product_id' -> Detalle de producto
+router.get('/:product_id', productsController.detail)
+
+//  Edición y borrado de producto
+//  GET '/:product_id/edit' -> Formulario de edición de productos
+//  PUT '/:product_id' -> Acción de edición de producto
+//  DELETE '/:product_id' -> Acción de borrado de producto
+router.get('/:product_id/edit', productsController.edit)
+router.put('/:product_id', productsController.update)
 router.delete('/:product_id', productsController.delete)
 
 module.exports = router; 
