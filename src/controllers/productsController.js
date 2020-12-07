@@ -6,23 +6,18 @@ const path = require('path')
 let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'));
 let productsCart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'));
 
-let ultimoId = 0;
-for ( let i = 0; i < products.length; i++ ) {
-    if ( ultimoId < products[i].id ) {
-        ultimoId = products[i].id
-    }
-}
+let ultimoId = products.length;
 
-module.exports = {
-    // Listado de productos
+module.exports = { 
+    // Devuelve la vista del Listado de productos
     all: function(req, res) {
-        return res.render('./products/productsList.ejs', { products: products } )
+        return res.render('./products/productsList', { products: products })
     },
-    // Vista de creación de producto 
+    // Devuelve la vista del Formulario de creación de producto 
     create: function(req, res) {
-        return res.render('./products/productCreate.ejs')
+        return res.render('./products/productCreate')
     },
-    // Acción de creación de producto 
+    // Guarda el producto que viaja en el body en la BBDD 
     save: function(req, res) {
         // Creamos el objeto literal y lo guardamos en el array de products
         let nuevoProducto = {
@@ -35,27 +30,36 @@ module.exports = {
             quantity: 10,
             colors: req.body.color
         }
-        products.push( nuevoProducto );
+        products.push(nuevoProducto);
         
         //Escribimos el producto nuevo
-        fs.writeFileSync( path.join( __dirname, '../database/products.json' ), JSON.stringify( products, null, 4 ) );
+        fs.writeFileSync(path.join( __dirname, '../database/products.json'), JSON.stringify(products, null, 4));
         
         // Redirigimos a la siguiente página
-        res.redirect( '/' )
+        res.redirect('/')
     },
-    // Detalle de producto
+    // Devuelve la vista del Carrito de compras
+    cart: function(req, res) {
+        let total = 0;
+        for (product of productsCart) {
+            total += product.price
+        }
+        return res.render('./products/productsCart', { products: productsCart, total: total } )
+    },
+    // Devuelve la vista de Detalle de producto
     detail: function(req, res) {
         for (product of products) {
             if (product.id == req.params.product_id) {
-                return res.render('./products/productDetail.ejs', { product: product })
+                return res.render('./products/productDetail', { product: product })
             }         
         }
+        return res.send('PRODUCT NOT FOUND') // REDIGIR A LISTADO DE PRODUCTOS CON PARTIAL NOT FOUND
     },
-    // Vista de edición de producto 
+    // Devuelve la vista de Edición de producto 
     edit: function(req, res) {
-        return res.render('./products/productEdit.ejs')
+        return res.render('./products/productEdit')
     },
-    // Acción de edición de productos
+    // Actualiza un producto en la BBDD
     update: function(req, res) {
         let editarProducto = {
             id: ultimoId + 1,
@@ -70,22 +74,15 @@ module.exports = {
         products.push(editarProducto);
         
         //Escribimos el producto nuevo
-        fs.writeFileSync( path.join( __dirname, '../database/products.json' ), JSON.stringify( products, null, 4 ) );
+        fs.writeFileSync(path.join(__dirname, '../database/products.json'), JSON.stringify(products, null, 4));
         
         // Redirigimos a la siguiente página home
-        res.redirect( '/' )
-        
+        res.redirect('/')
     },
-    // Acción de borrado de productos
+    // Borra un producto de la BBDD
     delete: function(req, res) {
-        // TBD
-    },
-    // Vista de carrito de compras
-    cart: function(req, res) {
-        let total = 0;
-        for (product of productsCart) {
-            total += product.price
-        }
-        return res.render('./products/productsCart.ejs', { products: productsCart, total: total } )
+        products = products.filter( prod => prod.id != req.params.product_id )
+        fs.writeFileSync(path.join(__dirname,'../database/products.json'),JSON.stringify(products, null, 4));
+        res.redirect('/products')
     }
 }

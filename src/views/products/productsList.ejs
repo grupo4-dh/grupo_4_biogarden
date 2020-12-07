@@ -3,23 +3,29 @@
     <%- include('../partials/head.ejs', { title: 'Productos', stylesheet: 'products/productsList.css'}); %>
     <body >
         <%- include('../partials/header.ejs') %>
-        <div class="flexListado">
-            <h1 class = "titulo">Tus Productos</h1><br><br>
+        <div class="container list">
+            <h1 class = "titulo">Tus Productos</h1>
             <% for ( product of products) { %>  
-            <div>
+            <div class="product-container">
                 <img class="imagenListado" src="/images/products/<%= product.image %> "alt="<%= product.name %>"></a>                
                 <div class="productosListado">
                     <p> <%= product.name %> </p>
-                    <p> $<%= product.price %> </p>
+                    <p> $ <%= product.price %> </p>
                     <p> <%= product.category %> </p>
                     <p class="descripcionProducto"><%= product.description %></p>                 
+                </div>
+                <div class="actions">
+                    <a class="edit" href="/products/<%= product.id %>/edit">
+                        <button><i class="fas fa-edit"></i> Editar</button>
+                    </a>
+                    <form class="delete" action="products/<%= product.id %>?_method=DELETE" method="POST">
+                        <button type="submit"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                    </form>
                 </div>
             </div>
             <% } %>
         </div>       
-        <%- include('../partials/footer.ejs') %>    
-
-        
+        <%- include('../partials/footer.ejs') %>
     </body>
         
 </html>

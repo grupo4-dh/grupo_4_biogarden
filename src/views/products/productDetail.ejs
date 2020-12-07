@@ -4,72 +4,42 @@
     <body>
         <%- include('../partials/header.ejs') %>
         <br>
-        <div class ="principal">
-
-            <section class='primera'>
-                <h2 class="suculentas"><%= product.name %></h2>
-                <br>
-            <div class="caja1">
-                <div class = "caja1-1">
-                    <img class="suculenta1" src="/images/products/<%= product.image %> "alt="<%= product.name %>">
+        <div class ="container product">
+            <div class="product-left-col">
+                <img class="image" src="/images/products/<%= product.image %> "alt="<%= product.name %>">
+                <h3>Descripción:</h3>
+                <p class="desc-content"><%= product.description %></p>
+                <h3>Dejános tu comentario:</h3>
+                <form class="comments" action="/productDetail" method="POST">
+                    <textarea id="comment" name="comment" rows="1" placeholder="Escribí tu comentario..."></textarea>
+                    <input type="submit" value="Enviar">
+                </form>
             </div>
-
-            <div class ="caja1-2">
-                    <img class="suculenta2"src="/images/suculentas2.jpg"alt="suculenta">
-                    <img class="suculenta3"src="/images/suculenta3.jpg" alt="suculenta2">
-            </div>
-            </div>
-            <div class= "caja1-3">
-                <h3 class="titulo3">DESCRIPCION</h3>
-                <p><%= product.description %></p>
-                <br>
-                    <p class="comentario"><label  for="Deja tu comentario">Dejános tu comentario</label></p>
-                    
-    
-                    <form action="/productDetail" method="post">
-                        <textarea name="Comentario" id="" cols="20" rows="10"></textarea>
-                        <p><input type="submit" value="Enviar"></p>
-                    </form>
-            </div>        
-            </section>
-                <section class="segunda">
-                <div class= "caja2">
-    
-                    <div class="caja2-1">
-                    <h2 class ="titulo5">PRECIO:$<%= product.price %> </h2>
-                    <h2 class="titulo6">18 cuotas de $<%= (product.price / 18).toFixed(2) %></h2>
+            <div class="product-right-col">
+                <h2 class="name"><%= product.name %></h2>
+                <h2 class ="price">$<%= product.price %> </h2>
+                <div class="promo">
+                    <p class="cuotas">18 cuotas de $<%= (product.price / 18).toFixed(2) %></p>
+                    <div class="cards">
+                        <a href=""><img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" class="product-payment-logos-img card-img lazyloaded"></a>
+                        <a href=""><img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png" class="product-payment-logos-img card-img lazyloaded"></a>
+                        <a href=""><img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png" class="product-payment-logos-img card-img lazyloaded"></a>
+                        <a href=""><img src="/images/card.svg" alt=""></a>
                     </div>
-                    
-                    
-                    <div class="caja2-2"><a href=""><img  height ="40 px" width="60 px"src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" class="product-payment-logos-img card-img lazyloaded"></a>
-                        <a href=""><img  height ="40 px" width="60 px"src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png" class="product-payment-logos-img card-img lazyloaded"></a>
-                        <a href=""><img  height ="40 px" width="60 px"src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png" class="product-payment-logos-img card-img lazyloaded"></a>
-                        <a href=""><img height ="40 px" width="60 px" src="/images/card.svg" alt=""></a>
-                        <br>
-        
-                    </div> 
-                    <a href="#"><h4 class="titulo6">VER MEDIO DE PAGO</h4></a>
-                    <br>   
+                    <p><a href="#"><h4 class="titulo6">Ver medios de pago</h4></a></p>
                 </div>
-                        <form class="form1" action="/views/productCart" method="get">
-                            <label for="TAMANO">TAMAÑO</label>
-                            <select name="TAMANO" id="tamano" name= "tamano">
-                                <option value="grande">Grande</option>
-                                <option value="pequeno">Pequeño</option>
-                                <option value="pequeno">Mediano</option>
-                            </select>
-                            <label for="cantidad">CANTIDAD</label>
-                            <input type="number" id="cantidad" name="cantidad">
-                            
-                            <button class="carritoenviar" type="submit"><img height ="30 px" width="30 px" src="/images/carrito.svg" alt=""> AGREGAR AL CARRRITO</button>
-                            <p>Ya agrregaste este producto?</p><button class="vercarrito" type="submit">Ver carrito</button>
- 
-                        
-                        </form>
-                </section>        
-                        
-                
-                    
+                <form class="add-to-cart" action="/products/carr/add" method="POST">
+                    <label for="Tamaño">Tamaño</label>
+                    <select id="tamano" name="tamano" >
+                        <option value="S">Pequeño</option>
+                        <option value="M">Mediano</option>
+                        <option value="L">Grande</option>
+                    </select>
+                    <label for="cantidad">Cantidad</label>
+                    <input type="number" id="cantidad" name="cantidad" value=1 min="0">
+                    <button class="button-add" type="submit"><i class="fas fa-shopping-cart"></i> Agregar al carrito</button>
+                </form>
+            </div>
         </div>
         <%- include('../partials/footer.ejs') %>
     </body>
