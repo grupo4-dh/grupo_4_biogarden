@@ -1,43 +1,68 @@
+/* =================
+- PRODUCTS LIST
+================= */
 
-.flexListado{
+.list {
+    padding: 15px 0px;
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    justify-content:center;
-    flex-grow: inherit;
-    position: relative;
-    left: 400px;
-    font-family:'Times New Roman', Times, serif;
+    flex-wrap: wrap;
+    justify-content:flex-start;
     background-color: #f8f8f8;
-    font-style: 'Times New Roman';
-    width: 45%;
-
 }
 
-
-.imagen{
-    width: 20%;
-    height: auto;
-
+.list .titulo {
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    font-size: 30px;
+    font-weight: 400;
 }
-.imagenListado{
-    display:flex;
+
+.list .product-container {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.list .product-container img.imagenListado {
+    padding: 10px;
+    border-radius: 20px;
     width: 30%;
+    display:flex;
     height: auto;
 }
 
-.productosListado{
-    position: relative;
-    font-family:'Times New Roman', Times, serif;
-    font-size: 40px;
-    left: 200px;
-    bottom: 190px;
+.list .product-container .productosListado {
+    width: 45%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
 }
 
-.descripcionProducto{
+.list .product-container .productosListado p {
+    padding: 5px;
+}
 
-    overflow:hidden;
-    text-overflow: ellipsis;
-    width: 60%;
-   
+.list .product-container .productosListado p:nth-child(1) {
+    font-weight: 400;
+}
+
+.list .product-container .productosListado p.descripcionProducto {}
+
+.list .product-container .actions {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.list .product-container .actions form {
+    width: 50%;
+    margin-top: 10px;
+}
+
+.list .product-container .actions form button {
+    width: 100%;
+    padding: 3px 20px;
 }

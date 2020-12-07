@@ -4,7 +4,6 @@ const path = require('path');
 // Express
 const express = require('express');
 const app = express();
-var methodOverride = require('method-override')
 
 // Session
 const session = require('express-session');
@@ -14,18 +13,21 @@ const mainRouter = require('./routes/main');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 
-
 // Configuramos el motor de vistas y la carpeta de vistas
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
+// Usamos methodOverride para poder implementar los métodos PUT y DELETE
+const methodOverride = require('method-override')
+app.use(methodOverride('_method'))
+
 // Seteamos la carpeta public con contenido estático
 app.use(express.static(path.join(__dirname, '../public')));
 
-// Debemos requerir e instalar multer
+// Configuramos el entorno para poder capturar los datos que viajan via formulario y los transformamos
+// en un objeto literal
 app.use(express.urlencoded({extended : false}))
 app.use(express.json())
-app.use(methodOverride('_method'))
 
 // Seteamos session
 app.use(session({secret:'secret'}));
