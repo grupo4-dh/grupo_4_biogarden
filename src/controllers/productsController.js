@@ -50,7 +50,7 @@ module.exports = {
                 return res.render('./products/productDetail.ejs', { product: product })
             }         
         }
-        return res.send('PRODUCT NOT FOUND')
+        return res.send('PRODUCT NOT FOUND') // REDIGIR A LISTADO DE PRODUCTOS CON PARTIAL NOT FOUND
     },
     // Vista de edición de producto 
     edit: function(req, res) {
