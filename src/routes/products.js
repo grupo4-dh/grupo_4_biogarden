@@ -26,7 +26,7 @@ router.get('/', productsController.all)                     // Vista del Listado
 
 //  Creación de productos
 router.get('/create', productsController.create)            // Formulario de creación de productos
-router.post('/create',upload.single('producto'), productsController.save)   // Acción de creación de producto
+router.post('/create', upload.single('producto'), productsController.save)   // Acción de creación de producto
 
 //  Carrito de compras
 router.get('/cart', productsController.cart)                // Vista del Carrito de compras
@@ -36,7 +36,7 @@ router.get('/:product_id', productsController.detail)       // Vista del Detalle
 
 //  Edición y borrado de producto
 router.get('/:product_id/edit', productsController.edit)    // Vista del Formulario de edición de productos
-router.put('/:product_id', productsController.update)       // Acción de edición de producto
+router.put('/:product_id', upload.single('producto'), productsController.update)       // Acción de edición de producto
 router.delete('/:product_id', productsController.delete)    // Acción de borrado de producto
 
 module.exports = router; 
