@@ -72,10 +72,9 @@ module.exports = {
                 product.description = req.body.descripcion,
                 product.image = req.file.filename,
                 product.category = req.body.categoria,
-                product.price = req.body.precio,
-                product.colors = req.body.color   
+                product.price = parseInt(req.body.precio),
+                product.colors = req.body.color 
             }
-            console.log(product);   
         }
 
         //Escribimos el producto nuevo
