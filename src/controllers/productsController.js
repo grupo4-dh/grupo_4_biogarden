@@ -24,7 +24,7 @@ module.exports = {
             id: ultimoId + 1,
             name: req.body.titulo,
             description: req.body.color,
-            producto: req.file.filename,
+            imagen: req.file.filename,
             category: req.body.categoria,
             price: req.body.precio,
             quantity: 10,
@@ -36,7 +36,7 @@ module.exports = {
         fs.writeFileSync(path.join( __dirname, '../database/products.json'), JSON.stringify(products, null, 4));
         
         // Redirigimos a la siguiente página
-        res.redirect('/')
+        res.redirect('/products')
     },
     // Devuelve la vista del Carrito de compras
     cart: function(req, res) {
