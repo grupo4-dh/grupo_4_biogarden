@@ -24,7 +24,7 @@
                 <section>
                     <% for ( product of products) { %> 
                         <article>
-                            <a href="/products/<%= product.id %> "><img src="/images/products/<%= product.image %> "alt="<%= product.name %>"></a>
+                            <a href="/products/<%= product.id %>"><img src="/images/products/<%= product.image %> "alt="<%= product.name %>"></a>
                             <div class="item-info">
                                 <p class="name"><%= product.name %></p>
                                 <p class="price">$<%= product.price %></p>
@@ -33,7 +33,7 @@
                     <% } %>
                 </section>
                 <div class="all-products">
-                    <a href="#">Ver todos los productos</a>
+                    <a href="/products">Ver todos los productos</a>
                 </div>
             </div>
         </div>

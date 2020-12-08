@@ -57,27 +57,32 @@ module.exports = {
     },
     // Devuelve la vista de Edición de producto 
     edit: function(req, res) {
-        return res.render('./products/productEdit')
+        for (product of products) {
+            if (product.id == req.params.product_id) {
+                return res.render('./products/productEdit', { product: product })
+            }         
+        }
+        return res.send('PRODUCT NOT FOUND') // REDIGIR A LISTADO DE PRODUCTOS CON PARTIAL NOT FOUND
     },
     // Actualiza un producto en la BBDD
     update: function(req, res) {
-        let editarProducto = {
-            id: ultimoId + 1,
-            name: req.body.titulo,
-            description: req.body.color,
-            image: req.file.filename,
-            category: req.body.categoria,
-            price: req.body.precio,
-            quantity: 10,
-            colors: req.body.color
+        for (product of products) {
+            if (product.id == req.params.product_id) {
+                product.name = req.body.titulo,
+                product.description = req.body.descripcion,
+                product.image = req.file.filename,
+                product.category = req.body.categoria,
+                product.price = req.body.precio,
+                product.colors = req.body.color   
+            }
+            console.log(product);   
         }
-        products.push(editarProducto);
-        
+
         //Escribimos el producto nuevo
-        fs.writeFileSync(path.join(__dirname, '../database/products.json'), JSON.stringify(products, null, 4));
-        
+        fs.writeFileSync(path.join(__dirname,'../database/products.json'),JSON.stringify(products, null, 4));
+
         // Redirigimos a la siguiente página home
-        res.redirect('/')
+        res.redirect('/products')
     },
     // Borra un producto de la BBDD
     delete: function(req, res) {

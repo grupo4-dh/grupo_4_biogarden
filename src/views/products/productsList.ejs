@@ -9,9 +9,9 @@
             <div class="product-container">
                 <img class="imagenListado" src="/images/products/<%= product.image %> "alt="<%= product.name %>"></a>                
                 <div class="productosListado">
-                    <p> <%= product.name %> </p>
-                    <p> $ <%= product.price %> </p>
-                    <p> <%= product.category %> </p>
+                    <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
+                    <p>$ <%= product.price %></p>
+                    <p><%= product.category %></p>
                     <p class="descripcionProducto"><%= product.description %></p>                 
                 </div>
                 <div class="actions">
