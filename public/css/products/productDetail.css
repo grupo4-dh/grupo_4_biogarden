@@ -1,130 +1,117 @@
-/*titulo*/
-.suculentas{
-text-align: center;
-font-weight: bold;
-text-transform: uppercase;
-font-size:20px;
-}
+/* =================
+- PRODUCT DETAIL
+================= */
 
-
-.principal{
+.product{
+    width: 90%;
     display:flex;
-    flex-wrap:nowrap;
-    justify-content:center;
-    padding:30px 10px 20px 15px;
-    margin:0px;
-   
-
-}
-
-.primera{
-    display: flex;
-    flex-wrap:nowrap;
-    flex-direction:column;
-    padding:30px 10px 20px 15px;
-    border: 2px solid grey;
-    width:60%;
-    
-}
-
-
-.caja1{
-    display:flex;
-    flex-wrap:nowrap;
     flex-direction: row;
-    justify-content:space-around;
+    flex-wrap:wrap;
+    justify-content:center;
 }
 
-.caja1-1{
-    margin:10px;
-    display:flex;
-    align-items: center;
-}
-
-/*--imagenes--*/
-.suculenta1{
-    width:300px;
-    height:300px;
-    
-    
-}
-.imagenes{
-    flex-grow:0.7;
-}
-.suculenta2{
-    width:200px;
-    height:200px;
-    padding-bottom:5px;
-}
-.suculenta3{
-    width:200px;
-    height:200px;
-}
-.caja1-2{
-    display:flex;
-    flex-wrap:nowrap;
-    flex-direction: column;
-    
-}
-
-.caja1-3{
-    display:flex;
-    flex-wrap:nowrap;
-    flex-direction: column;
-}
-.titulo3{
-    font-weight: bold;
-}
-.comentario{
-    margin-bottom: 15px;
-}
-
-
-.segunda{
-    padding:25px;
-
-}
-.caja2{
+.product .product-left-col {
+    padding: 10px;
+    width: 60%;
     display: flex;
-    flex-wrap:nowrap;
-    flex-direction:column;
-    align-items:space-around;
-    padding-left:25px;
     flex-direction: column;
-    width:50%;
-    margin-bottom: 30px;
-   
 }
-.caja2-2{
+
+.product .product-left-col img.image {
+    width: 100%;
+    margin-bottom: 20px;
+    border-radius: 15px;
+}
+.product .product-left-col h3 {
+    font-weight: 500;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+
+.product .product-left-col .desc-content {
+    margin-bottom: 20px;
+}
+
+.product .product-left-col form.comments {
     display: flex;
-    margin-bottom: 15px;
-
-}
-.form1{
-    display:flex;
-    flex-direction:column;
-    flex-wrap:nowrap;
-    align-items:flex-start;
-
-}
-.form1 > *{
-    margin-bottom: 30px;
-
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.carritoenviar{
-    background-color: rgb(6, 81, 100);
-
+.product .product-left-col form.comments textarea {
+    width: 83%;
+    padding: 5px;
 }
 
-input:hover{
-    background-color: grey;
+.product .product-left-col form.comments input {
+    width: 15%;
 }
 
-button:hover{
-    background-color: grey;
-
+.product .product-right-col {
+    padding: 10px;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
 }
+
+.product .product-right-col h2 {
+    padding: 5px 0px;
+    font-size: 25px;
+    text-align: left;
+}
+
+.product .product-right-col .price {
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.product .product-right-col .promo {
+    padding: 10px 0px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: solid 1px gray;
+}
+
+.product .product-right-col .promo .cards {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.product .product-right-col .promo .cards a img {
+    margin-right: 5px;
+    height: 20px;
+}
+
+.product .product-right-col form.add-to-cart {
+    margin: 10px 0px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product .product-right-col form.add-to-cart > * {
+    margin: 5px 0px;
+}
+
+.product .product-right-col form.add-to-cart select {
+    width: 25%;
+}
+
+.product .product-right-col form.add-to-cart input {
+    width: 25%;
+    text-align: right;
+}
+
+.product .product-right-col form.add-to-cart button {
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 400;
+    color: white;
+    background-color: #2c3e50;
+    text-transform: uppercase;
+}
+
 /*laptop*/
 @media (max-width:768px){
     .suculenta1{
