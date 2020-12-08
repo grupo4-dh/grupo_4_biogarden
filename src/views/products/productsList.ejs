@@ -7,7 +7,7 @@
             <h1 class = "titulo">Tus Productos</h1>
             <% for ( product of products) { %>  
             <div class="product-container">
-                <img class="imagenListado" src="/images/products/<%= product.image %> "alt="<%= product.name %>"></a>                
+                <img class="imagenListado" src="/uploads/productos/<%= product.image %> "alt="<%= product.name %>"></a>                
                 <div class="productosListado">
                     <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
                     <p>$ <%= product.price %></p>
