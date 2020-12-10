@@ -22,69 +22,18 @@
             </div>
             <div class="products">
                 <section>
-                    <article>
-                        <img src="/images/suculenta1.jpg"alt="Producto 1">
-                        <p class="name">Lorem, ipsum dolor.</p>
-                        <p class="price">$1000</p>
-                    </article>
-                    <article>
-                        <img src="/images/suculenta2.jpg"alt="Producto 2">
-                        <p class="name">Lorem, ipsum dolor.</p>
-                        <p class="price">$2000</p>
-                    </article>
-                    <article>
-                        <img src="/images/suculenta3.jpg"alt="Producto 3">
-                        <p class="name">Lorem, ipsum dolor.</p>
-                        <p class="price">$3000</p>
-                    </article>
-                    <article>
-                        <img src="/images/suculenta4.jpg"alt="Producto 4">
-                        <p class="name">Lorem, ipsum dolor.</p>
-                        <p class="price">$4000</p>
-                    </article>
-                    <article>
-                        <img src="/images/suculenta1.jpg"alt="Producto 5">
-                        <p class="name">Lorem, ipsum dolor.</p>
-                        <p class="price">$1000</p>
-                    </article>
-                    <article>
-                        <img src="/images/suculenta2.jpg"alt="Producto 6">
-                        <p class="name">Lorem, ipsum dolor.</p>
-                        <p class="price">$2000</p>
-                    </article>
-                    <article>
-                        <img src="/images/suculenta3.jpg"alt="Producto 7">
-                        <p class="name">Lorem, ipsum dolor.</p>
-                        <p class="price">$3000</p>
-                    </article>
-                    <article>
-                        <img src="/images/suculenta4.jpg"alt="Producto 8">
-                        <p class="name">Lorem, ipsum dolor.</p>
-                        <p class="price">$4000</p>
-                    </article>
-                    <article>
-                        <img src="/images/suculenta1.jpg"alt="Producto 9">
-                        <p class="name">Lorem, ipsum dolor.</p>
-                        <p class="price">$1000</p>
-                    </article>
-                    <article>
-                        <img src="/images/suculenta2.jpg"alt="Producto 10">
-                        <p class="name">Lorem, ipsum dolor.</p>
-                        <p class="price">$2000</p>
-                    </article>
-                    <article>
-                        <img src="/images/suculenta3.jpg"alt="Producto 11">
-                        <p class="name">Lorem, ipsum dolor.</p>
-                        <p class="price">$3000</p>
-                    </article>
-                    <article>
-                        <img src="/images/suculenta4.jpg"alt="Producto 12">
-                        <p class="name">Lorem, ipsum dolor.</p>
-                        <p class="price">$4000</p>
-                    </article>
+                    <% for ( product of products) { %> 
+                        <article>
+                            <a href="/products/<%= product.id %>"><img src="/uploads/productos/<%= product.image %> "alt="<%= product.name %>"></a>
+                            <div class="item-info">
+                                <p class="name"><%= product.name %></p>
+                                <p class="price">$<%= product.price %></p>
+                            </div>
+                        </article>
+                    <% } %>
                 </section>
                 <div class="all-products">
-                    <a href="#">Ver todos los productos</a>
+                    <a href="/products">Ver todos los productos</a>
                 </div>
             </div>
         </div>

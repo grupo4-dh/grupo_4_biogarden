@@ -3,52 +3,29 @@
     <%- include('../partials/head.ejs', { title: 'Productos', stylesheet: 'products/productsList.css'}); %>
     <body >
         <%- include('../partials/header.ejs') %>
-        <div class="flexListado">
-            <h1 class = "titulo">Tus Productos</h1><br><br>
-            <div>
-
-                <img class="imagenListado" src="/images/suculenta2.jpg" alt="suculenta2">
-                
+        <div class="container list">
+            <h1 class = "titulo">Tus Productos</h1>
+            <% for ( product of products) { %>  
+            <div class="product-container">
+                <img class="imagenListado" src="/uploads/productos/<%= product.image %> "alt="<%= product.name %>"></a>                
                 <div class="productosListado">
-                    <p> Suculenta </p>
-                    <p> $100 </p>
-                    <p> Plantas </p>
-                    <p class="descripcionProducto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem porro pariatur laudantium quia maiores! Qui eligendi esse in dolores at corrupti. Voluptates eius quibusdam beatae unde ratione inventore enim voluptatem? </p>
-                 
+                    <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
+                    <p>$ <%= product.price %></p>
+                    <p><%= product.category %></p>
+                    <p class="descripcionProducto"><%= product.description %></p>                 
                 </div>
-
-            </div>
-            <div>
-
-                <img class="imagenListado" src="/images/suculenta2.jpg" alt="suculenta2">
-                
-                <div class="productosListado">
-                    <p> Suculenta </p>
-                    <p> $100 </p>
-                    <p> Plantas </p>
-                    <p class="descripcionProducto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem porro pariatur laudantium quia maiores! Qui eligendi esse in dolores at corrupti. Voluptates eius quibusdam beatae unde ratione inventore enim voluptatem? </p>
-                 
+                <div class="actions">
+                    <a class="edit" href="/products/<%= product.id %>/edit">
+                        <button><i class="fas fa-edit"></i> Editar</button>
+                    </a>
+                    <form class="delete" action="products/<%= product.id %>?_method=DELETE" method="POST">
+                        <button type="submit"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                    </form>
                 </div>
-
             </div>
-            <div>
-
-                <img class="imagenListado" src="/images/suculenta2.jpg" alt="suculenta2">
-                
-                <div class="productosListado">
-                    <p> Suculenta </p>
-                    <p> $100 </p>
-                    <p> Plantas </p>
-                    <p class="descripcionProducto">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem porro pariatur laudantium quia maiores! Qui eligendi esse in dolores at corrupti. Voluptates eius quibusdam beatae unde ratione inventore enim voluptatem? </p>
-                 
-                </div>
-
-            </div>
-        </div>
-
-        <%- include('../partials/footer.ejs') %>    
-
-        
+            <% } %>
+        </div>       
+        <%- include('../partials/footer.ejs') %>
     </body>
         
 </html>

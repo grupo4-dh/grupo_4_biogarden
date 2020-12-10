@@ -87,6 +87,7 @@
 
 .main .categories a img {
     width: 100%;
+    border-radius: 10px;
 }
 
 @media (max-width:768px){
@@ -118,7 +119,6 @@
 }
 
 .main .products section {
-    padding: 10px 0px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -127,16 +127,21 @@
 
 .main .products section article {
     width: 25%;
+    padding: 10px 0px;
     box-sizing: border-box;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.main .products section article img {
-    padding: 5px;
+.main .products section article a img {
     width: 100%;
+    padding: 5px;
+    border-radius: 20px;
 }
 
-.main .products section article p.price {
+.main .products section article .item-info p.price {
     font-size: 15px;
 }
 
@@ -146,8 +151,10 @@
 
 .main .products .all-products a {
     padding: 10px;
+    font-weight: 400;
     color: white;
     background-color: #2c3e50;
+    text-transform: uppercase;
 }
 
 @media (max-width:768px) {

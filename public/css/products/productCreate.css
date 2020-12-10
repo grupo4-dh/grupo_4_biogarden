@@ -1,122 +1,39 @@
-.flexProducto{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content:center;
-    flex-grow: inherit;
-    position: relative;
-    left: 700px;
-    top: 50px;
-}
-.flexListado{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content:center;
-    flex-grow: inherit;
-    position: relative;
-    bottom: 700px;
-    left: 20px;
-    font-family:'Times New Roman', Times, serif;
-    background-color: #f8f8f8;
-    width: 45%;
 
-}
-.flexNombre{
-    position: relative;
-    left: 300px;
-    bottom: 300px;
-    width: 30%;
-    margin-top: 6px;
-    height: 30px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-
-}
-.flexDescripcion{
-    position: relative;
-    left: 300px;
-    bottom: 350px;
-    width: 30%;
-    margin-top: 6px;
-    height: 150px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-  
-}
-
-.flexCategoria{
-    position: relative;
-    bottom: 360px;
-    left: 300px;
-    width: 30%;
-    margin-top: 6px;
-    height: 30px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
-
-}
-.flexPrecio{
-    position: relative;
-    bottom: 250px;
-    width: 10%;
-    margin-top: 6px;
-    height: 30px;
-    padding: 12px 20px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    background-color: #f8f8f8;
-    resize: none;
+.titulo{
+text-align: center;
+font-weight: bold;
+text-transform: uppercase;
+font-size:20px;
     
 }
-.imagen{
-    width: 20%;
-    height: auto;
+
+.descripcion{
+text-align: center;
+font-weight: bold;
+font-size:20px;
 
 }
-.imagenListado{
-    display:flex;
-    width: 30%;
-    height: auto;
-}
+.container-1{
+    margin-bottom: 10px;
 
-.productosListado{
-    position: relative;
-    font-family:'Times New Roman', Times, serif;
-    font-size: 40px;
-    left: 200px;
-    bottom: 190px;
 }
-
-.descripcionProducto{
-
-    overflow:hidden;
-    text-overflow: ellipsis;
-    width: 60%;
-   
-}
-.sumarProducto{
+.caja-container-1{
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content:center;
+    flex-grow: inherit;
     position: relative;
-    left: 40px;
-    bottom: 50px;
-    color: floralwhite;
-    width: 20%;
-    justify-items:center ;
-    background-color:black;
-    font-size: medium;
+    left: 500px;
+    top: 20px;
+    bottom: 70px;
+    padding:15px,
+}
+
+.crearProducto{
+font-size: 15px; 
+background-color:blue;
+color:white;
+font-size:15px;
 
 }

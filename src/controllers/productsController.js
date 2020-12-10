@@ -2,31 +2,97 @@ const fs = require('fs')
 const path = require('path')
 
 // Usamos archivos JSON como base de datos momentáneamente
- //Los leemos (fs.readFileSync) y parseamos (JSON.parse) en una sola linea
-let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'))
-let cart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'))
+// Los leemos (fs.readFileSync) y parseamos (JSON.parse) en una sola linea
+let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'));
+let productsCart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'));
 
-module.exports = {
+let ultimoId=0;
+for (let i=0; i<products.length; i++){
+    if(ultimoId <products[i].id){
+        ultimoId=products[i].id
+    }
+}
+
+
+module.exports = { 
+    // Devuelve la vista del Listado de productos
     all: function(req, res) {
-        let products = fs.readFileSync(path.join(__dirname, '../database/products.json'), 'utf8');
-        let arrayProducts = JSON.parse(products)
-        return res.render('./products/productsList.ejs', {productosEnLaVista: arrayProducts})
-
+        return res.render('./products/productsList', { products: products })
     },
+    // Devuelve la vista del Formulario de creación de producto 
+    create: function(req, res) {
+        return res.render('./products/productCreate')
+    },
+    // Guarda el producto que viaja en el body en la BBDD 
+    save: function(req, res) {
+        // Creamos el objeto literal y lo guardamos en el array de products
+        let nuevoProducto = {
+            id: ultimoId + 1,
+            name: req.body.titulo,
+            description: req.body.color,
+            imagen: req.file.filename,
+            category: req.body.categoria,
+            price: req.body.precio,
+            quantity: 10,
+            colors: req.body.color
+        }
+        products.push(nuevoProducto);
+        
+        //Escribimos el producto nuevo
+        fs.writeFileSync(path.join( __dirname, '../database/products.json'), JSON.stringify(products, null, 4));
+        
+        // Redirigimos a la siguiente página
+        res.redirect('/products')
+    },
+    // Devuelve la vista del Carrito de compras
     cart: function(req, res) {
-        return res.render('./products/productsCart.ejs')
+        let total = 0;
+        for (product of productsCart) {
+            total += product.price
+        }
+        return res.render('./products/productsCart', { products: productsCart, total: total } )
     },
+    // Devuelve la vista de Detalle de producto
     detail: function(req, res) {
         for (product of products) {
             if (product.id == req.params.product_id) {
-                return res.render('./products/productDetail.ejs', { product: product })
+                return res.render('./products/productDetail', { products: product })
             }         
         }
+        return res.send('PRODUCT NOT FOUND') // REDIGIR A LISTADO DE PRODUCTOS CON PARTIAL NOT FOUND
     },
-    create: function(req, res) {
-        return res.render('./products/productCreate.ejs')
-    },
+    // Devuelve la vista de Edición de producto 
     edit: function(req, res) {
-        return res.render('./products/productEdit.ejs')
+        for (product of products) {
+            if (product.id == req.params.product_id) {
+                return res.render('./products/productEdit', { products: product })
+            }         
+        }
+        return res.send('PRODUCT NOT FOUND') // REDIGIR A LISTADO DE PRODUCTOS CON PARTIAL NOT FOUND
+    },
+    // Actualiza un producto en la BBDD
+    update: function(req, res) {
+        for (product of products) {
+            if (product.id == req.params.product_id) {
+                product.name = req.body.titulo,
+                product.description = req.body.descripcion,
+                product.image = req.file.filename,
+                product.category = req.body.categoria,
+                product.price = parseInt(req.body.precio),
+                product.colors = req.body.color 
+            }
+        }
+
+        //Escribimos el producto nuevo
+        fs.writeFileSync(path.join(__dirname,'../database/products.json'),JSON.stringify(products, null, 4));
+
+        // Redirigimos a la siguiente página home
+        res.redirect('/products')
+    },
+    // Borra un producto de la BBDD
+    delete: function(req, res) {
+        products = products.filter( prod => prod.id != req.params.product_id )
+        fs.writeFileSync(path.join(__dirname,'../database/products.json'),JSON.stringify(products, null, 4));
+        res.redirect('/products')
     }
 }

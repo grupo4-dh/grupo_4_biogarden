@@ -1,1 +1,58 @@
-[]
+[
+    {
+        "id": "0",
+        "name": "Pepe",
+        "last_name": "Lopez",
+        "email": "pepelopez@biogarden.com",
+        "password": "kKLADNSajknsdakljsbdaksjdnajklsnakjsd",
+        "avatar": "asdasdasd@email.com-.jpg"
+    },
+    {
+        "id": 1,
+        "name": "Sergio",
+        "last_name": "Lopez",
+        "email": "asdasdasd@email.com",
+        "password": "$2b$12$/JmwdpxaA1l1R9T4PScPJefpWWAOY/TE0.LDa4eDZa1oNg9eOZ4bu",
+        "avatar": "asdasdasd@email.com-.jpg"
+    },
+    {
+        "id": 2,
+        "name": "asdasd",
+        "last_name": "asdasd",
+        "email": "asdasd@asdasd.com",
+        "password": "$2b$12$oN9fzxBuPf880w6kPqFD8ubgz3Jt913kq.xlzbUTjg.tfz1rRmlr.",
+        "avatar": "asdasd@asdasd.com-.jpg"
+    },
+    {
+        "id": 3,
+        "name": "asdasd",
+        "last_name": "asdasd",
+        "email": "asdasd@email.com",
+        "password": "$2b$12$lR.7mqugC4CEQKS3Ciatj.TqTU2AtaV14OZVdPlcYj8QwBW2gX.Q2",
+        "avatar": "asdasd@email.com-.jpg"
+    },
+    {
+        "id": 4,
+        "name": "pepe",
+        "last_name": "lopez",
+        "email": "asdasdasd@gmail.com",
+        "password": "$2b$12$Wlq.o7AIzq2czRTndDkrsu38EkiGTBlO.wqhabMb7OmvJF1FAJgny",
+        "avatar": "asdasdasd@gmail.com-.jpg"
+    },
+    {
+        "id": 5,
+        "name": "melisa",
+        "last_name": "cabagnero",
+        "email": "meli@hotmail.com",
+        "password": "$2b$12$22V.GvRtND9PARowXWyZzOTQDgp2ylo/X5IOadt8e5gyT60AxEFR2",
+        "avatar": "meli@hotmail.com-.jpg"
+    },
+    {
+        "id": 6,
+        "name": "melisa",
+        "last_name": "cabagnero",
+        "email": "melicabagnero@hotmail.com",
+        "password": "$2b$12$WO0wngTJLOBTcmuLX7sqz.SRx6wvwZPKzCGlrv.Y9liY0fE/SiKnG",
+        "avatar": "melicabagnero@hotmail.com-.PNG"
+    }
+]

@@ -1,5 +1,15 @@
 [
     {
+        "id": 1,
+        "name": "European Heliotrope",
+        "description": "Elit velit est amet aliqua Lorem enim ipsum non sit reprehenderit ipsum. Nostrud ea culpa fugiat dolore reprehenderit sunt do cupidatat. Mollit anim nostrud cupidatat consequat proident. Mollit culpa ea eu excepteur magna elit laboris.",
+        "image": "product_1.jpg",
+        "category": "Boraginaceae",
+        "price": 2801,
+        "quantity": 3,
+        "colors": "Yellow"
+    },
+    {
         "id": 2,
         "name": "Macdougal's Ragwort",
         "description": "Elit velit est amet aliqua Lorem enim ipsum non sit reprehenderit ipsum. Nostrud ea culpa fugiat dolore reprehenderit sunt do cupidatat. Mollit anim nostrud cupidatat consequat proident. Mollit culpa ea eu excepteur magna elit laboris.",
@@ -11,13 +21,13 @@
     },
     {
         "id": 3,
-        "name": "Planta Test",
-        "description": "Esto es un una prueba. Esto es un una prueba. Esto es un una prueba. Esto es un una prueba. Esto es un una prueba. Esto es un una prueba. Esto es un una prueba. Esto es un una prueba. Esto es un una prueba.",
+        "name": "Navajo Cinquefoil",
+        "description": "Elit velit est amet aliqua Lorem enim ipsum non sit reprehenderit ipsum. Nostrud ea culpa fugiat dolore reprehenderit sunt do cupidatat. Mollit anim nostrud cupidatat consequat proident. Mollit culpa ea eu excepteur magna elit laboris.",
         "image": "product_3.jpg",
-        "category": "Suculenta",
-        "price": 2145,
+        "category": "Rosaceae",
+        "price": 1930,
         "quantity": 8,
-        "colors": "Salmon"
+        "colors": "Khaki"
     },
     {
         "id": 4,
