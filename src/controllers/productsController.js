@@ -6,7 +6,13 @@ const path = require('path')
 let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'));
 let productsCart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'));
 
-let ultimoId = products.length;
+let ultimoId=0;
+for (let i=0; i<products.length; i++){
+    if(ultimoId <products[i].id){
+        ultimoId=products[i].id
+    }
+}
+
 
 module.exports = { 
     // Devuelve la vista del Listado de productos
@@ -50,7 +56,7 @@ module.exports = {
     detail: function(req, res) {
         for (product of products) {
             if (product.id == req.params.product_id) {
-                return res.render('./products/productDetail', { product: product })
+                return res.render('./products/productDetail', { products: product })
             }         
         }
         return res.send('PRODUCT NOT FOUND') // REDIGIR A LISTADO DE PRODUCTOS CON PARTIAL NOT FOUND
@@ -59,7 +65,7 @@ module.exports = {
     edit: function(req, res) {
         for (product of products) {
             if (product.id == req.params.product_id) {
-                return res.render('./products/productEdit', { product: product })
+                return res.render('./products/productEdit', { products: product })
             }         
         }
         return res.send('PRODUCT NOT FOUND') // REDIGIR A LISTADO DE PRODUCTOS CON PARTIAL NOT FOUND
