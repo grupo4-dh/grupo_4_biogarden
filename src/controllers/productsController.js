@@ -17,7 +17,7 @@ for (let i=0; i<products.length; i++){
 module.exports = { 
     // Devuelve la vista del Listado de productos
     all: function(req, res) {
-        return res.render('./products/productsList', { products: products })
+        return res.render('./products/productsList', { products: products })//recibe la ruta y el array
     },
     // Devuelve la vista del Formulario de creación de producto 
     create: function(req, res) {
