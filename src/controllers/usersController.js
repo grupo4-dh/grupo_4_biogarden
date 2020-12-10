@@ -48,9 +48,10 @@ module.exports = {
                  
     },
     login: function(req, res) {
-        return res.render('./users/login.ejs');
+        return res.render('users/login.ejs');
     },
     processLogin:function(req,res){
+        //valido los errores
         let errors= validationResult(req);
         console.log(req);
         if(errors.isEmpty()){
