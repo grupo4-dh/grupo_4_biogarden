@@ -28,8 +28,8 @@ module.exports = {
         // Creamos el objeto literal y lo guardamos en el array de products
         let nuevoProducto = {
             id: ultimoId + 1,
-            name: req.body.titulo,
-            description: req.body.color,
+            name: req.body.nombre,
+            description: req.body.descripcion,
             imagen: req.file.filename,
             category: req.body.categoria,
             price: req.body.precio,
