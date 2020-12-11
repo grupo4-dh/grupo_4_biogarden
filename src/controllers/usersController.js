@@ -22,8 +22,7 @@ module.exports = {
     save: function(req, res){
         //validamos los errores del usuario
         let errors= validationResult(req);
-        console.log(req);
-        if(errors.isEmpty()){
+        if(errors.isEmpty()){//si los errores es vacio
             //si no hay errores continuamos
             let nuevoUsuario={
             //guardo la BBDD del usuario
@@ -42,8 +41,7 @@ module.exports = {
             res.redirect('./login')
         }else{
             //si hay errores sigo por aca
-            return res.render('users/register',{
-                errors:errors.mapped()})
+            res.send(errors.mapped())
         }        
     },
     login: function(req, res) {
@@ -52,41 +50,33 @@ module.exports = {
     processLogin:function(req,res){
         //valido los errores
         let errors= validationResult(req);
-        console.log(req);
-        if(errors.isEmpty()){
-            let usersJson = fs.readFileSync(path.join(__dirname,'../database/users.json',{encoding:'utf8'}));
-        let users;
-        if(usersJson==''){
-            users=[];
-        }else{
-            users=JSON.parse(usersJson);
-        }
-//recorro los emails  y la contrasena para verificar la sesion
-        for(let i=0; i<users.length;i++){
-            if(users[i].email==req.body.email){
-                if(bcrypt.compareSync(req.body.password,users[i].password)){
-                    let usuarioALoguearse=users[i];
-                    break;
+        let{email,password,remember}=req.body;
+        if(errors.isEmpty()){   
 
-                }
-
+        let usuarioALoguearse;
+        users.forEach(user=>{
+            if(user.email==email&& bcrypt.compareSync(password,user.password)){
+                usuarioALoguearse=user;//el usuario a loguearse es el que encontre
             }
+        });
+        //pregunto si es indefinido
+        if(usuarioALoguearse==undefined){
+            return res.send("credenciales No Validas");
         }
-        
-        if (usuarioALoguearse==undefined){
-            return res.render('login',{errors:[
-                {msg:'Credenciales invalidas'}
-            ]})
+        //lo guardo en session 
+        req.session.user=usuarioALoguearse;
+
+        if (remember!=undefined){
+            //recuerdo la sesion del usuario
+            res.cookie("remember",usuarioALoguearse.email, {maxAge:60000});
         }
 
-        req.session.usuarioLogueado=usuarioALoguearse;
-
+        return res.redirect("/");
 
         }else{
             return res.render('users/login',{erorrs:errors.errors})
 
         }
-
 
     },
     profile: function(req, res) {
