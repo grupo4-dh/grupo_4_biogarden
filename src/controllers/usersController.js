@@ -41,7 +41,7 @@ module.exports = {
             res.redirect('./login')
         }else{
             //si hay errores sigo por aca
-            res.send(errors.mapped())
+            return res.render('users/register',{erorrs:errors.errors})
         }        
     },
     login: function(req, res) {
@@ -54,17 +54,17 @@ module.exports = {
         if(errors.isEmpty()){   
 
         let usuarioALoguearse;
-        users.forEach(user=>{
-            if(user.email==email&& bcrypt.compareSync(password,user.password)){
-                usuarioALoguearse=user;//el usuario a loguearse es el que encontre
+        for (let i=0; users.length;i++){
+            if(users[i].email==email&& bcrypt.compareSync(password,users[i].password)){
+                usuarioALoguearse=users[i];//el usuario a loguearse es el que encontre
             }
-        });
+        };
         //pregunto si es indefinido
         if(usuarioALoguearse==undefined){
-            return res.send("credenciales No Validas");
+            return res.render("users/login",{errors:[{msg:"credenciales No Validas"}]});
         }
         //lo guardo en session 
-        req.session.user=usuarioALoguearse;
+        req.session.usuarioLogueado=usuarioALoguearse;
 
         if (remember!=undefined){
             //recuerdo la sesion del usuario
@@ -80,6 +80,6 @@ module.exports = {
 
     },
     profile: function(req, res) {
-        return res.render('./users/profile.ejs')
+        return res.render('users/profile')
     }
 }
