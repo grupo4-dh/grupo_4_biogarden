@@ -1,49 +1,7 @@
-header{
-    padding:10px 10px 20px 15px;
-    margin:0px;
-    font-family:'Times New Roman', Times, serif;
-}
-header h1.titulo{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 50px;
-    text-align: center;
-}
-.flex{
+section.login {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    justify-content:center;
-    flex-grow: inherit;
-    position: relative;
-    left: 500px;
-}
-.emailInput{
-    width: 30%;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: #f2f2f2;
-    background-repeat: no-repeat;
-}
-.flex2{
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 30%;
-    justify-content:center;
-    position: relative;
-    left: 60px;
-
-
-}
-.botonInicio{
-    font-family: 'Times New Roman', Times, serif;
-    background-color: #000000; 
-    border: none;
-    color: white;
-    padding: 15px 60px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    width: 30%;
+    justify-content: center;
+    font-size: 40px;
+    text-align: center;
+    margin: 50px 0;
 }

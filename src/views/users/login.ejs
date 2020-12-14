@@ -15,18 +15,32 @@
             </ul>
 
         <%}%>
-    </div>
-        <form class = "flex" action ='/users/login' method="POST">
-            <input type="email" id="Email" name="email" class = "emailInput" placeholder = "Email..."><br>
-            <input type="password" id="pwd" name="password"class = "emailInput" placeholder = "Contraseña..."><br>
-            <ul class= "flex2">
-            <a href="">¿Olvidaste tu contraseña?</a>
-            <a>|</a> <a href="/registro">Registrarse</a>
-            <br><br>
-            </ul>
-            <input type="submit" value="Iniciar Sesion" class = "botonInicio">
-            
-        </form>
+        <main>
+
+            <section class="login">
+                <h1>Login</h1>
+            </section>
+    
+            <section class="form">
+                <form action="" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input id="email" name="email" type="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input id="password" name="password" type="password">
+                    </div>
+                    <div class="remember">
+                        <input type="checkbox" id="remember" name="remember">
+                        <label for="remember">Recordame</label>
+                    </div>
+                    <button type="submit">Enviar</button>
+                </form>
+            </section>
+    
+        </main>
+    
         <%- include('../partials/footer.ejs') %>
     </body>
 </html>

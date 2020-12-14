@@ -54,5 +54,21 @@
         "email": "melicabagnero@hotmail.com",
         "password": "$2b$12$WO0wngTJLOBTcmuLX7sqz.SRx6wvwZPKzCGlrv.Y9liY0fE/SiKnG",
         "avatar": "melicabagnero@hotmail.com-.PNG"
+    },
+    {
+        "id": 7,
+        "name": "agustina",
+        "last_name": "peralta",
+        "email": "agus.peralta@hotmail.com",
+        "password": "$2b$12$9SrR/dCcS2GtrHqYA49Qq.SLUZMYKtEa//NMrGTRj7TKbz4D8fLQm",
+        "avatar": "agus.peralta@hotmail.com.png"
+    },
+    {
+        "id": 8,
+        "name": "maria",
+        "last_name": "perez",
+        "email": "maria@hotmail.com",
+        "password": "$2b$12$S0lXQNuQGlV3Mk64dfa1F.qVqbaiE9jxzIM.I9UbAlxqFRV.3vk8C",
+        "avatar": "maria@hotmail.com.png"
     }
 ]

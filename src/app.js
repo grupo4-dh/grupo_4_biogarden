@@ -7,11 +7,15 @@ const app = express();
 
 // Session
 const session = require('express-session');
+const rememberMiddleware=require("./middelwares/rememberMiddelware")
 
 // Routers
 const mainRouter = require('./routes/main');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
+//MIDDELWARES DE COOKIES
+const rememberMiddleware=require("./middelwares/rememberMiddelware")
+
 
 // Configuramos el motor de vistas y la carpeta de vistas
 app.set('view engine', 'ejs');
@@ -31,6 +35,7 @@ app.use(express.json())
 
 // Seteamos session
 app.use(session({secret:'secret'}));
+app.use(rememberMiddleware);
 
 // Seteamos los routers
 app.use( '/', mainRouter );
