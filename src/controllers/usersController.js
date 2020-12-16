@@ -38,7 +38,7 @@ module.exports = {
             //escribimos el usuario
             fs.writeFileSync(path.join(__dirname,'../database/users.json'), JSON.stringify(users,null,4));
             
-            res.redirect('./login')
+            res.redirect('/users/login')
         }else{
             //si hay errores sigo por aca
             return res.render('users/register',{erorrs:errors.errors})
@@ -54,7 +54,7 @@ module.exports = {
         if(errors.isEmpty()){   
 
         let usuarioALoguearse;
-        for (let i=0; users.length;i++){
+        for (let i=0; i<users.length;i++){
             if(users[i].email==email&& bcrypt.compareSync(password,users[i].password)){
                 usuarioALoguearse=users[i];//el usuario a loguearse es el que encontre
             }
