@@ -1,39 +1,45 @@
+/* =================
+- PRODUCT CREATE
+================= */
 
-.titulo{
-text-align: center;
-font-weight: bold;
-text-transform: uppercase;
-font-size:20px;
-    
-}
-
-.descripcion{
-text-align: center;
-font-weight: bold;
-font-size:20px;
-
-}
-.container-1{
+.container-1 {
     margin-bottom: 10px;
-
 }
-.caja-container-1{
+
+.container-1 .titulo  {
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size:20px;   
+}
+
+.container-1 .descripcion {
+    text-align: center;
+    font-weight: bold;
+    font-size:20px;
+}
+
+.container-1 .caja-container-1 {
+    padding:15px;
+}
+
+.container-1 .caja-container-1 form {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    justify-content:center;
-    flex-grow: inherit;
-    position: relative;
-    left: 500px;
-    top: 20px;
-    bottom: 70px;
-    padding:15px,
+    justify-content: center;
+    align-items: center;
 }
 
-.crearProducto{
-font-size: 15px; 
-background-color:blue;
-color:white;
-font-size:15px;
+.container-1 .caja-container-1 form > * {
+    width: 50%;
+}
 
+.container-1 .caja-container-1 form .crearProducto {
+    width: 25%;
+    padding: 5px;
+    font-size: 15px; 
+    background-color:blue;
+    color:white;
+    font-size:15px;
 }
