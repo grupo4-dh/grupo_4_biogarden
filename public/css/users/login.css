@@ -1,7 +1,22 @@
-section.login {
-    display: flex;
-    justify-content: center;
-    font-size: 40px;
+
+section.login{
     text-align: center;
+  
+    font-weight: bold;
+}
+
+section.form {
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    font-size: 40px;
+    justify-content: center;
     margin: 50px 0;
+    width: 30%;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #f2f2f2;
+    background-repeat: no-repeat;
+    
 }
