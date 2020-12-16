@@ -34,3 +34,12 @@
 .container-1 .caja-container-1 form > * {
     width: 50%;
 }
+
+.container-1 .caja-container-1 form .crearProducto {
+    width: 25%;
+    padding: 5px;
+    font-size: 15px; 
+    background-color:blue;
+    color:white;
+    font-size:15px;
+}
