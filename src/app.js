@@ -7,7 +7,7 @@ const app = express();
 
 // Session
 const session = require('express-session');
-const rememberMiddleware=require("./middelwares/rememberMiddelware")
+
 
 // Routers
 const mainRouter = require('./routes/main');
