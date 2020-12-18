@@ -71,6 +71,8 @@ module.exports = {
             res.cookie("remember",usuarioALoguearse.email, {maxAge:60000});
         }
 
+        //se renderiza  a la home
+
         return res.redirect("/");
 
         }else{
@@ -80,6 +82,6 @@ module.exports = {
 
     },
     profile: function(req, res) {
-        return res.render('users/profile')
+        return res.render('users/profile');
     }
 }
