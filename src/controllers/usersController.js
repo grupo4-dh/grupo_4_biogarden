@@ -63,8 +63,10 @@ module.exports = {
         if(usuarioALoguearse==undefined){
             return res.render("users/login",{errors:[{msg:"credenciales No Validas"}]});
         }
-        //lo guardo en session 
+        //lo guardo en session //usuario lOgueado es el nombre que hayq ue darle  generico
         req.session.usuarioLogueado=usuarioALoguearse;
+
+        //recuerdo al usuario segun el email por un tiempo limitado. Recordar agregar en al app  la isntalacion del cookies
 
         if (remember!=undefined){
             //recuerdo la sesion del usuario
