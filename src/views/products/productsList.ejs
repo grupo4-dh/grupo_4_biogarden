@@ -4,7 +4,10 @@
     <body >
         <%- include('../partials/header.ejs') %>
         <div class="container list">
-            <h1 class = "titulo">Tus Productos</h1>
+            <div class="list-header">
+                <h1 class = "titulo">Tus Productos</h1>
+                <a href="/products/create"><button>Crear nuevo producto</button></a>
+            </div>
             <% for ( product of products) { %>  
             <div class="product-container">
                 <img class="imagenListado" src="/uploads/productos/<%= product.image %> "alt="<%= product.name %>"></a>                

@@ -3,31 +3,24 @@
     <%- include('../partials/head.ejs', { title: 'Crear producto', stylesheet: 'products/productCreate.css'}); %>
     <body>
         <%- include('../partials/header.ejs') %>
-
-        <div class= "container-1">
+        <div class= "container container-1">
             <h2 class ="titulo ">CREAR PRODUCTOS</h2>
             <P class="descripcion">Completar los siguientes campos:</P>
             <div class= "caja-container-1">
-            <form action="" method="POST" enctype="multipart/form-data">
-                <p ><label  for="nombre">Nombre del Producto</label></p>
-               <input type="text" name="nombre" id="nombre" ><br>
-               <p ><label  for="nombre">Precio</label></p>
-                <input type="text" name="precio" id="precio" placeholder="precio"><br>
-                <p ><label  for="nombre">Categoria</label></p>
-                <input type="text" name="categoria" id="categoria" ><br>
-                <p ><label  for="nombre">Color</label></p>
-                <input type="text" name="color" id="color" placeholder="color"><br>
-                <p ><label  for="Descripcion">Descripcion</label></p><textarea name="descripcion" id="" cols="20" rows="10"></textarea><br>
-                <input type="file" id ="producto"  name="imagen" class = "imagen" placeholder = "Cargar imagen"><br><br>
-                <button type="submit" class= "crearProducto">Crear Nuevo Producto</button>
-               
-
-            </form>
-        
-
+                <form action="" method="POST" enctype="multipart/form-data">
+                    <p ><label  for="nombre">Nombre del Producto</label></p>
+                    <input type="text" name="nombre" id="nombre" ><br>
+                    <p ><label  for="nombre">Precio</label></p>
+                    <input type="text" name="precio" id="precio" placeholder="precio"><br>
+                    <p ><label  for="nombre">Categoria</label></p>
+                    <input type="text" name="categoria" id="categoria" ><br>
+                    <p ><label  for="nombre">Color</label></p>
+                    <input type="text" name="color" id="color" placeholder="color"><br>
+                    <p ><label  for="Descripcion">Descripcion</label></p><textarea name="descripcion" id="" cols="20" rows="10"></textarea><br>
+                    <input type="file" id ="producto"  name="imagen" class = "imagen" placeholder = "Cargar imagen"><br><br>
+                    <button type="submit" class= "crearProducto">Crear Nuevo Producto</button>
+                </form>
              </div>
-
-
         </div>  
         <%- include('../partials/footer.ejs') %>
     </body>

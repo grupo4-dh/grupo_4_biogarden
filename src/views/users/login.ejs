@@ -1,46 +1,51 @@
+
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head.ejs', { title: 'Iniciar sesión', stylesheet: 'users/login.css'}); %>
-    <body>
-        <%- include('../partials/header.ejs') %>
-        <div class = "container-error"><% if (typeof errors != "undefined" ){%>
-            <p class = "error" style="color: red;">ERROR</p>
-            <ul>
-                <% for (let i=0; i<errors.length;i++){ %>
-                    <li>
-                        <%= errors[i].msg%>
-                    </li>
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <%- include('../partials/head.ejs', { title: 'Iniciar sesión', stylesheet: 'users/login.css'}); %>
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+<div class="container">
 
-                    <%}%>
-            </ul>
+  <h2>LOGIN</h2>
+  <div class = "container-error"><% if (typeof errors != "undefined" ) { %>
+    <p class = "error" style="color: red;">ERROR</p>
+    <ul>
+        <% for (let i=0; i<errors.length;i++){ %>
+            <li>
+                <%= errors[i].msg%>
+            </li>
 
-        <%}%>
-        <main>
+            <%}%>
+    </ul>
 
-            <section class="login">
-                <h1>Login</h1>
-            </section>
+<%}%>
+</div>
+  <form action="/action_page.php" method="POST">
+
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+    </div>
     
-            <section class="form">
-                <form action="" method="POST">
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input id="email" name="email" type="email">
-                    </div>
-                    <div class="form-group">
-                        <label for="password">Password</label>
-                        <input id="password" name="password" type="password">
-                    </div>
-                    <div class="remember">
-                        <input type="checkbox" id="remember" name="remember">
-                        <label for="remember">Recordame</label>
-                    </div>
-                    <button type="submit">Enviar</button>
-                </form>
-            </section>
-    
-        </main>
-    
-        <%- include('../partials/footer.ejs') %>
-    </body>
+    <div class="checkbox">
+      <label><input type="checkbox" name="remember"> Remember me</label>
+    </div>
+    <button type="submit" class="btn btn-default">Submit</button>
+  </form>
+</div>
+<%- include('../partials/footer.ejs') %>
+
+</body>
 </html>
