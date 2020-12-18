@@ -29,7 +29,7 @@
 
 <%}%>
 </div>
-  <form action="/action_page.php">
+<form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="name">Nombre:</label>
         <input type="text" class="form-control" id="name" placeholder="Enter Nombre" name="name">
@@ -52,7 +52,7 @@
       </div>
 
    
-    <button type="button" class="btn btn-success">Registrarse</button>
+    <button type="submit" class="btn btn-success">Registrarse</button>
   </form>
 </div>
 <%- include('../partials/footer.ejs') %>

@@ -78,5 +78,13 @@
         "email": "juan@mail.com",
         "password": "$2b$12$/Y7qPPpa6FWfvz4Se0pAH.eVWpi5zBKXoQXZ7YuVWh7jK57weRnk6",
         "avatar": "juan@mail.com.JPG"
+    },
+    {
+        "id": 10,
+        "name": "fabio",
+        "last_name": "niseo",
+        "email": "fabio.sineo@hotmail.com",
+        "password": "$2b$12$wIyD/gA5lCAWIKaQtSjeSu.Ysw6m/8Pdy0YDfM52JfFghjvxawKfK",
+        "avatar": "fabio.sineo@hotmail.com.PNG"
     }
 ]
