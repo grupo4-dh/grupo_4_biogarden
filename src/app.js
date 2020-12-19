@@ -21,6 +21,7 @@ const rememberMiddleware=require("./middelwares/rememberMiddelware")
 
 
 
+
 // Configuramos el motor de vistas y la carpeta de vistas
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -41,6 +42,7 @@ app.use(express.json())
 app.use(session({secret:'secret'}));
 app.use(cookieParser());
 app.use(rememberMiddleware);
+
 
 // Seteamos los routers
 app.use( '/', mainRouter );

@@ -86,5 +86,29 @@
         "email": "fabio.sineo@hotmail.com",
         "password": "$2b$12$wIyD/gA5lCAWIKaQtSjeSu.Ysw6m/8Pdy0YDfM52JfFghjvxawKfK",
         "avatar": "fabio.sineo@hotmail.com.PNG"
+    },
+    {
+        "id": 11,
+        "name": "pepe",
+        "last_name": "jacinto",
+        "email": "pepe@hotmail.com",
+        "password": "$2b$12$Y9eBzObWJ8FVEgVjybc14.tNPEi5hKCDtpvUk210XiuSAoY9QiXmW",
+        "avatar": "pepe@hotmail.com.PNG"
+    },
+    {
+        "id": 12,
+        "name": "tito",
+        "last_name": "tito",
+        "email": "tito@hotmail.com",
+        "password": "$2b$12$O26GXQykmPCwsOa2aAjhK.jN5CD6GdAKJDDNrxjrstf5/px3/09VO",
+        "avatar": "tito@hotmail.com.PNG"
+    },
+    {
+        "id": 13,
+        "name": "julio",
+        "last_name": "cesar",
+        "email": "julio@hotmail.com",
+        "password": "$2b$12$V1T1lDPym1iZZmTC7z3BLun2tJS7AMtyrWA6/WVQLk.jMQsQ9G7Pm",
+        "avatar": "julio@hotmail.com.PNG"
     }
 ]

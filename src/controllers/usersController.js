@@ -10,7 +10,7 @@ let users = JSON.parse(usersJson);
 //para generar id del usuario, tengo que obtener el id mayor creado(provisorio hastq ue veamos BBDD)
 let ultimoId=0;
 for (let i=0; i<users.length; i++){
-    if(ultimoId <users[i].id){
+    if(ultimoId <users[i].id){//buscoe l ultimo Id creado y el nuevo usuario se incrementa el id
         ultimoId=users[i].id
     }
 }
@@ -41,7 +41,7 @@ module.exports = {
             res.redirect('/users/login')
         }else{
             //si hay errores sigo por aca
-            return res.render('users/register',{erorrs:errors.errors})
+            return res.render('users/register',{erorrs:errors.mapped()})
         }        
     },
     login: function(req, res) {
@@ -57,19 +57,20 @@ module.exports = {
         for (let i=0; i<users.length;i++){
             if(users[i].email==email&& bcrypt.compareSync(password,users[i].password)){
                 usuarioALoguearse=users[i];//el usuario a loguearse es el que encontre
+                
             }
         };
         //pregunto si es indefinido
         if(usuarioALoguearse==undefined){
-            return res.render("users/login",{errors:[{msg:"credenciales No Validas"}]});
+            return res.render("login",{errors:[{msg:"credenciales No Validas"}]});
         }
         //lo guardo en session //usuario lOgueado es el nombre que hayq ue darle  generico
         req.session.usuarioLogueado=usuarioALoguearse;
 
-        //recuerdo al usuario segun el email por un tiempo limitado. Recordar agregar en al app  la isntalacion del cookies
+        //reviso si tildo en el formulario remember
 
         if (remember!=undefined){
-            //recuerdo la sesion del usuario
+            //hago al cookie  con un tiempo limitado y se hizo a nivel global. para cualquier pagina funciona
             res.cookie("remember",usuarioALoguearse.email, {maxAge:60000});
         }
 
@@ -78,11 +79,15 @@ module.exports = {
         return res.redirect("/");
 
         }else{
-            return res.render('users/login',{erorrs:errors.errors})
+            return res.render('users/login',{erorrs:errors.mapped(), datosYaCargados: req.body})
+       
 
         }
 
+
     },
+    
+    
     profile: function(req, res) {
         return res.render('users/profile');
     }
