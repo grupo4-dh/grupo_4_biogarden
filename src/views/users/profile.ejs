@@ -1,43 +1,59 @@
+
+
+
 <!DOCTYPE html>
-<html lang="en">
-    <%- include('../partials/head.ejs', { title: 'Perfil', stylesheet: 'users/profile.css'}); %>
-    <body>
-        <%- include('../partials/header.ejs') %>
-        <h1 class = "titulo">Perfil de usuario</h1>
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<%- include('../partials/head.ejs', { title: 'Perfil', stylesheet: 'users/profile.css'}); %>
 
-        <div class="padre">
-            <div class="hijo1">
-            <h2>Datos Personales</h2>
-            <img src="" alt="">
-        </div>
-            <div class="hijo2">
-            <ul>
-                <li>Nombre</li>
-                <li>Apellido</li>
-                <li>Telefono</li>
-                <li>Direccion</li>
-                <button class="Modificar Perfil" type="submit">Modificar Mi Perfil</button>
+<!------ Include the above in your HEAD tag ---------->
+<body>
+    <%- include('../partials/header.ejs') %>
 
-            </ul>
+
+<div class="container">    
+    <div class="row">
+        <div class="panel panel-default">
+        <div class="panel-heading">  <h4 >MI PERFIL</h4></div>
+         <div class="panel-body">
+        <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+         <img alt="User Pic" src="https://x1.xingassets.com/assets/frontend_minified/img/users/nobody_m.original.jpg" id="profile-image1" class="img-circle img-responsive"> 
+         
+         <button type="button" class="btn btn-info">Modificar Imagen de Perfil</button>
+         
+       
+   
         </div>
-            </div>       
-            <div class="padre1">
-                <h2>Mis Órdenes</h2>
-                <ul class ="lista">
-                    <li>Orden</li>
-                    <li>Fecha</li>
-                    <li>Estado</li>
-                    <li>Pago</li>
-                    <li>Envio</li>
-                    <li>Total</li>
-                </ul>
+        <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
+            <div class="container" >
+              <h2>NOMBRE + APELLIDO </h2>
+     
+             
             </div>
-        
-        
-        <footer class ="footer"><%- include('../partials/footer.ejs') %></footer>
+             <hr>
+            <ul class="container details" >
+              <li><p><span class="glyphicon glyphicon-user one" style="width:50px;"></span>nombre</p></li>
+              <li><p><span class="glyphicon glyphicon-user one" style="width:50px;"></span>apellido</p></li>
+              <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>email</p></li>
+              <li><p><span class="glyphicon glyphicon-home" style="width:50px;"></span>Direccion</p></li>
+              <li><p><span class="glyphicon glyphicon-shopping-cart" style="width:50px;"></span>Mis Pedidos</p>
+            <ul>
+                <li>lista de Pedidos</li>
+            </ul></li>
 
-        
+            <button type="button" class="btn btn-warning">Modificar mi Perfil </button>
+            </ul>
+            <hr>
+            <div class="col-sm-5 col-xs-6 tital " >Date Of Joining: 15 Jun 2016</div>
+        </div>
+  </div>
+</div>
+</div>
 
-        
-    </body>
+<footer class ="footer"><%- include('../partials/footer.ejs') %></footer>
+</body>
+
+
+
 </html>
