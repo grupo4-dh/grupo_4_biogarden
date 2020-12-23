@@ -110,5 +110,13 @@
         "email": "julio@hotmail.com",
         "password": "$2b$12$V1T1lDPym1iZZmTC7z3BLun2tJS7AMtyrWA6/WVQLk.jMQsQ9G7Pm",
         "avatar": "julio@hotmail.com.PNG"
+    },
+    {
+        "id": 14,
+        "name": "Juan",
+        "last_name": "Perez",
+        "email": "jcperez@hotmail.com",
+        "password": "$2b$12$vafIkwpo6YV0cct14rGyTezQB6j2LSXlzydDY0BCZTqMdVAr1ki6y",
+        "avatar": "jcperez@hotmail.com.PNG"
     }
 ]

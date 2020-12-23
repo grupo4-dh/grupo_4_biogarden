@@ -8,7 +8,7 @@ const path=require('path');
 const registerValidator = require('../validations/registerValidator.js');
 const loginValidator= require('../validations/loginValidator.js')
 //faltarian los middelwares
-const authMiddelware= require("../middelwares/authMiddelware")
+const authMiddelware= require("../middelwares/authMiddelware")// revisar esto con Herni me parece que esta mal la logica
 const guesthMiddelware= require("../middelwares/guestMiddelware")
 
 // Configuramos multer en la variable upload para subida de archivos

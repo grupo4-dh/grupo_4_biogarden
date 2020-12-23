@@ -1,4 +1,11 @@
-module.exports = (req, res, next) => {//chequea que el usuario este logueado y permite mantener la sesion en todas las paginas
+
+const path = require ('path');
+const fs = require ('fs')
+
+let users = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/users.json'), 'utf8'))
+
+
+module.exports = (req, res, next) => {//revisa si el usuario esta logueado
     if (req.session.usuarioLogueado != undefined){
         for(let i = 0; i < users.length; i++) {
             if (users[i].email == req.cookies.usuarioLogueado){
@@ -11,6 +18,7 @@ module.exports = (req, res, next) => {//chequea que el usuario este logueado y p
 
         next();
     }
-    return res.redirect('/users/profile');// revisar si esyta bien esto 
+    return res.redirect('/users/profile');// revisar si esta bien esto 
 }
+
 
