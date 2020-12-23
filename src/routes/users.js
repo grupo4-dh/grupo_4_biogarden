@@ -8,8 +8,7 @@ const path=require('path');
 const registerValidator = require('../validations/registerValidator.js');
 const loginValidator= require('../validations/loginValidator.js')
 //faltarian los middelwares
-const authMiddelware= require("../middelwares/authMiddelware")// revisar esto con Herni me parece que esta mal la logica
-const guesthMiddelware= require("../middelwares/guestMiddelware")
+
 
 // Configuramos multer en la variable upload para subida de archivos
 var storage = multer.diskStorage({
@@ -28,10 +27,10 @@ router.post('/register', upload.single('avatar'), registerValidator, usersContro
 
 
 // Users login
-router.get('/login',guesthMiddelware, usersController.login)
+router.get('/login', usersController.login)
 router.post('/login',loginValidator,usersController.processLogin)
 
 // Users profile y usamos session
-router.get('/profile',authMiddelware, usersController.profile)
+router.get('/profile', usersController.profile)
 
 module.exports = router;

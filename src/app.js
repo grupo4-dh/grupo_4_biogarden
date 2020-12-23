@@ -18,6 +18,8 @@ const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 //MIDDELWARES DE COOKIES
 const rememberMiddleware=require("./middelwares/rememberMiddelware")
+const authMiddelware= require("./middelwares/authMiddelware")// revisar esto con Herni me parece que esta mal la logica
+const guesthMiddelware= require("./middelwares/guestMiddelware")
 
 
 
@@ -42,6 +44,8 @@ app.use(express.json())
 app.use(session({secret:'secret'}));
 app.use(cookieParser());
 app.use(rememberMiddleware);
+app.use(authMiddelware);
+app.use(guesthMiddelware);
 
 
 // Seteamos los routers
