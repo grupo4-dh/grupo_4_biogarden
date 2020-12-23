@@ -41,7 +41,7 @@ module.exports = {
             res.redirect('/users/login')
         }else{
             //si hay errores sigo por aca
-            return res.render('users/register',{errors:errors.mapped()})
+            return res.render('users/register',{errors:errors.mapped()})//filtra y mapea el array y devuelve un objeto
         }        
     },
     login: function(req, res) {
@@ -72,7 +72,7 @@ module.exports = {
 
         if (remember!=undefined){
             //hago al cookie  con un tiempo limitado y se hizo a nivel global. para cualquier pagina funciona
-            res.cookie("remember",usuarioALoguearse.email, {maxAge:60000});
+            res.cookie("remember",usuarioALoguearse.email, {maxAge:600000000000});
         }
 
         //se renderiza  a la home
@@ -87,7 +87,6 @@ module.exports = {
 
 
     },
-    
     
     profile: function(req, res) {
         return res.render('users/profile');

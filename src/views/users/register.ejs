@@ -31,12 +31,10 @@
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
       <small class= "error" style="color:red"><%=(locals.errors&&errors.email)?errors.email.msg: ""%></small>
     </div>
-    <div class="error">
-      <small class="error"><%=(locals.errors && errors.email)?errors.email.msg : ""%></small>
- </div>
+   
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="<%=(typeof)%>">
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
       <small class= "error" style="color:red"><%=(locals.errors&&errors.password)?errors.password.msg: ""%></small>
     </div>
     <div class="form-group">
