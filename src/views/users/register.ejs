@@ -16,22 +16,11 @@
 <div class="container">
 
   <h2>REGISTRATE</h2>
-  <div class = "container-error"><% if (typeof errors != "undefined" ) { %>
-    <p class = "error" style="color: red;">ERROR</p>
-    <ul>
-        <% for (let i=0; i<errors.length;i++){ %>
-            <li>
-                <%= errors[i].msg%>
-            </li>
-
-            <%}%>
-    </ul>
-    <%}%>
-</div>
 <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="name">Nombre:</label>
         <input type="text" class="form-control" id="name" placeholder="Enter Nombre" name="name">
+        <small class= "error" style="color:red"><%=(locals.errors&&errors.name)?errors.name.msg: ""%></small>
       </div>
       <div class="form-group">
         <label for="last_name">Apellido:</label>
@@ -39,14 +28,16 @@
       </div>
     <div class="form-group">
       <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" value="<%= (typeof datosYaCargados != 'undefined' && !errors.email) ? datosYaCargados.email : ""%>">
+      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <small class= "error" style="color:red"><%=(locals.errors&&errors.email)?errors.email.msg: ""%></small>
     </div>
     <div class="error">
-      <small class="error"><%=(locals.errors && errors.email) ? errors.email.msg : ""%></small>
+      <small class="error"><%=(locals.errors && errors.email)?errors.email.msg : ""%></small>
  </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password">
+      <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="password" value="<%=(typeof)%>">
+      <small class= "error" style="color:red"><%=(locals.errors&&errors.password)?errors.password.msg: ""%></small>
     </div>
     <div class="form-group">
         <label for="pwd">Imagen de perfil</label>

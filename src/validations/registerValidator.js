@@ -16,7 +16,7 @@ module.exports = [
     
     check('password')
         .isLength({min:6,max:12})
-        .withMessage('la contrasena debe tener como nimo 6 caracteres y como maximo 12'),
+        .withMessage('la contraseña debe tener como minimo 6 caracteres y como maximo 12'),
     
     body('email').custom(function(value){
         let usersJson = fs.readFileSync(path.join(__dirname,'../database/users.json'), 'utf8');

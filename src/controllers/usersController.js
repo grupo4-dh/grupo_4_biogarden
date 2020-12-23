@@ -41,7 +41,7 @@ module.exports = {
             res.redirect('/users/login')
         }else{
             //si hay errores sigo por aca
-            return res.render('users/register',{erorrs:errors.mapped()})
+            return res.render('users/register',{errors:errors.mapped()})
         }        
     },
     login: function(req, res) {
@@ -62,7 +62,8 @@ module.exports = {
         };
         //pregunto si es indefinido
         if(usuarioALoguearse==undefined){
-            return res.render("login",{errors:[{msg:"credenciales No Validas"}]});
+            return res.render("users/login",{errors:[{msg:"credenciales No Validas"}]});
+           
         }
         //lo guardo en session //usuario lOgueado es el nombre que hayq ue darle  generico
         req.session.usuarioLogueado=usuarioALoguearse;
@@ -79,7 +80,7 @@ module.exports = {
         return res.redirect("/");
 
         }else{
-            return res.render('users/login',{erorrs:errors.mapped(), datosYaCargados: req.body})
+            return res.render('users/login',{erorrs:errors.mapped()})
        
 
         }
