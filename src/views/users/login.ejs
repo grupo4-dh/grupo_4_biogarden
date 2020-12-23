@@ -15,28 +15,18 @@
 <div class="container">
 
   <h2>LOGIN</h2>
-  <div class = "container-error"><% if (typeof errors != "undefined" ) { %>
-    <p class = "error" style="color: red;">ERROR</p>
-    <ul>
-        <% for (let i=0; i<errors.length;i++){ %>
-            <li>
-                <%= errors[i].msg%>
-            </li>
 
-            <%}%>
-    </ul>
-
-<%}%>
-</div>
 <form action="" method="POST">
 
     <div class="form-group">
       <label for="email">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+      <small class= "error" style="color:red"><%=(locals.errors&&errors.email)?errors.email.msg: ""%></small>
     </div>
     <div class="form-group">
       <label for="pwd">Password:</label>
       <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
+      <small class= "error" style="color:red"><%=(locals.errors&&errors.password)?errors.password.msg: ""%></small>
     </div>
     
     <div class="checkbox">
