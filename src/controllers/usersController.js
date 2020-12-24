@@ -72,7 +72,7 @@ module.exports = {
 
         if (remember!=undefined){
             //hago al cookie  con un tiempo limitado y se hizo a nivel global. para cualquier pagina funciona
-            res.cookie("remember",usuarioALoguearse.email, {maxAge:600000000000});
+            res.cookie("remember",usuarioALoguearse.email, {maxAge:60000});
         }
 
         //se renderiza  a la home
