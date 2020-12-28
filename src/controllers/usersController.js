@@ -55,8 +55,8 @@ module.exports = {
 
         let usuarioALoguearse;
         for (let i=0; i<users.length;i++){
-            if(users[i].email==email&& bcrypt.compareSync(password,users[i].password)){
-                usuarioALoguearse=users[i];//el usuario a loguearse es el que encontre
+            if(users[i].email==email&& bcrypt.compareSync(password,users[i].password)){// comparo al info dell usuario que intenta loguarse con la info que se encuentra en la BBDD
+                usuarioALoguearse=users[i];//guardamos el usuario en esta variable
                 
             }
         };
@@ -66,13 +66,12 @@ module.exports = {
            
         }
         //lo guardo en session //usuario lOgueado es el nombre que hayq ue darle  generico
-        req.session.usuarioLogueado=usuarioALoguearse;
+        req.session.usuarioLogueado=usuarioALoguearse;//guardo en sesion el usuario a loguearse
 
-        //reviso si tildo en el formulario remember
 
         if (remember!=undefined){
             //hago al cookie  con un tiempo limitado y se hizo a nivel global. para cualquier pagina funciona
-            res.cookie("remember",usuarioALoguearse.email, {maxAge:60000});
+            res.cookie("remember",usuarioALoguearse.email, {maxAge:60000});//guardo el email del usuario en la cookie
         }
 
         //se renderiza  a la home
@@ -92,3 +91,10 @@ module.exports = {
         return res.render('users/profile');
     }
 }
+// COMO CERRAMOS LA SESION?
+//cerrarSesion: function(req,res){
+    //req.session.destroy();
+  //res.send("logout success!");
+//})
+
+//}

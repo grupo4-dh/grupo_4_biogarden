@@ -35,4 +35,7 @@ router.post('/login',loginValidator,usersController.processLogin)
 // Users profile y usamos session
 router.get('/profile',authMiddelware, usersController.profile)
 
+//cerraar sesion
+//router.post('/profile', usersController.cerrarSesion)
+
 module.exports = router;
