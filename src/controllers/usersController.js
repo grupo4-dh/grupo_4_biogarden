@@ -30,6 +30,7 @@ module.exports = {
             name: req.body.name,
             last_name: req.body.last_name,
             email:req.body.email,
+            direccion:req.body.direccion,
             password:bcrypt.hashSync(req.body.password,12),//contrasena hasheada
             avatar:req.file.filename,//si es un solo archivo file
 
@@ -75,6 +76,7 @@ module.exports = {
         }
 
         //se renderiza  a la home
+       
 
         return res.redirect("/");
 

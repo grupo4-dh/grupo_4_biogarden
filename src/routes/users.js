@@ -24,12 +24,12 @@ var storage = multer.diskStorage({
 var upload = multer({ storage: storage })
 
 // Users register
-router.get('/register',guestMiddelware, usersController.register)
+router.get('/register', usersController.register)
 router.post('/register', upload.single('avatar'), registerValidator, usersController.save)//guardamos el usuario y agregamos el middelware
 
 
 // Users login
-router.get('/login',guestMiddelware,usersController.login)
+router.get('/login',usersController.login)
 router.post('/login',loginValidator,usersController.processLogin)
 
 // Users profile y usamos session
@@ -37,5 +37,7 @@ router.get('/profile',authMiddelware, usersController.profile)
 
 //cerraar sesion
 //router.post('/profile', usersController.cerrarSesion)
+//req.session.destroy()
+//res.redirect(/home)
 
 module.exports = router;

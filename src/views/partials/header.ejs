@@ -8,8 +8,18 @@
             <button><i class="fas fa-shopping-cart"></i> Carrito $0</button>
             <nav class="account">
                 <ul>
+                    <% if(typeof usuarioLogueado == "undefined") {%>
                     <li><a href="/users/register">Crear cuenta</a></li> | <li><a href="/users/login">Iniciar sesión</a></li>
+                    <% } else{ %>
+                        <li><a href="/users/profile">Mi Perfil</a></li>
+                        <li><a href="/users/profile">Cerrar Sesión</a></li>  
+                    
+                    <% } %>
+
+                    
+
                 </ul>
+
             </nav>
         </span>
     </div>
@@ -18,7 +28,7 @@
             <li><a href="#">¿Quiénes somos?</a></li>
             <li><a href="/products">Nuestros productos</a></li>
             <li><a href="#">¿Cómo comprar?</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="/contacto">Contacto</a></li>
         </ul>
     </nav>
     <div class="container header-mobile">
@@ -27,9 +37,9 @@
             <nav class="nav-bar-mobile">
                 <ul>
                     <li><a href="#">¿Quiénes somos?</a></li>
-                    <li><a href="#">Nuestros productos</a></li>
+                    <li><a href="/products">Nuestros productos</a></li>
                     <li><a href="#">¿Cómo comprar?</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="/contacto">Contacto</a></li>
                 </ul>
             </nav>
             <nav class="account-mobile">

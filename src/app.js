@@ -18,6 +18,7 @@ const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 //MIDDELWARES DE COOKIES
 const rememberMiddleware=require("./middelwares/rememberMiddelware")
+const usuarioRender = require('./middelwares/usuarioRender');
 
 
 
@@ -43,6 +44,7 @@ app.use(express.json())
 app.use(session({secret:'secret'}));
 app.use(cookieParser());
 app.use(rememberMiddleware);
+app.use(usuarioRender);
 
 
 

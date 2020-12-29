@@ -38,6 +38,11 @@
       <small class= "error" style="color:red"><%=(locals.errors&&errors.password)?errors.password.msg: ""%></small>
     </div>
     <div class="form-group">
+      <label for="direccion">Direccion:</label>
+      <input type="text" class="form-control" id="direccion" placeholder="Enter Direccion" name="direccion">
+      <small class= "error" style="color:red"><%=(locals.errors&&errors.direccion)?errors.direccion.msg: ""%></small>
+    </div>
+    <div class="form-group">
         <label for="pwd">Imagen de perfil</label>
         <input type="file" class="form-control" id="avatar" placeholder="Enter Imagen" name="avatar">
       </div>
