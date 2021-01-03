@@ -91,12 +91,14 @@ module.exports = {
     
     profile: function(req, res) {
         return res.render('users/profile');
-    }
+    },
+    // COMO CERRAMOS LA SESION?
+cerrarSesion:function(req,res){
+    req.session.destroy();
+  res.send("logout success!");
 }
-// COMO CERRAMOS LA SESION?
-//cerrarSesion: function(req,res){
-    //req.session.destroy();
-  //res.send("logout success!");
-//})
+}
 
-//}
+
+
+
