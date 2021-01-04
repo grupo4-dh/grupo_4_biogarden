@@ -11,7 +11,7 @@ module.exports = {
         return res.render('index.ejs', { products: products.slice(0, 12) } )
     },
     quienesSomos: function(req,res) {
-        return res.render('quienesSomos.ejs')
+        return res.render('quienesSomos.ejs');
     },
     contacto:function(req,res){
         return res.render('contacto.ejs');
