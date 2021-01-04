@@ -1,15 +1,5 @@
 [
     {
-        "id": 2,
-        "name": "Macdougal's Ragwort",
-        "description": "Elit velit est amet aliqua Lorem enim ipsum non sit reprehenderit ipsum. Nostrud ea culpa fugiat dolore reprehenderit sunt do cupidatat. Mollit anim nostrud cupidatat consequat proident. Mollit culpa ea eu excepteur magna elit laboris.",
-        "image": "product_2.jpg",
-        "category": "Asteraceae",
-        "price": 2461,
-        "quantity": 9,
-        "colors": "Puce"
-    },
-    {
         "id": 3,
         "name": "Planta Test",
         "description": "Esto es un una prueba. Esto es un una prueba. Esto es un una prueba. Esto es un una prueba. Esto es un una prueba. Esto es un una prueba. Esto es un una prueba. Esto es un una prueba. Esto es un una prueba.",
@@ -139,5 +129,4 @@
         "quantity": 13,
         "colors": "Pink"
     }
-    
 ]

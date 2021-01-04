@@ -4,6 +4,7 @@
   "description": "E-commerce de venta de plantas e insumos orgánicos de jardín.",
   "main": "src/app.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/app.js"
   },
   "author": "",
