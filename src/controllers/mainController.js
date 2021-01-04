@@ -10,6 +10,9 @@ module.exports = {
     index: function(req, res) {
         return res.render('index.ejs', { products: products.slice(0, 12) } )
     },
+    quienesSomos: function(req,res) {
+        return res.render('quienesSomos.ejs')
+    },
     contacto:function(req,res){
         return res.render('contacto.ejs');
     },
