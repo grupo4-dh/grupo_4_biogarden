@@ -26,7 +26,7 @@ router.get('/', productsController.all)                     // Vista del Listado
 
 //  Creación de productos
 router.get('/create', productsController.create)            // Formulario de creación de productos
-router.post('/create', upload.single('producto'), productsController.save)              // Acción de creación de producto
+router.post('/create', upload.single('imagen'), productsController.save)              // Acción de creación de producto
 
 //  Carrito de compras
 router.get('/cart', productsController.cart)                // Vista del Carrito de compras
