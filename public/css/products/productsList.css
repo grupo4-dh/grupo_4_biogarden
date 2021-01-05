@@ -86,3 +86,30 @@
     width: 100%;
     padding: 3px 20px;
 }
+
+.list section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.list section article {
+    width: 25%;
+    padding: 10px 0px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.list section article a img {
+    width: 100%;
+    padding: 5px;
+    border-radius: 20px;
+}
+
+.list section article .item-info p.price {
+    font-size: 15px;
+}

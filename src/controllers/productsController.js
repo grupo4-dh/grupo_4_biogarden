@@ -30,7 +30,7 @@ module.exports = {
             id: ultimoId + 1,
             name: req.body.nombre,
             description: req.body.descripcion,
-            imagen: req.file.filename,
+            image: req.file.filename,
             category: req.body.categoria,
             price: req.body.precio,
             quantity: 10,
