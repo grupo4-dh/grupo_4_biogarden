@@ -1,11 +1,11 @@
 [
     {
-        "id": "0",
-        "name": "Pepe",
-        "last_name": "Lopez",
-        "email": "pepelopez@biogarden.com",
-        "password": "kKLADNSajknsdakljsbdaksjdnajklsnakjsd",
-        "avatar": "asdasdasd@email.com-.jpg"
+        "id": 0,
+        "name": "Admin",
+        "last_name": "Admin",
+        "email": "admin@biogarden.com",
+        "password": "$2b$12$ZISqUcVJEe2N47CNffLL1.E.UwpuqqforuhQLosqzVim8dKSzZREy",
+        "avatar": "admin@biogarden.com.jpg"
     },
     {
         "id": 1,
