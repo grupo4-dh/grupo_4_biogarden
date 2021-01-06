@@ -1,3 +1,31 @@
 
 
+    .contenido{
+        display:flex;
+        flex-direction: column;
+        justify-content:center;
+        padding-left:50px;
+        padding-right:50px;
+        
     
+
+    }
+    .contenido h1{
+        font-size: 25px;
+       text-align: center;
+       font-weight: bold;
+       font-size: 15px;
+       padding-bottom:15px;
+       padding-top:15px;
+
+
+    }
+
+    .contenido img.imagen{
+        width:20%;
+        height:20%;
+        
+        margin-left: auto;
+  margin-right: auto;
+
+    }

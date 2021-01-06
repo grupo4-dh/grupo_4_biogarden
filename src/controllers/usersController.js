@@ -95,7 +95,8 @@ module.exports = {
     // COMO CERRAMOS LA SESION?
 cerrarSesion:function(req,res){
     req.session.destroy();
-  res.send("logout success!");
+    res.cookie("remember","", {maxAge:-1});//elimino la cookie
+  res.redirect("/");
 }
 }
 

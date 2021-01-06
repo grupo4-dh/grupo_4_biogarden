@@ -9,7 +9,7 @@
             <nav class="account">
                 <ul>
                     <% if( usuarioLogueado != undefined) {%>
-                        <li><a href="/users/profile">Mi Perfil</a></li> | <li><a href="/users/profile">Cerrar Sesión</a></li>
+                        <li><a href="/users/profile">Mi Perfil</a></li> | <li><a href="/users/logOut">Cerrar Sesión</a></li>
                     <% } else{ %>
                         <li><a href="/users/register">Crear cuenta</a></li> | <li><a href="/users/login">Iniciar sesión</a></li>
                     <% } %>
@@ -31,7 +31,7 @@
             <a href=""><i class="fas fa-bars"></i> Menú</a>
             <nav class="nav-bar-mobile">
                 <ul>
-                    <li><a href="#">¿Quiénes somos?</a></li>
+                    <li><a href="/quienesSomos">¿Quiénes somos?</a></li>
                     <li><a href="/products">Nuestros productos</a></li>
                     <li><a href="#">¿Cómo comprar?</a></li>
                     <li><a href="/contacto">Contacto</a></li>
