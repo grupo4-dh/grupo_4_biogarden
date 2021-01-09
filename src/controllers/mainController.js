@@ -13,6 +13,10 @@ module.exports = {
     quienesSomos: function(req,res) {
         return res.render('quienesSomos.ejs');
     },
+    comoComprar: function(req,res) {
+        return res.render('comoComprar.ejs');
+    },
+
     contacto:function(req,res){
         return res.render('contacto.ejs');
     },
