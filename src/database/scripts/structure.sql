@@ -3,9 +3,6 @@
 -- Model: New Model    Version: 1.0
 -- MySQL Workbench Forward Engineering
 
-SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
-SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
-SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
 -- Schema dh_biogarden
@@ -28,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`users_categories` (
   `name` VARCHAR(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -52,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`users` (
     REFERENCES `dh_biogarden`.`users_categories` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -66,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`payment_methods` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -84,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`shipping_addresses` (
   `other_info` VARCHAR(30) NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -120,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`orders` (
     REFERENCES `dh_biogarden`.`shipping_addresses` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -134,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`products_categories` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -159,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`products` (
     REFERENCES `dh_biogarden`.`products_categories` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -187,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`orders_detail` (
     REFERENCES `dh_biogarden`.`products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -201,7 +198,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`permissions` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -224,7 +221,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`users_categories_permissions` (
     REFERENCES `dh_biogarden`.`users_categories` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -240,7 +237,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`colours` (
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE,
   UNIQUE INDEX `hexadecimal_UNIQUE` (`hexadecimal` ASC) VISIBLE)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -263,7 +260,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`products_colours` (
     REFERENCES `dh_biogarden`.`products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -277,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`sizes` (
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC) VISIBLE,
   UNIQUE INDEX `name_UNIQUE` (`name` ASC) VISIBLE)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -302,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`addresses` (
     REFERENCES `dh_biogarden`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -324,7 +321,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`carts` (
     REFERENCES `dh_biogarden`.`users` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -352,7 +349,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`carts_detail` (
     REFERENCES `dh_biogarden`.`products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 
 
 -- -----------------------------------------------------
@@ -375,7 +372,7 @@ CREATE TABLE IF NOT EXISTS `dh_biogarden`.`products_sizes` (
     REFERENCES `dh_biogarden`.`products` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+
 
 
 SET SQL_MODE=@OLD_SQL_MODE;
