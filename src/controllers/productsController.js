@@ -25,7 +25,7 @@ module.exports = {
             }
         })
         .then(function(products) {
-            return res.render('productsList', { products: products }); //recibe la ruta y el array
+            return res.render('products/productsList', { products: products }); //recibe la ruta y el array
         })
         .catch((error) => {
             return res.send(error)
@@ -56,7 +56,7 @@ module.exports = {
   
         })
         .then(function(product) {
-            return res.render('productDetail', { product: product })
+            return res.render('products/productDetail', { product: product })
         })
         .catch((error) => {
             return res.send(error)
@@ -80,7 +80,7 @@ module.exports = {
 
         })
        
-      res.redirect('productsList');
+      res.redirect('products/productsList');
     },
     // Devuelve la vista del Carrito de compras
     cart: function(req, res) {
@@ -88,7 +88,7 @@ module.exports = {
         for (product of productsCart) {
             total += product.price
         }
-        return res.render('productsCart', { products: productsCart, total: total } )
+        return res.render('products/productsCart', { products: productsCart, total: total } )
     },
     
     // Devuelve la vista de Edición de producto segun el ID
@@ -97,7 +97,7 @@ module.exports = {
             include:[{association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
         })
         .then(function(elProducto){
-            res.render('productEdit',{elProducto:elProducto})
+            res.render('products/productEdit',{elProducto:elProducto})
         })
 
        
@@ -120,7 +120,7 @@ module.exports = {
             }
         });
         
-        res.redirect('productsList' + req.params.id)
+        res.redirect('products/productsList' + req.params.id)
 
       
     },
@@ -131,7 +131,7 @@ module.exports = {
                 id:req.params.id
             }
         })
-        res.redirect('productList');
+        res.redirect('products/productList');
         
     }
 }
