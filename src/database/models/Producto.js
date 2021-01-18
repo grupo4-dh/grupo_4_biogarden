@@ -23,6 +23,9 @@ module.exports=function(sequelize,dataTypes){
     },
     status:{
         type:dataTypes.STRING,
+    },
+    description:{
+        type:dataTypes.STRING,
     }
 }
 
