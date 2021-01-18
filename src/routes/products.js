@@ -32,11 +32,11 @@ router.post('/create', upload.single('imagen'), productsController.save)        
 router.get('/cart', productsController.cart)                // Vista del Carrito de compras
 
 //  Detalle de producto
-router.get('/:product_id', productsController.detail)       // Vista del Detalle de producto
+router.get('/:id', productsController.detail)       // Vista del Detalle de producto
 
 //  Edición y borrado de producto
-router.get('/:product_id/edit', productsController.edit)    // Vista del Formulario de edición de productos
-router.put('/:product_id', upload.single('producto'), productsController.update)        // Acción de edición de producto
-router.delete('/:product_id', productsController.delete)    // Acción de borrado de producto
+router.get('/:id/edit', productsController.edit)    // Vista del Formulario de edición de productos
+router.put('/:id', upload.single('producto'), productsController.update)        // Acción de edición de producto
+router.delete('/:id', productsController.delete)    // Acción de borrado de producto
 
 module.exports = router; 

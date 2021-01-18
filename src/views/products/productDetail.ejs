@@ -4,11 +4,12 @@
     <body>
         <%- include('../partials/header.ejs') %>
         <br>
+        <% for ( let i=0; i<products.lenght;i++){ %>  
         <div class ="container product">
             <div class="product-left-col">
-                <img class="image" src="/uploads/products/<%= product.image %> "alt="<%= product.title %>">
+                <img class="image" src="/uploads/products/<%= products[i].image %> "alt="<%= products[i].title %>">
                 <h3>Descripción:</h3>
-                <p class="desc-content"><%= product.description %></p>
+                <p class="desc-content"><%= products[i].description %></p>
                 <h3>Dejános tu comentario:</h3>
                 <form class="comments" action="/productDetail" method="POST">
                     <textarea id="comment" name="comment" rows="1" placeholder="Escribí tu comentario..."></textarea>
@@ -16,16 +17,17 @@
                 </form>
             </div>
             <div class="product-right-col">
-                <h2 class="name"><%= product.title %></h2>
-                <h2 class ="price">$<%= product.price %> </h2>
+                <h2 class="name"><%= products[i].title %></h2>
+                <h2 class ="price">$<%= products[i].price %> </h2>
                 <div class="promo">
-                    <p class="cuotas">18 cuotas de $<%= (product.price / 18).toFixed(2) %></p>
+                    <p class="cuotas">18 cuotas de $<%= (products[i].price / 18).toFixed(2) %></p>
                     <div class="cards">
                         <a href=""><img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/visa@2x.png" class="product-payment-logos-img card-img lazyloaded"></a>
                         <a href=""><img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/mastercard@2x.png" class="product-payment-logos-img card-img lazyloaded"></a>
                         <a href=""><img src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png" data-src="//d26lpennugtm8s.cloudfront.net/assets/common/img/logos/payment/new_logos_payment/amex@2x.png" class="product-payment-logos-img card-img lazyloaded"></a>
                         <a href=""><img src="/images/card.svg" alt=""></a>
                     </div>
+
                     <p><a href="#"><h4 class="titulo6">Ver medios de pago</h4></a></p>
                 </div>
                 <form class="add-to-cart" action="/products/carr/add" method="POST">
@@ -40,6 +42,7 @@
                     <button class="button-add" type="submit"><i class="fas fa-shopping-cart"></i> Agregar al carrito</button>
                 </form>
             </div>
+            <% } %>
         </div>
         <%- include('../partials/footer.ejs') %>
     </body>

@@ -9,8 +9,8 @@ const registerValidator = require('../validations/registerValidator.js');
 const loginValidator= require('../validations/loginValidator.js')
 
 //faltarian los middlewares
-const authMiddleware = require('../middlewares/authMiddleware');
-const guestMiddleware = require('../middlewares/guestMiddleware');
+const authMiddelware = require('../middlewares/authMiddelware');
+const guestMiddelware = require('../middlewares/guestMiddelware');
 
 // Configuramos multer en la variable upload para subida de archivos
 var storage = multer.diskStorage({
@@ -33,8 +33,8 @@ router.get('/login',usersController.login)
 router.post('/login',loginValidator,usersController.processLogin)
 
 // Users profile y usamos session
-router.get('/profile',authMiddleware, usersController.profile)
-router.get('/logOut',usersController.cerrarSesion)
+router.get('/profile',authMiddelware, usersController.profile)
+router.get('/logout',usersController.cerrarSesion)
 //cerraar sesion
 //router.post('/profile', usersController.cerrarSesion)
 //req.session.destroy()

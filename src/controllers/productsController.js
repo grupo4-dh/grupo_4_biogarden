@@ -5,15 +5,15 @@ const db = require("../database/models")
 
 // Usamos archivos JSON como base de datos momentáneamente
 // Los leemos (fs.readFileSync) y parseamos (JSON.parse) en una sola linea
-let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'));
-let productsCart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'));
+//let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'));
+//let productsCart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'));
 
-let ultimoId=0;
-for (let i=0; i<products.length; i++) {
-    if(ultimoId <products[i].id) {
-        ultimoId=products[i].id
-    }
-}
+//let ultimoId=0;
+//for (let i=0; i<products.length; i++) {
+    //if(ultimoId <products[i].id) {
+        //ultimoId=products[i].id
+    //}
+//}
 
 
 module.exports = { 
@@ -33,9 +33,9 @@ module.exports = {
     },
     // Devuelve la vista de Detalle de producto segun el id 
     detail: function(req, res) {
-        db.Producto.findByPk(req.params.product_id)
-        .then(function(product) {
-            return res.render('./products/productDetail', { product: product })
+        db.Producto.findByPk(req.params.id)
+        .then(function(products) {
+            return res.render('./products/productDetail', { products: products })
         })
         .catch((error) => {
             return res.send(error)

@@ -12,7 +12,7 @@ const session = require('express-session');
 const cookieParser= require("cookie-parser");
 
 // Middlewares de cookies
-const rememberMiddleware=require("./middlewares/rememberMiddleware")
+const rememberMiddelware=require("./middlewares/rememberMiddelware")
 const usuarioRender = require('./middlewares/usuarioRender');
 
 // Configuramos el motor de vistas y la carpeta de vistas
@@ -34,7 +34,7 @@ app.use(express.json())
 // Seteamos session
 app.use(session({secret:'secret'}));
 app.use(cookieParser());
-app.use(rememberMiddleware);
+app.use(rememberMiddelware);
 app.use(usuarioRender);
 
 // Router
