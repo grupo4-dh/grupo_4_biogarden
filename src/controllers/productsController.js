@@ -1,5 +1,7 @@
 const fs = require('fs')
 const path = require('path')
+const db = require("../database/models")
+
 
 // Usamos archivos JSON como base de datos momentáneamente
 // Los leemos (fs.readFileSync) y parseamos (JSON.parse) en una sola linea
@@ -17,8 +19,23 @@ for (let i=0; i<products.length; i++){
 module.exports = { 
     // Devuelve la vista del Listado de productos
     all: function(req, res) {
-        return res.render('./products/productsList', { products: products })//recibe la ruta y el array
+        db.Producto.findAll()
+        .then(function(products){
+            return res.render('./products/productsList', { products: products });//recibe la ruta y el array
+
+        })
+        
     },
+
+// Devuelve la vista de Detalle de producto segun el id 
+detail: function(req, res) {
+    db.Producto.findByPk(req.params.id)
+    .then(function(Unproducto){
+        return res.render('./products/productDetail', { Unproducto: Unproducto })
+
+    })
+      
+},
     // Devuelve la vista del Formulario de creación de producto 
     create: function(req, res) {
         return res.render('./products/productCreate')
@@ -52,15 +69,7 @@ module.exports = {
         }
         return res.render('./products/productsCart', { products: productsCart, total: total } )
     },
-    // Devuelve la vista de Detalle de producto
-    detail: function(req, res) {
-        for (product of products) {
-            if (product.id == req.params.product_id) {
-                return res.render('./products/productDetail', { products: product })
-            }         
-        }
-        return res.send('PRODUCT NOT FOUND') // REDIGIR A LISTADO DE PRODUCTOS CON PARTIAL NOT FOUND
-    },
+    
     // Devuelve la vista de Edición de producto 
     edit: function(req, res) {
         for (product of products) {

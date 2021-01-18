@@ -9,20 +9,20 @@
                 <h1 class = "titulo">Tus Productos</h1>
                 <a href="/products/create"><button>Crear nuevo producto</button></a>
             </div>
-            <% for ( product of products) { %>  
+            <% for ( let i=0; i<products.lenght;i++){ %>  
             <div class="product-container">
-                <img class="imagenListado" src="/uploads/productos/<%= product.image %> "alt="<%= product.name %>"></a>                
+                <img class="imagenListado" src="/uploads/productos/<%= products[i].image %> "alt="<%= products[i].title %>"></a>                
                 <div class="productosListado">
-                    <a href="/products/<%= product.id %>"><p><%= product.name %></p></a>
-                    <p>$ <%= product.price %></p>
-                    <p><%= product.category %></p>
-                    <p class="descripcionProducto"><%= product.description %></p>                 
+                    <a href="/products/<%= products[i].product_id%>"><p><%= products[i].title %></p></a>
+                    <p>$ <%= products[i].price %></p>
+                    <p><%= products[i].categorias.name%></p>
+                    <p class="descripcionProducto"><%= products[i].description %></p>                 
                 </div>
                 <div class="actions">
-                    <a class="edit" href="/products/<%= product.id %>/edit">
+                    <a class="edit" href="/products/<%= products[i].product_id %>/edit">
                         <button><i class="fas fa-edit"></i> Editar</button>
                     </a>
-                    <form class="delete" action="products/<%= product.id %>?_method=DELETE" method="POST">
+                    <form class="delete" action="products/<%= products[i].product_id %>?_method=DELETE" method="POST">
                         <button type="submit"><i class="fas fa-trash-alt"></i> Eliminar</button>
                     </form>
                     
@@ -36,12 +36,13 @@
                 <h1 class = "titulo">Nuestros productos</h1>
             </div>
             <section>
-                <% for ( product of products) { %> 
+                <% for ( let i=0; i<products.lenght;i++) { %> 
                     <article>
-                        <a href="/products/<%= product.id %>"><img src="/uploads/productos/<%= product.image %> "alt="<%= product.name %>"></a>
+                        <a href="/products/<%= products[i].product_id %>"><img src="/uploads/productos/<%= products[i].image %> "alt="<%= products[i].title %>"></a>
                         <div class="item-info">
-                            <p class="name"><%= product.name %></p>
-                            <p class="price">$<%= product.price %></p>
+                            <p class="name"><%= products[i].title %></p>
+                            <p class="price">$<%= products[i].price %></p>
+                            
                         </div>
                     </article>
                 <% } %>
