@@ -8,9 +8,9 @@ const path=require('path');
 const registerValidator = require('../validations/registerValidator.js');
 const loginValidator= require('../validations/loginValidator.js')
 
-//faltarian los middelwares
-const authMiddelware = require('../middelwares/authMiddelware');
-const guestMiddelware = require('../middelwares/guestMiddelware');
+//faltarian los middlewares
+const authMiddleware = require('../middlewares/authMiddleware');
+const guestMiddleware = require('../middlewares/guestMiddleware');
 
 // Configuramos multer en la variable upload para subida de archivos
 var storage = multer.diskStorage({
@@ -25,7 +25,7 @@ var upload = multer({ storage: storage })
 
 // Users register
 router.get('/register', usersController.register)
-router.post('/register', upload.single('avatar'), registerValidator, usersController.save)//guardamos el usuario y agregamos el middelware
+router.post('/register', upload.single('avatar'), registerValidator, usersController.save)//guardamos el usuario y agregamos el middleware
 
 
 // Users login
@@ -33,7 +33,7 @@ router.get('/login',usersController.login)
 router.post('/login',loginValidator,usersController.processLogin)
 
 // Users profile y usamos session
-router.get('/profile',authMiddelware, usersController.profile)
+router.get('/profile',authMiddleware, usersController.profile)
 router.get('/logOut',usersController.cerrarSesion)
 //cerraar sesion
 //router.post('/profile', usersController.cerrarSesion)

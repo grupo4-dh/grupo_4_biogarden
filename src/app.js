@@ -8,20 +8,17 @@ const app = express();
 // Session
 const session = require('express-session');
 
-//cokkies
+// Cookies
 const cookieParser= require("cookie-parser");
-
 
 // Routers
 const mainRouter = require('./routes/main');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
+
 //MIDDELWARES DE COOKIES
-const rememberMiddleware=require("./middelwares/rememberMiddelware")
-const usuarioRender = require('./middelwares/usuarioRender');
-
-
-
+const rememberMiddleware=require("./middlewares/rememberMiddleware")
+const usuarioRender = require('./middlewares/usuarioRender');
 
 
 // Configuramos el motor de vistas y la carpeta de vistas
