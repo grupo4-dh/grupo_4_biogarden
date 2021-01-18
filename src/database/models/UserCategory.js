@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => { 
-    const UserCategory = sequelize.define("UserCategory",
+    const UsersCategory = sequelize.define("UsersCategories",
     {
         id: {
             type: DataTypes.INTEGER,
@@ -14,11 +14,18 @@ module.exports = (sequelize, DataTypes) => {
         tableName: 'users_categories',
         timestamps: false,
     });
-    UserCategory.associate = function(models){
-        User.hasMany(models.User, {
-            as: "users_categories",
-            foreignKey: "users"
+    UsersCategory.associate = function(models){
+        UsersCategory.hasMany(models.Users, {
+            as: "users",
+            foreignKey: "id_category"
+        }),
+        UsersCategory.belongsToMany(models.Permissions, {
+            as: "permissions",
+            through: "users_categories_permissions",
+            foreignKey: "id_category",
+            otherKey: "id_permission",
+            timestamps: false,
         })
     }
-    return UserCategory
+    return UsersCategory
 }

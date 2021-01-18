@@ -6,6 +6,8 @@ const path = require('path')
 let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'))
 let contacto = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/contacto.json'),'utf8'))
 
+const db = require('../database/models')
+
 module.exports = {
     index: function(req, res) {
         return res.render('index.ejs', { products: products.slice(0, 12) } )
@@ -34,7 +36,15 @@ module.exports = {
             
             res.redirect('/')
         
+    },
+    test: function(req, res){
+        db.Users.findAll()
+        .then((users) => {
+            return res.send(users)
+        })
+        .catch((error) => {
+            return res.send(error)
+        });
     }
-
 }
 
