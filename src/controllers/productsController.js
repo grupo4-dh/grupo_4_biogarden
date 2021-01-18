@@ -33,9 +33,14 @@ module.exports = {
     },
     // Devuelve la vista de Detalle de producto segun el id 
     detail: function(req, res) {
-        db.Producto.findByPk(req.params.id)
-        .then(function(products) {
-            return res.render('./products/productDetail', { products: products })
+        db.Producto.findByPk(req.params.id,{
+            include:{
+                all:true,
+                nested:true
+            }
+        })
+        .then(function(product) {
+            return res.render('./products/productDetail', { product: product })
         })
         .catch((error) => {
             return res.send(error)
@@ -47,24 +52,19 @@ module.exports = {
     },
     // Guarda el producto que viaja en el body en la BBDD 
     save: function(req, res) {
-        // Creamos el objeto literal y lo guardamos en el array de products
-        let nuevoProducto = {
-            id: ultimoId + 1,
-            name: req.body.nombre,
-            description: req.body.descripcion,
-            image: req.file.filename,
-            category: req.body.categoria,
-            price: req.body.precio,
-            quantity: 10,
-            colors: req.body.color
-        }
-        products.push(nuevoProducto);
-        
-        //Escribimos el producto nuevo
-        fs.writeFileSync(path.join( __dirname, '../database/products.json'), JSON.stringify(products, null, 4));
-        
-        // Redirigimos a la siguiente página
-        res.redirect('/products')
+        db.Producto.create({
+            title:req.body.title,
+            price:req.body.price,
+            image:req.body.image,
+            description:req.body.descripcion,
+            id_category:req.body.id_category,
+            id_colour:req.body.id_colour,
+            id_size:req.body.id_size,
+            quantity:req.body.quantity
+
+        })
+       
+      res.redirect('productsList');
     },
     // Devuelve la vista del Carrito de compras
     cart: function(req, res) {
