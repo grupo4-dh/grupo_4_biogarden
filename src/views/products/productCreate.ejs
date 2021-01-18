@@ -14,7 +14,7 @@
                     <input type="text" name="price" id="price" placeholder="precio"><br>
                     <p ><label  for="nombre">Categoria</label></p>
                     <select name="id_category"id="id_category" >
-                        <%for(let i=o; i<Pcategoria.length;i++){
+                        <%for(let i=0; i<Pcategoria.length;i++){
                     <option value ="<%=Pcategoria[i].id%>">
                         <%=Pcategoria[i].name%>
                         </option>
@@ -24,7 +24,7 @@
                    
                     <p ><label  for="nombre">Color</label></p>
                     <select name="id_colour"id="id_colour" >
-                        <%for(let i=o; i<Pcolour.length;i++){
+                        <%for(let i=0; i<Pcolour.length;i++){
                     <option value ="<%=Pcolour[i].id%>">
                         <%=Pcolour[i].name%>
                         </option>
@@ -36,7 +36,7 @@
                     <input type="text" name="quantity" id="quantity" placeholder="cantidad"><br>
                     <p ><label  for="nombre">Tamano</label></p>
                     <select name="id_size"id="id_size" >
-                        <%for(let i=o; i<Psize.length;i++){
+                        <%for(let i=0; i<Psize.length;i++){
                     <option value ="<%=Psize[i].id%>">
                         <%=Psize[i].name%>
                         </option>

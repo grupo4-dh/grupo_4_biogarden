@@ -19,10 +19,10 @@
                     <p class="descripcionProducto"><%= products[i].description %></p>                 
                 </div>
                 <div class="actions">
-                    <a class="edit" href="/products/<%= products[i].id %>/edit">
+                    <a class="edit" href="/products/edit<%= products[i].id %>">
                         <button><i class="fas fa-edit"></i> Editar</button>
                     </a>
-                    <form class="delete" action="products/<%= products[i].id %>?_method=DELETE" method="POST">
+                    <form class="delete" action="products/delete<%= products[i].id %>?_method=DELETE" method="POST">
                         <button type="submit"><i class="fas fa-trash-alt"></i> Eliminar</button>
                     </form>
                     
@@ -36,7 +36,7 @@
                 <h1 class = "titulo">Nuestros productos</h1>
             </div>
             <section>
-                <% for ( let i=0; i<products.lenght;i++) { %> 
+                <% for ( let i=0; i<products.length;i++) { %> 
                     <article>
                         <a href="/products/<%= products[i].id %>"><img src="/uploads/productos/<%= products[i].image %> "alt="<%= products[i].title %>"></a>
                         <div class="item-info">
