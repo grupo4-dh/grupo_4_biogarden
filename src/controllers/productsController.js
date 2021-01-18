@@ -9,8 +9,8 @@ let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/produ
 let productsCart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'));
 
 let ultimoId=0;
-for (let i=0; i<products.length; i++){
-    if(ultimoId <products[i].id){
+for (let i=0; i<products.length; i++) {
+    if(ultimoId <products[i].id) {
         ultimoId=products[i].id
     }
 }
@@ -19,23 +19,28 @@ for (let i=0; i<products.length; i++){
 module.exports = { 
     // Devuelve la vista del Listado de productos
     all: function(req, res) {
-        db.Producto.findAll()
-        .then(function(products){
-            return res.render('./products/productsList', { products: products });//recibe la ruta y el array
-
+        db.Producto.findAll({
+            where: {
+                status: 1
+            }
         })
-        
+        .then(function(products) {
+            return res.render('./products/productsList', { products: products }); //recibe la ruta y el array
+        })
+        .catch((error) => {
+            return res.send(error)
+        });
     },
-
-// Devuelve la vista de Detalle de producto segun el id 
-detail: function(req, res) {
-    db.Producto.findByPk(req.params.id)
-    .then(function(Unproducto){
-        return res.render('./products/productDetail', { Unproducto: Unproducto })
-
-    })
-      
-},
+    // Devuelve la vista de Detalle de producto segun el id 
+    detail: function(req, res) {
+        db.Producto.findByPk(req.params.product_id)
+        .then(function(product) {
+            return res.render('./products/productDetail', { product: product })
+        })
+        .catch((error) => {
+            return res.send(error)
+        });
+    },
     // Devuelve la vista del Formulario de creación de producto 
     create: function(req, res) {
         return res.render('./products/productCreate')
