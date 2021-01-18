@@ -10,7 +10,17 @@ const db = require('../database/models')
 
 module.exports = {
     index: function(req, res) {
-        return res.render('index.ejs', { products: products.slice(0, 12) } )
+        db.Producto.findAll({
+            where: {
+                status: 1
+            }
+        })
+        .then((products) => {
+            return res.render('index', { products: products.slice(0, 12) } )
+        })
+        .catch((error) => {
+            return res.send(error)
+        });
     },
     quienesSomos: function(req,res) {
         return res.render('quienesSomos.ejs');
