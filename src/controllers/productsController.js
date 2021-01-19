@@ -22,7 +22,10 @@ module.exports = {
         db.Producto.findAll({
             where: {
                 status: 1
-            }
+            },
+            include:[
+                {
+                    association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
         })
         .then(function(products) {
             return res.render('products/productsList', { products: products }); //recibe la ruta y el array
@@ -93,14 +96,20 @@ module.exports = {
     
     // Devuelve la vista de Edición de producto segun el ID
     edit: function(req, res) {
-        db.Producto.findByPK(req.prams.id,{
-            include:[{association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
+        let array_sizes
+        db.Psize.findAll()
+        .then(function(sizes){  
+            return sizes
         })
-        .then(function(elProducto){
-            res.render('products/productEdit',{elProducto:elProducto})
+        .then( function(sizes){
+            array_sizes = sizes
+            db.Producto.findByPk(req.params.id,{
+                include:[{association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
+            })
+            .then(function(elProducto){  
+                res.render('products/productEdit', { elProducto:elProducto, Psize: array_sizes })
+            })
         })
-
-       
     },
     // Actualiza un producto en la BBDD
     update: function(req, res) {

@@ -9,9 +9,9 @@
                 <h1 class = "titulo">Tus Productos</h1>
                 <a href="/products/create"><button>Crear nuevo producto</button></a>
             </div>
-            <% for ( let i=0; i<products.lenght;i++){ %>  
+            <% for ( let i=0; i < products.length; i++) { %>  
             <div class="product-container">
-                <img class="imagenListado" src="/uploads/productos/<%= products[i].image %> "alt="<%= products[i].title %>"></a>                
+                <img class="imagenListado" src="/uploads/products/<%= products[i].image %> "alt="<%= products[i].title %>"></a>                
                 <div class="productosListado">
                     <a href="/products/<%= products[i].id%>"><p><%= products[i].title %></p></a>
                     <p>$ <%= products[i].price %></p>
@@ -19,10 +19,10 @@
                     <p class="descripcionProducto"><%= products[i].description %></p>                 
                 </div>
                 <div class="actions">
-                    <a class="edit" href="/products/edit<%= products[i].id %>">
+                    <a class="edit" href="/products/<%= products[i].id %>/edit">
                         <button><i class="fas fa-edit"></i> Editar</button>
                     </a>
-                    <form class="delete" action="products/delete<%= products[i].id %>?_method=DELETE" method="POST">
+                    <form class="delete" action="/products/<%= products[i].id %>/delete" method="POST">
                         <button type="submit"><i class="fas fa-trash-alt"></i> Eliminar</button>
                     </form>
                     
@@ -38,7 +38,7 @@
             <section>
                 <% for ( let i=0; i<products.length;i++) { %> 
                     <article>
-                        <a href="/products/<%= products[i].id %>"><img src="/uploads/productos/<%= products[i].image %> "alt="<%= products[i].title %>"></a>
+                        <a href="/products/<%= products[i].id %>"><img src="/uploads/products/<%= products[i].image %> "alt="<%= products[i].title %>"></a>
                         <div class="item-info">
                             <p class="name"><%= products[i].title %></p>
                             <p class="price">$<%= products[i].price %></p>
