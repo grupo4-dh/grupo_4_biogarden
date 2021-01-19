@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../partials/head.ejs', { title: 'Productos', stylesheet: 'products/productsList.css'}); %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto de Busqueda:</title>
+</head>
+<body>
+    <%- include('../partials/header.ejs',{buquedaUsuario:queryString}) %>
+    <main>
+    <section class= 'busqueda'>
+        <% if(productos.length<=0) {%> 
+            <h1>No encontramos el productos que estas buscando!... Intenta nuevamente!!!</h1>
+            <% }else {%>
+        <h1>Este es el resultado de tu Busqueda:<%=queryString %></h1>
+        <% } %> 
+    </section>
+    <section class="productoBuscado">
+        <% for (let i=0; productos[i].length;i++){%>
+            <article>
+                <h2><%productos[i].title %> </h2>
+                <a href=<%="/products/" + productos[i].id %>><button style="cursor:pointer"> Ingresa a los detalles del producto que buscas</button></a>
+            </article>
+
+        <% } %> 
+
+    </section>
+    </main>
+    
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>

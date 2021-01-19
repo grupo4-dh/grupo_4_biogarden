@@ -1,7 +1,9 @@
 <header>
     <div class="container brand">
-        <form action="">
-            <input type="text" placeholder="Buscar" id="query" name="search_query"><button type="submit"><i class="fas fa-search"></i></button>
+        <form action="/products/search" method="GET">
+            <input type="text" placeholder="Buscar" id="search" name="search" value="<%(typeOf busquedaUsuario=='undefined')? '' :busquedaUsuario %>">
+            <button type="submit"><i class="fas fa-search"></i></button>
+                
         </form>
         <a href="/"><img class="logo" src="/images/logo.png" alt="Bio Garden"></a>
         <span class="cart-and-account">

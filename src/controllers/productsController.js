@@ -34,19 +34,23 @@ module.exports = {
         });
     },
 
-    search:function(req,resp){//faltaria hacer la vista de search resoult
+    search:function(req,resp){//faltaria hacer la vista de search resoult// req.query.search(lo que el usuario busca)
         db.Producto.findAll({
             where:{
                 title:{
-                    [db.Sequelize.Op.like]:`%${req.query.search}%`
+                    [db.Sequelize.Op.like]:`%${req.query.search}%`//loq ue el usuario busca
                 }
             }
         })
         .then(function(resultado){
-            res.render('searchResoult',{
+            res.render('products/searchResoult',{
                 queryString:req.query.search,
-                productos:resultado
+                productos:resultado//recuperamos lo que el usuario busca
             })
+        })
+            .catch(function(e){
+                console.log(e)
+            
         })
 
     },
