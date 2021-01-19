@@ -16,6 +16,10 @@
                     <a href="/products/<%= products[i].id%>"><p><%= products[i].title %></p></a>
                     <p>$ <%= products[i].price %></p>
                     <p><%= products[i].categorias.name%></p>
+                    <p class="color">$<%= products[i].colores.name %></p>
+                    <p class="categoria">$<%= products[i].categorias.name %></p>
+                    <p class="tamano">$<%= products[i].tamanos.name %></p>
+                            
                     <p class="descripcionProducto"><%= products[i].description %></p>                 
                 </div>
                 <div class="actions">
@@ -42,6 +46,9 @@
                         <div class="item-info">
                             <p class="name"><%= products[i].title %></p>
                             <p class="price">$<%= products[i].price %></p>
+                            <p class="color">$<%= products[i].colores.name %></p>
+                            <p class="categoria">$<%= products[i].categorias.name %></p>
+                            <p class="tamano">$<%= products[i].tamanos.name %></p>
                             
                         </div>
                     </article>

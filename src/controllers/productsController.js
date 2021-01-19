@@ -24,8 +24,7 @@ module.exports = {
                 status: 1
             },
             include:[
-                {
-                    association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
+                {association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
         })
         .then(function(products) {
             return res.render('products/productsList', { products: products }); //recibe la ruta y el array
@@ -95,21 +94,48 @@ module.exports = {
     },
     
     // Devuelve la vista de Edición de producto segun el ID
-    edit: function(req, res) {
+    edit: function(req, res){
+
         let array_sizes
         db.Psize.findAll()
         .then(function(sizes){  
             return sizes
         })
-        .then( function(sizes){
+        .then(function(sizes){
             array_sizes = sizes
             db.Producto.findByPk(req.params.id,{
                 include:[{association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
             })
-            .then(function(elProducto){  
-                res.render('products/productEdit', { elProducto:elProducto, Psize: array_sizes })
+            
+
+            let array_categorias
+            db.Pcategoria.findAll()
+            .then(function(categoria){  
+                return categoria
             })
-        })
+            .then(function(categoria){
+                array_categoria = categoria
+                db.Producto.findByPk(req.params.id,{
+                    include:[{association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
+            })
+                let array_colores
+                db.Pcolour.findAll()
+                .then(function(color){  
+                    return color
+                })
+                .then( function(color){
+                    array_color = color
+                    db.Producto.findByPk(req.params.id,{
+                        include:[{association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
+                    })
+
+            .then(function(elProducto){  
+                res.render('products/productEdit', { elProducto:elProducto, Psize: array_sizes, Pcategoria:array_categoria,Pcolour:array_colour})
+            })
+            .catch((error) => {
+                return res.send(error)  
+        });
+    
     },
     // Actualiza un producto en la BBDD
     update: function(req, res) {
