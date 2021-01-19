@@ -2,7 +2,7 @@ module.exports=function(sequelize,dataTypes){
 
     let alias ="Pcategoria";//para cuando lo llame del codigo 
     let cols={
-        category_id:{
+        id:{
             type:dataTypes.INTEGER,
             primaryKey:true,
             autoIncrement:true

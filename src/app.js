@@ -1,4 +1,4 @@
-// Librerias
+// Modules
 const path = require('path');
 
 // Express
@@ -8,21 +8,12 @@ const app = express();
 // Session
 const session = require('express-session');
 
-//cokkies
+// Cookies
 const cookieParser= require("cookie-parser");
 
-
-// Routers
-const mainRouter = require('./routes/main');
-const usersRouter = require('./routes/users');
-const productsRouter = require('./routes/products');
-//MIDDELWARES DE COOKIES
-const rememberMiddleware=require("./middelwares/rememberMiddelware")
-const usuarioRender = require('./middelwares/usuarioRender');
-
-
-
-
+// Middlewares de cookies
+const rememberMiddelware=require("./middlewares/rememberMiddelware")
+const usuarioRender = require('./middlewares/usuarioRender');
 
 // Configuramos el motor de vistas y la carpeta de vistas
 app.set('view engine', 'ejs');
@@ -43,15 +34,17 @@ app.use(express.json())
 // Seteamos session
 app.use(session({secret:'secret'}));
 app.use(cookieParser());
-app.use(rememberMiddleware);
+app.use(rememberMiddelware);
 app.use(usuarioRender);
 
+// Router
+const mainRouter = require('./routes/main');
+const usersRouter = require('./routes/users');
+const productsRouter = require('./routes/products');
 
-
-// Seteamos los routers
-app.use( '/', mainRouter );
-app.use( '/users', usersRouter ); 
-app.use( '/products', productsRouter ); 
+app.use('/', mainRouter);
+app.use('/users', usersRouter); 
+app.use('/products', productsRouter); 
 
 // Levantamos el server en el puerto indicado en la variable de entorno PORT, o en el puerto 3000 si no hay nada ahí.
 // Más info en: https://stackoverflow.com/questions/18864677/what-is-process-env-port-in-node-js

@@ -7,19 +7,39 @@
             <h2 class ="titulo">EDITAR PRODUCTOS</h2>
             <P class="descripcion">Completar los siguientes campos:</P>
             <div class= "caja-container-1">
-                <form method="POST" action="../<%= product.id %>?_method=PUT" enctype="multipart/form-data"> 
+                <form method="POST" action="/products/edit<%elProducto.id %> " enctype="multipart/form-data"> 
                     <p><label for="nombre">Nombre del Producto</label></p>
-                    <input type="text" name="nombre" id="titulo" value="<%= product.name %>"><br>
+                    <input type="text" name="title" id="title" value="<%=elProducto.title %>"><br>
+                    <p><label for="nombre">Cantidad</label></p>
+                    <input type="text" name="quantity" id="quantity" value="<%=elProducto.quantity %>"><br>
                     <p><label for="nombre">Precio</label></p>
-                    <input type="text" name="precio" id="precio" placeholder="precio" value="<%= product.price %>"><br>
+                    <input type="text" name="price" id="price" placeholder="precio" value="<%= elProducto.price %>"><br>
+                    <p><label for="nombre">Tamano</label></p>
+                    <select name="id_size" id="id_size">
+                    <% for (let i=0; i < Psize.length;i++) { %> 
+                        <option value ="<%=Psize[i].id%>">
+                            <%=Psize[i].name%>
+                        </option>
+                    <%}%>
+                    </select>              
                     <p><label for="nombre">Categoria</label></p>
-                    <input type="text" name="categoria" id="categoria" value="<%= product.category %>"><br>
+                    <select name="id_category" id="id_category">
+                    <% for (let i=0; i<Pcategoria.length;i++) { %> 
+                        <option value ="<%=Pcategoria[i].id%>">
+                            <%=Pcategoria[i].name%>
+                        </option>
+                    <%}%>
                     <p><label for="nombre">Color</label></p>
-                    <input type="text" name="color" id="color" placeholder="color" value="<%= product.colors %>"><br>
+                    <select name="id_colour" id="id_colour">
+                    <% for (let i=0; i<Pcolour.length;i++) { %> 
+                        <option value ="<%=Pcolour[i].id%>">
+                        <%=Pcolour[i].name%>
+                        </option>
+                    <%}%>
                     <p><label for="Descripcion">Descripcion</label></p>
-                    <textarea name="descripcion" id="descripcion" cols="20" rows="10"><%= product.description %></textarea><br>
-                    <input type="file" id ="producto"  name="producto" class = "imagen" placeholder = "Cargar imagen"><br><br>
-                    <button type="submit" class= "crearProducto">Editar producto</button>
+                    <textarea name="description" id="description" cols="20" rows="10"><%= elProducto.description %></textarea><br>
+                    <input type="file" id ="image"  name="image" class = "imagen" placeholder = "Cargar imagen"><br><br>
+                    <button type="submit" class= "EditarProducto">Editar producto</button>
                 </form>
             </div>
         </div> 

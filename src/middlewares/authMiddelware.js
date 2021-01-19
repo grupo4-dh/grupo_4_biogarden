@@ -1,5 +1,5 @@
 
-const path = require ('path');//cookie middelware- valida si 
+const path = require ('path'); //cookie middleware- valida si 
 const fs = require ('fs')
 
 let users = JSON.parse(fs.readFileSync(path.join(__dirname, '../database/users.json'), 'utf8'))
