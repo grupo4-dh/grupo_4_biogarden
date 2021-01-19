@@ -16,30 +16,26 @@
                     <input type="text" name="price" id="price" placeholder="precio" value="<%= elProducto.price %>"><br>
                     <p><label for="nombre">Tamano</label></p>
                     <select name="id_size" id="id_size">
-                        <% for (let i=0; i<Psize.length;i++) %> 
-                            <option value ="<%=Psizea[i].id%>">
-                                <%=Psize[i].name%>
-                                </option>
-        
-                                <%}%>
+                    <% for (let i=0; i < Psize.length;i++) { %> 
+                        <option value ="<%=Psize[i].id%>">
+                            <%=Psize[i].name%>
+                        </option>
+                    <%}%>
                     </select>              
                     <p><label for="nombre">Categoria</label></p>
                     <select name="id_category" id="id_category">
-                        <% for (let i=0; i<Pcategoria.length;i++) %> 
-                            <option value ="<%=Pcategoria[i].id%>">
-                                <%=Pcategoria[i].name%>
-                                </option>
-        
-                                <%}%>
-                    
+                    <% for (let i=0; i<Pcategoria.length;i++) { %> 
+                        <option value ="<%=Pcategoria[i].id%>">
+                            <%=Pcategoria[i].name%>
+                        </option>
+                    <%}%>
                     <p><label for="nombre">Color</label></p>
                     <select name="id_colour" id="id_colour">
-                        <% for (let i=0; i<Pcolour.length;i++) %> 
-                            <option value ="<%=Pcolour[i].id%>">
-                                <%=Pcolour[i].name%>
-                                </option>
-        
-                                <%}%>
+                    <% for (let i=0; i<Pcolour.length;i++) { %> 
+                        <option value ="<%=Pcolour[i].id%>">
+                        <%=Pcolour[i].name%>
+                        </option>
+                    <%}%>
                     <p><label for="Descripcion">Descripcion</label></p>
                     <textarea name="description" id="description" cols="20" rows="10"><%= elProducto.description %></textarea><br>
                     <input type="file" id ="image"  name="image" class = "imagen" placeholder = "Cargar imagen"><br><br>

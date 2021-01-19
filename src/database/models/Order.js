@@ -30,7 +30,7 @@ let config={
         Order.belongsToMany(models.Producto,{
             as:"productos",
             through:"orders_details",
-            foreignKey:"id_oder",
+            foreignKey:"id_order",
             otherkey:"id_product",
             timestamps:false
         });
