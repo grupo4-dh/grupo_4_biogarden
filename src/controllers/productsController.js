@@ -100,41 +100,25 @@ module.exports = {
     // Devuelve la vista de Edición de producto segun el ID
     edit: function(req, res){// esta mal porque da error el codigo--- REVISARLO!!!
 
-        let array_sizes
-        db.Psize.findAll()
-        .then(function(sizes){  
-            return sizes
-        })
-        .then(function(sizes){
-            array_sizes = sizes
-            db.Producto.findByPk(req.params.id,{
-                include:[{association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
-            })
-            
+        db.Producto.findByPk(req.params.id,{ include: { all: true }})
+     
+            .then(function(producto){
+                db.Psize.findAll()
+                .then(function(sizes){
+                    db.Pcategoria.findAll()
+                    .then(function(categorias){
+                        db.Pcolour.findAll()
+                        .then(function(colores){
+                            res.render('products/productEdit', {
+                                producto: producto,
+                                sizes:sizes,
+                                categorias:categorias,
+                                colores:colores
+                             })
 
-            let array_categorias
-            db.Pcategoria.findAll()
-            .then(function(categoria){  
-                return categoria
-            })
-            .then(function(categoria){
-                array_categoria = categoria
-                db.Producto.findByPk(req.params.id,{
-                    include:[{association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
-            })
-                let array_colores
-                db.Pcolour.findAll()
-                .then(function(color){  
-                    return color
-                })
-                .then( function(color){
-                    array_color = color
-                    db.Producto.findByPk(req.params.id,{
-                        include:[{association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
+                        })
                     })
-
-            .then(function(elProducto){  
-                res.render('products/productEdit', { elProducto:elProducto, Psize: array_sizes, Pcategoria:array_categoria,Pcolour:array_colour})
+                })   
             })
             .catch((error) => {
                 return res.send(error)  
