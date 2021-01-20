@@ -98,7 +98,7 @@ module.exports = {
     },
     
     // Devuelve la vista de Edición de producto segun el ID
-    edit: function(req, res){
+    edit: function(req, res){// esta mal porque da error el codigo--- REVISARLO!!!
 
         let array_sizes
         db.Psize.findAll()
