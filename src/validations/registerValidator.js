@@ -1,36 +1,40 @@
-//array de validaciones
-const { check } = require('express-validator');
-const { body } = require('express-validator');
+// registerValidator valida los datos del Form de Registro
 
-const fs = require("fs");
-const path = require('path');
+const { check, body } = require('express-validator');
+
+const db = require('../database/models')
 
 module.exports = [
-    check('name')
-        .isLength({min:2,max:20})
-        .withMessage('el nombre tiene que tener como minimo 2 caracterres'),
+    check("name")
+    .notEmpty().withMessage('El campo no puede estar vacío')
+    .isLength({ min: 3, max: 20 }).withMessage('El nombre tiene que tener como mínimo 3 caracteres'),
 
-    check('email')
-        .isEmail()
-        .withMessage('Debes ingresar un email valido'),
+    check("last_name")
+    .notEmpty().withMessage('El campo no puede estar vacío')
+    .isLength({ min: 3, max: 20 }).withMessage('El nombre tiene que tener como mínimo 3 caracteres'),
+
+    check("email")
+    .notEmpty().withMessage('El campo no puede estar vacío')
+    .isEmail().withMessage("Debes ingresar un email válido"),
     
-    check('password')
-        .isLength({min:6,max:12})
-        .withMessage('la contraseña debe tener como minimo 6 caracteres y como maximo 12'),
-    
-    body('email').custom(function(value){
-        let usersJson = fs.readFileSync(path.join(__dirname,'../database/users.json'), 'utf8');
-        let users;
-        if(usersJson == ''){
-            users = [];
-        }else{
-            users = JSON.parse(usersJson);
-        }
-        for (let i=0; i < users.length; i++) {
-            if (users[i].email == value) {
-                return false;
-            }
-        }
-        return true;
-    })
+    check("password")
+    .notEmpty().withMessage('El campo no puede estar vacío')
+    .isLength({ min:6, max:15 }).withMessage("La contraseña debe contener como mínimo 6 caracteres"),
+        
+    body("email").custom(function(value) {
+        return true
+        // db.Users.findOne({
+        //     where: {
+        //         email: value
+        //     }
+        // }).then( userFound => {
+        //     if (userFound) {
+        //         return false
+        //     }
+        //     return true
+        // })
+        // .catch( error => {
+        //     console.log(error)
+        // })
+    }).withMessage("Este email ya está registrado")
 ]
