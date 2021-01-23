@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: biogarden
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.14-MariaDB
+-- Server version	5.5.5-10.4.17-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -387,29 +387,6 @@ INSERT INTO `states` VALUES (1,'Buenos Aires',1),(2,'Capital Federal',1),(3,'Có
 UNLOCK TABLES;
 
 --
--- Table structure for table `user_categories`
---
-
-DROP TABLE IF EXISTS `user_categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user_categories` (
-  `id_category` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_category`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_categories`
---
-
-LOCK TABLES `user_categories` WRITE;
-/*!40000 ALTER TABLE `user_categories` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_categories` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `users`
 --
 
@@ -417,7 +394,7 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `id` int(11) unsigned NOT NULL,
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `lastname` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
@@ -429,7 +406,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `fk_users_user_categories1_idx` (`id_category`),
   CONSTRAINT `fk_users_user_categories1` FOREIGN KEY (`id_category`) REFERENCES `users_categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -438,7 +415,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (0,'Admin','Biogarden','admin@biogarden.com','$2b$12$ZISqUcVJEe2N47CNffLL1.E.UwpuqqforuhQLosqzVim8dKSzZREy',2,'admin@biogarden.com.jpg'),(1,'Roberto','Gomez','rgomez@gmail.com','$2b$12$ZISqUcVJEe2N47CNffLL1.E.UwpuqqforuhQLosqzVim8dKSzZREy',1,'rgomez@gmail.com.jpg'),(2,'Maria','Torres','mtorres@gmail.com','$2b$12$ZISqUcVJEe2N47CNffLL1.E.UwpuqqforuhQLosqzVim8dKSzZREy',1,'mtorres@gmail.com.jpg');
+INSERT INTO `users` VALUES (1,'Admin','Biogarden','admin@biogarden.com','$2b$12$UQYWx.n4nGJ6xsuI51pdguuFjtdw4RM1Mp6t0698xuSoKJ6KncqYu',2,'admin@biogarden.com.jpg'),(2,'Roberto','Gomez','rgomez@gmail.com','$2b$12$sURo4ZfiBkN6uZ6rDSBRFeymn/MuFT1m7Aw2so7vSLybz9U3/.peO',1,'rgomez@gmail.com.jpg'),(3,'Martina','Torres','mtorres@gmail.com','$2b$12$RD9Mg13/2CGyD9DrpMjBLewEskVrOYxHO1SER8hvGmQnK3KlFt5dW',1,'mtorres@gmail.com.jpg');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -506,4 +483,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-18 21:54:14
+-- Dump completed on 2021-01-23 16:26:13
