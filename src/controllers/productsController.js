@@ -27,6 +27,7 @@ module.exports = {
                 {association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
         })
         .then(function(products) {
+            console.log(products[0])
             return res.render('products/productsList', { products: products }); //recibe la ruta y el array
         })
         .catch((error) => {
@@ -34,7 +35,7 @@ module.exports = {
         });
     },
 
-    search:function(req,resp){//faltaria hacer la vista de search resoult// req.query.search(lo que el usuario busca)
+    search:function(req,res){//faltaria hacer la vista de search resoult// req.query.search(lo que el usuario busca)
         db.Producto.findAll({
             where:{
                 title:{
@@ -101,27 +102,26 @@ module.exports = {
     edit: function(req, res){
 
         db.Producto.findByPk(req.params.id,{ include: { all: true }})
-     
-            .then(function(producto){
-                db.Psize.findAll()
-                .then(function(sizes){
-                    db.Pcategoria.findAll()
-                    .then(function(categorias){
-                        db.Pcolour.findAll()
-                        .then(function(colores){
-                            res.render('products/productEdit', {
-                                producto: producto,
-                                sizes:sizes,
-                                categorias:categorias,
-                                colores:colores
-                             })
-
+        .then(function(producto){
+            console.log(producto)
+            db.Psize.findAll()
+            .then(function(sizes){
+                db.Pcategoria.findAll()
+                .then(function(categorias){
+                    db.Pcolour.findAll()
+                    .then(function(colores){
+                        res.render('products/productEdit', {
+                            producto: producto,
+                            sizes: sizes,
+                            categorias: categorias,
+                            colores: colores
                         })
                     })
-                })   
-            })
-            .catch((error) => {
-                return res.send(error)  
+                })
+            })   
+        })
+        .catch((error) => {
+            return res.send(error)  
         });
     
     },

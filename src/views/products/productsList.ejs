@@ -46,9 +46,14 @@
                         <div class="item-info">
                             <p class="name"><%= products[i].title %></p>
                             <p class="price">$<%= products[i].price %></p>
-                            <p class="color">$<%= products[i].colores.name %></p>
+                            <% if (products[i].colores) { %>
+                                <p class="color">$<%= products[i].colores.name %></p>
+                            <% } %> 
                             <p class="categoria">$<%= products[i].categorias.name %></p>
-                            <p class="tamano">$<%= products[i].tamanos.name %></p>
+                            
+                            <% if (products[i].tamanos) { %>
+                                <p class="tamano">$<%= products[i].tamanos.name %></p>
+                            <% } %>
                             
                         </div>
                     </article>

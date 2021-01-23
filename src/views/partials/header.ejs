@@ -1,16 +1,15 @@
 <header>
     <div class="container brand">
         <form action="/products/search" method="GET">
-            <input type="text" placeholder="Buscar" id="search" name="search" value="<%(typeOf busquedaUsuario=='undefined')? '' :busquedaUsuario %>">
+            <input type="text" placeholder="Buscar" id="search" name="search" value="">
             <button type="submit"><i class="fas fa-search"></i></button>
-                
         </form>
         <a href="/"><img class="logo" src="/images/logo.png" alt="Bio Garden"></a>
         <span class="cart-and-account">
             <a href="/products/cart"><button><i class="fas fa-shopping-cart"></i> Carrito $0</button></a>
             <nav class="account">
                 <ul>
-                    <% if( usuarioLogueado != undefined) {%>
+                    <% if( usuarioLogueado != undefined) { %>
                         <li><a href="/users/profile">Mi Perfil</a></li> | <li><a href="/users/logout">Cerrar Sesión</a></li>
                     <% } else{ %>
                         <li><a href="/users/register">Crear cuenta</a></li> | <li><a href="/users/login">Iniciar sesión</a></li>

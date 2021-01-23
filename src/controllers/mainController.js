@@ -15,7 +15,7 @@ module.exports = {
             }
         })
         .then((products) => {
-            return res.render('index', { products: products.slice(0, 12) } )
+            return res.render('index', { products: products.slice(0, 12), busquedaUsuario: 'Busqueda' } )
         })
         .catch((error) => {
             return res.send(error)
@@ -44,13 +44,7 @@ module.exports = {
         res.redirect('/')
     },
     test: function(req, res){
-        db.Users.findAll()
-        .then((users) => {
-            return res.send(users)
-        })
-        .catch((error) => {
-            return res.send(error)
-        });
+       res.send('For testing')
     }
 }
 
