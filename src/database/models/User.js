@@ -1,34 +1,44 @@
 module.exports = (sequelize, DataTypes) => { 
     const User = sequelize.define("Users",
-    {
-        id: {
-            type: DataTypes.INTEGER,
-            primaryKey: true,
-            autoIncrement: true,
+        {
+            id: {
+                type: DataTypes.INTEGER,
+                primaryKey: true,
+                autoIncrement: true,
+            },
+            name: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            lastname: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            email: {
+                type: DataTypes.STRING,
+                allowNull: false,
+                unique: true,
+            },
+            password: {
+                type: DataTypes.STRING,
+                allowNull: false,
+            },
+            id_category: {
+                type: DataTypes.INTEGER,
+                allowNull: false,
+            },
+            avatar: {
+                type: DataTypes.STRING,
+                allowNull: true,
+                defaultValue: null,
+            }
         },
-        name: {
-            type: DataTypes.STRING
-        },
-        lastname: {
-            type: DataTypes.STRING
-        },
-        email: {
-            type: DataTypes.STRING
-        },
-        password: {
-            type: DataTypes.STRING
-        },
-        id_category: {
-            type: DataTypes.INTEGER
-        },
-        avatar: {
-            type: DataTypes.STRING
+        {
+            tableName: 'users',
+            timestamps: false,
+            initialAutoIncrement: 100
         }
-    },
-    {
-        tableName: 'users',
-        timestamps: false,
-    });
+    );
     User.associate = function(models){
         User.belongsTo(models.UsersCategories, {
             as: "user_category",

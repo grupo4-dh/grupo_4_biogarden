@@ -1,103 +1,95 @@
+// Users Controller
+
+// Módulos
 const fs = require('fs');
 const path = require('path');
-const bcrypt=require('bcrypt');
+const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
 
-// Usamos archivos JSON como base de datos momentáneamente
-// Los leemos (fs.readFileSync) y parseamos (JSON.parse) 
-let usersJson = fs.readFileSync(path.join(__dirname,'../database/users.json'),'utf8');
-let users = JSON.parse(usersJson);
-//para generar id del usuario, tengo que obtener el id mayor creado(provisorio hastq ue veamos BBDD)
-let ultimoId=0;
-for (let i=0; i<users.length; i++){
-    if(ultimoId <users[i].id){//buscoe l ultimo Id creado y el nuevo usuario se incrementa el id
-        ultimoId=users[i].id
-    }
-}
-module.exports = {
-    register: function(req, res) {
-        return res.render('users/register.ejs')
-    },
-//guardamos la info en la bbdd
-    save: function(req, res){
-        //validamos los errores del usuario
-        let errors= validationResult(req);
-        if(errors.isEmpty()){//si los errores es vacio
-            //si no hay errores continuamos
-            let nuevoUsuario={
-            //guardo la BBDD del usuario
-            id: ultimoId + 1,
-            name: req.body.name,
-            last_name: req.body.last_name,
-            email:req.body.email,
-            direccion:req.body.direccion,
-            password:bcrypt.hashSync(req.body.password,12),//contrasena hasheada
-            avatar:req.file.filename,//si es un solo archivo file
+// Database
+const db = require('../database/models');
 
-            }
-            users.push(nuevoUsuario);
-            //escribimos el usuario
-            fs.writeFileSync(path.join(__dirname,'../database/users.json'), JSON.stringify(users,null,4));
+module.exports = {
+    
+    // Users register
+    register: function(req, res) {
+        return res.render('users/register')
+    },
+    save: function(req, res){
+        // Validamos los datos del form
+        let errors = validationResult(req);                                 
+        if(! errors.isEmpty()) {                                                // Si hay errores, cargamos la vista anterior con los errores 
+            return res.render('users/register', { errors: errors.mapped() })    // mapped() devuelve un objeto con los nombres de los campos y sus errores de validación
+        } else {
+            // Subimos el archivo al disco
+            req.file.filename = req.body.email + path.extname(req.file.originalname);
+            fs.writeFileSync(path.join(__dirname,'../../public/uploads/avatars', req.file.filename), req.file.buffer, function(err) {
+                if(err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+            }); 
             
-            res.redirect('/users/login')
-        }else{
-            //si hay errores sigo por aca
-            return res.render('users/register',{errors:errors.mapped()})//filtra y mapea el array y devuelve un objeto
+            db.Users.create({
+                name: req.body.name,
+                lastname: req.body.last_name,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password,12),    // Contrasena hasheada
+                id_category: 1,
+                avatar: req.file.filename,                          // Si es un solo archivo file
+            })
+            .then((result) => {
+                return res.redirect('/users/login');
+            })
+            .catch((error) => {
+                res.send(error)
+            })
         }        
     },
+
+    // Users login
     login: function(req, res) {
         return res.render('users/login.ejs');
     },
-    processLogin:function(req,res){
-        //valido los errores
-        let errors= validationResult(req);
-        let{email,password,remember}=req.body;
-        if(errors.isEmpty()){   
-
-        let usuarioALoguearse;
-        for (let i=0; i<users.length;i++){
-            if(users[i].email==email&& bcrypt.compareSync(password,users[i].password)){// comparo al info dell usuario que intenta loguarse con la info que se encuentra en la BBDD
-                usuarioALoguearse=users[i];//guardamos el usuario en esta variable
-                
-            }
-        };
-        //pregunto si es indefinido
-        if(usuarioALoguearse==undefined){
-            return res.render("users/login",{errors:[{msg:"credenciales No Validas"}]});
-           
+    processLogin:function(req, res){
+        let errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.render('users/login', { erorrs: errors.mapped() })
+        } else{
+            let { email, password, remember } = req.body;
+            let userToLogin;
+            db.Users.findOne({
+                where: {
+                    email: email
+                }
+            })
+            .then(function(user) {
+                if (bcrypt.compareSync(password, user.password)) {
+                    userToLogin = user
+                    delete userToLogin.password
+                    req.session.usuarioLogueado = userToLogin;
+                                        
+                    if (remember != undefined) {
+                        res.cookie("remember",usuarioALoguearse.email, {maxAge:60000});
+                    }
+                    return res.redirect("/");
+                }
+            })
+            .catch((error) => {
+                return res.render("users/login", { errors: [{ msg: "Credenciales no válidas" }] })
+            });
         }
-        //lo guardo en session //usuario lOgueado es el nombre que hayq ue darle  generico
-        req.session.usuarioLogueado=usuarioALoguearse;//guardo en sesion el usuario a loguearse
-
-
-        if (remember!=undefined){
-            //hago al cookie  con un tiempo limitado y se hizo a nivel global. para cualquier pagina funciona
-            res.cookie("remember",usuarioALoguearse.email, {maxAge:60000});//guardo el email del usuario en la cookie
-        }
-
-        //se renderiza  a la home
-       
-
-        return res.redirect("/");
-
-        }else{
-            return res.render('users/login',{erorrs:errors.mapped()})
-       
-
-        }
-
-
+    },
+    processLogout: function(req, res) {
+        req.session.destroy();
+        res.cookie("remember", "" , {maxAge:-1});   // Elimino la cookie
+        res.redirect("/");
     },
     
+    // Users profile
     profile: function(req, res) {
         return res.render('users/profile');
     },
-    // COMO CERRAMOS LA SESION?
-cerrarSesion:function(req,res){
-    req.session.destroy();
-    res.cookie("remember","", {maxAge:-1});//elimino la cookie
-  res.redirect("/");
-}
 }
 
 
