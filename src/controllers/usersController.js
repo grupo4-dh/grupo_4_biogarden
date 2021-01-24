@@ -59,9 +59,8 @@ module.exports = {
             let { email, password, remember } = req.body;
             let userToLogin;
             db.Users.findOne({
-                where: {
-                    email: email
-                }
+                where: { email: email },
+                include: { all: true }
             })
             .then(function(user) {
                 if (bcrypt.compareSync(password, user.password)) {

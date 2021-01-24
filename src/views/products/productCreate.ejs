@@ -5,20 +5,20 @@
 </head>    
 <body>
     <%- include('../partials/header.ejs') %>
-    <div class= "container container-1">
+    <div class= "main-container container-1">
         <h2 class ="titulo ">CREAR PRODUCTOS</h2>
-        <P class="descripcion">Completar los siguientes campos:</P>
+        <p class="descripcion">Completar los siguientes campos:</p>
         <div class= "caja-container-1">
             <form action="/products/create" method="POST" enctype="multipart/form-data">
-                <p ><label  for="nombre">Nombre del Producto</label></p>
+                <p><label  for="nombre">Nombre del Producto</label></p>
                 <input type="text" name="title" id="title" ><br>
-                <p ><label  for="nombre">Precio</label></p>
+                <p><label  for="nombre">Precio</label></p>
                 <input type="text" name="price" id="price" placeholder="precio"><br>
-                <p ><label  for="nombre">Categoria</label></p>
+                <p><label  for="nombre">Categoria</label></p>
                 <select name="id_category"id="id_category" >
-                    <%for(let i=0; i<Pcategoria.length;i++){
-                <option value ="<%=Pcategoria[i].id%>">
-                    <%=Pcategoria[i].name%>
+                    <%for(let i=0; i<categorias.length;i++){ %>
+                <option value ="<%=categorias[i].id%>">
+                    <%=categorias[i].name%>
                     </option>
     
                     <%}%>
@@ -26,9 +26,9 @@
                 
                 <p ><label  for="nombre">Color</label></p>
                 <select name="id_colour"id="id_colour" >
-                    <%for(let i=0; i<Pcolour.length;i++){
-                <option value ="<%=Pcolour[i].id%>">
-                    <%=Pcolour[i].name%>
+                    <%for(let i=0; i<colores.length;i++){ %>
+                <option value ="<%=colores[i].id%>">
+                    <%=colores[i].name%>
                     </option>
     
                     <%}%>
@@ -38,9 +38,9 @@
                 <input type="text" name="quantity" id="quantity" placeholder="cantidad"><br>
                 <p ><label  for="nombre">Tamano</label></p>
                 <select name="id_size"id="id_size" >
-                    <%for(let i=0; i<Psize.length;i++){
-                <option value ="<%=Psize[i].id%>">
-                    <%=Psize[i].name%>
+                    <%for(let i=0; i<sizes.length;i++){ %>
+                <option value ="<%=sizes[i].id%>">
+                    <%=sizes[i].name%>
                     </option>
     
                     <%}%>

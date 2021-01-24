@@ -31,6 +31,7 @@
                         <%=categorias[i].name%>
                     </option>
                 <%}%>
+                </select>              
                 <p><label for="nombre">Color</label></p>
                 <select name="id_colour" id="id_colour">
                 <% for (let i=0; i<colores.length;i++) { %> 
@@ -38,6 +39,7 @@
                     <%=colores[i].name%>
                     </option>
                 <%}%>
+                </select>              
                 <p><label for="Descripcion">Descripcion</label></p>
                 <textarea name="description" id="description" cols="20" rows="10"><%= producto.description %></textarea><br>
                 <input type="file" id ="image"  name="image" class = "imagen" placeholder = "Cargar imagen"><br><br>

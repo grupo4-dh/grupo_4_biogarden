@@ -2,20 +2,6 @@ const fs = require('fs')
 const path = require('path')
 const db = require("../database/models")
 
-
-// Usamos archivos JSON como base de datos momentáneamente
-// Los leemos (fs.readFileSync) y parseamos (JSON.parse) en una sola linea
-//let products = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/products.json'),'utf8'));
-//let productsCart = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/cart.json'),'utf8'));
-
-//let ultimoId=0;
-//for (let i=0; i<products.length; i++) {
-    //if(ultimoId <products[i].id) {
-        //ultimoId=products[i].id
-    //}
-//}
-
-
 module.exports = { 
     // Devuelve la vista del Listado de productos
     all: function(req, res) {
@@ -27,7 +13,9 @@ module.exports = {
                 {association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
         })
         .then(function(products) {
-            console.log(products[0])
+            if (req.session.usuarioLogueado && req.session.usuarioLogueado.user_category.id == 2) {
+                return res.render('products/productsListAdmin', { products: products }); //recibe la ruta y el array
+            }
             return res.render('products/productsList', { products: products }); //recibe la ruta y el array
         })
         .catch((error) => {
@@ -58,9 +46,7 @@ module.exports = {
     // Devuelve la vista de Detalle de producto segun el id 
     detail: function(req, res) {
         db.Producto.findByPk(req.params.id,{
-            include:[{association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
-                
-  
+            include: { all: true }
         })
         .then(function(product) {
             return res.render('products/productDetail', { product: product })
@@ -71,7 +57,23 @@ module.exports = {
     },
     // Devuelve la vista del Formulario de creación de producto 
     create: function(req, res) {
-        return res.render('productCreate')
+        db.Psize.findAll()
+        .then(function(sizes){
+            db.Pcategoria.findAll()
+            .then(function(categorias){
+                db.Pcolour.findAll()
+                .then(function(colores) {
+                    res.render('products/productCreate', {
+                        sizes: sizes,
+                        categorias: categorias,
+                        colores: colores
+                    })
+                })
+            })
+        })   
+        .catch((error) => {
+            return res.send(error)  
+        });
     },
     // Guarda el producto que viaja en el body en la BBDD 
     save: function(req, res) {

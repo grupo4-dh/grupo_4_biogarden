@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head.ejs', { title: 'Productos', stylesheet: 'products/productsListAdmin.css'}); %>
+</head>
+<body >
+    <%- include('../partials/header.ejs') %>
+    <div class="main-container list">
+        <div class="list-header">
+            <h1 class = "titulo">Tus Productos</h1>
+            <a href="/products/create"><button class="btn btn-success">Crear nuevo producto</button></a> 
+        </div>
+        <% for ( let i=0; i < products.length; i++) { %>
+        <div class="product-container">
+            <img class="imagenListado" src="/uploads/products/<%= products[i].image %> "alt="<%= products[i].title %>"></a>                
+            <div class="productosListado">
+                <p><strong>Nombre: </strong><a href="/products/<%= products[i].id%>"><%= products[i].title %></a></p>
+                <p><strong>Precio: </strong> $<%= products[i].price %></p>
+                <p><strong>Categoría: </strong> <%= products[i].categorias.name%></p>
+                <% if (products[i].colores) { %>
+                    <p class="color"><strong>Color: </strong><%= products[i].colores.name %></p>
+                <% } %> 
+                <% if (products[i].tamanos) { %>
+                    <p class="tamano"><strong>Tamaño: </strong> <%= products[i].tamanos.name %></p>
+                <% } %>
+                <p class="descripcionProducto"><%= products[i].description %></p>                 
+            </div>
+            <div class="actions">
+                <a class="edit" href="/products/<%= products[i].id %>/edit">
+                    <button class="btn btn-success"><i class="fas fa-edit"></i> Editar</button>
+                </a>
+                <form class="delete" action="/products/<%= products[i].id %>/delete" method="POST">
+                    <button class="btn btn-success" type="submit"><i class="fas fa-trash-alt"></i> Eliminar</button>
+                </form>
+            </div>
+        </div>
+        <% } %> 
+    </div>
+    <%- include('../partials/footer.ejs') %>
+</body>
+</html>
+
+
