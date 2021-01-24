@@ -1,40 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head.ejs', { title: 'Productos', stylesheet: 'products/productsList.css'}); %>
+    <head>
+        <%- include('../partials/head.ejs', { title: 'Productos', stylesheet: 'products/productsList.css'}); %>
+    </head>
     <body >
-        <%- include('../partials/header.ejs') %>
-        <% if ( usuarioLogueado && usuarioLogueado.email == 'admin@biogarden.com') { %>
-        <div class="container list">
-            <div class="list-header">
-                <h1 class = "titulo">Tus Productos</h1>
-                <a href="/products/create"><button>Crear nuevo producto</button></a>
-            </div>
-            <% for ( let i=0; i < products.length; i++) { %>  
-            <div class="product-container">
-                <img class="imagenListado" src="/uploads/products/<%= products[i].image %> "alt="<%= products[i].title %>"></a>                
-                <div class="productosListado">
-                    <a href="/products/<%= products[i].id%>"><p><%= products[i].title %></p></a>
-                    <p>$ <%= products[i].price %></p>
-                    <p><%= products[i].categorias.name%></p>
-                    <p class="color">$<%= products[i].colores.name %></p>
-                    <p class="categoria">$<%= products[i].categorias.name %></p>
-                    <p class="tamano">$<%= products[i].tamanos.name %></p>
-                            
-                    <p class="descripcionProducto"><%= products[i].description %></p>                 
-                </div>
-                <div class="actions">
-                    <a class="edit" href="/products/<%= products[i].id %>/edit">
-                        <button><i class="fas fa-edit"></i> Editar</button>
-                    </a>
-                    <form class="delete" action="/products/<%= products[i].id %>/delete" method="POST">
-                        <button type="submit"><i class="fas fa-trash-alt"></i> Eliminar</button>
-                    </form>
-                    
-                </div>
-            </div>
-            <% } %>
-        </div>  
-        <% } else { %>      
+        <%- include('../partials/header.ejs') %>   
         <div class="container list">
             <div class="list-header">
                 <h1 class = "titulo">Nuestros productos</h1>
@@ -46,16 +16,20 @@
                         <div class="item-info">
                             <p class="name"><%= products[i].title %></p>
                             <p class="price">$<%= products[i].price %></p>
-                            <p class="color">$<%= products[i].colores.name %></p>
+                            <% if (products[i].colores) { %>
+                                <p class="color">$<%= products[i].colores.name %></p>
+                            <% } %> 
                             <p class="categoria">$<%= products[i].categorias.name %></p>
-                            <p class="tamano">$<%= products[i].tamanos.name %></p>
+                            
+                            <% if (products[i].tamanos) { %>
+                                <p class="tamano">$<%= products[i].tamanos.name %></p>
+                            <% } %>
                             
                         </div>
                     </article>
                 <% } %>
             </section>
         </div>  
-        <% } %>           
         <%- include('../partials/footer.ejs') %>
     </body>
         

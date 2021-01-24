@@ -2,40 +2,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Login</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-  <%- include('../partials/head.ejs', { title: 'Iniciar sesión', stylesheet: 'users/login.css'}); %>
+    <%- include('../partials/head.ejs', { title: 'Iniciar sesión', stylesheet: 'users/login.css'}); %>
 </head>
 <body>
     <%- include('../partials/header.ejs') %>
-<div class="container">
-
-  <h2>LOGIN</h2>
-
-<form action="" method="POST">
-
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-      <small class= "error" style="color:red"><%=(locals.errors&&errors.email)?errors.email.msg: ""%></small>
+    <div class="main-container login">
+        <h2>LOGIN</h2>
+        <form class="form-login" action="" method="POST">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Ingresa tu email" name="email">
+                <small class= "error" style="color:red"><%=(locals.errors && errors.email) ? errors.email.msg : ""%></small>
+            </div>
+            <div class="form-group">
+                <label for="pwd">Contraseña</label>
+                <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" name="password">
+                <small class= "error" style="color:red"><%=(locals.errors && errors.password) ? errors.password.msg : ""%></small>
+            </div>
+            <div class="checkbox">
+                <label><input type="checkbox" name="remember">Recordame</label>
+            </div>
+            <button type="submit" class="btn btn-success">Ingresar</button>
+        </form>
     </div>
-    <div class="form-group">
-      <label for="pwd">Password:</label>
-      <input type="password" class="form-control" id="password" placeholder="Enter password" name="password">
-      <small class= "error" style="color:red"><%=(locals.errors&&errors.password)?errors.password.msg: ""%></small>
-    </div>
-    
-    <div class="checkbox">
-      <label><input type="checkbox" name="remember"> Remember me</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Ingresar</button>
-  </form>
-</div>
-<%- include('../partials/footer.ejs') %>
-
+    <%- include('../partials/footer.ejs') %>
 </body>
 </html>

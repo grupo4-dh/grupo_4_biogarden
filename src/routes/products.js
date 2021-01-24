@@ -6,6 +6,8 @@ const multer = require('multer');
 const path = require('path');
 const productsController = require('../controllers/productsController')
 
+const adminMiddleware = require('../middlewares/adminMiddleware');
+
 // Creamos el router
 const router = express.Router()
 
@@ -28,7 +30,7 @@ router.get('/', productsController.all);                    // Vista del Listado
 router.get('/search',productsController.search);
 
 //  Creación de productos
-router.get('/create', productsController.create);            // Formulario de creación de productos
+router.get('/create', adminMiddleware, productsController.create);            // Formulario de creación de productos
 router.post('/create', upload.single('imagen'), productsController.save);              // Acción de creación de producto
 
 //  Carrito de compras-----SOLO RENDERIZA LA VISTA , HAY QUE MEJORARLA
@@ -38,7 +40,7 @@ router.get('/cart', productsController.cart);               // Vista del Carrito
 router.get('/:id', productsController.detail);       // Vista del Detalle de producto
 
 //  Edición y borrado de producto
-router.get('/:id/edit', productsController.edit);    // Vista del Formulario de edición de productos
+router.get('/:id/edit', adminMiddleware, productsController.edit);    // Vista del Formulario de edición de productos
 router.post('/:id/edit', upload.single('producto'), productsController.update);        // Acción de edición de producto
 router.post('/:id/delete', productsController.delete);    // Acción de borrado de producto
 

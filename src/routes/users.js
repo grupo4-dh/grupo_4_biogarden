@@ -1,43 +1,38 @@
-// ENRUTADOR USERS
+// Users Router
 
-const express = require('express')
-const router = express.Router()
-const usersController = require('../controllers/usersController')
-const multer =require('multer');
-const path=require('path');
-const registerValidator = require('../validations/registerValidator.js');
-const loginValidator= require('../validations/loginValidator.js')
+// Express y controlador
+const express = require('express');
+const usersController = require('../controllers/usersController');
+const router = express.Router();
 
-//faltarian los middlewares
-const authMiddelware = require('../middlewares/authMiddelware');
-const guestMiddelware = require('../middlewares/guestMiddelware');
+// Validators
+const registerValidator = require('../validations/registerValidator');
+const loginValidator = require('../validations/loginValidator')
+const editValidator = require('../validations/editValidator')
 
-// Configuramos multer en la variable upload para subida de archivos
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, path.join(__dirname,'../../public/uploads/avatars'))//carpeta donde se guarda la imagen
-    },
-    filename: function (req, file, cb) {
-        cb(null, req.body.email + path.extname(file.originalname)) // Recordar lo de la extensión
-    }
-})
+// Middlewares
+const authMiddleware = require('../middlewares/authMiddleware');
+const guestMiddleware = require('../middlewares/guestMiddleware');
+
+// Multer
+// Configuramos multer en la variable upload para subida de archivos a memoria
+// Si se pasan las validaciones, los archivos se guardan en el disco
+const multer = require('multer');
+var storage = multer.memoryStorage() 
 var upload = multer({ storage: storage })
 
 // Users register
-router.get('/register', usersController.register)
-router.post('/register', upload.single('avatar'), registerValidator, usersController.save)//guardamos el usuario y agregamos el middleware
+router.get('/register', guestMiddleware, usersController.register)
+router.post('/register', upload.single('avatar'), registerValidator, usersController.save)
 
+// Users login and logout
+router.get('/login', guestMiddleware, usersController.login)
+router.post('/login', loginValidator, usersController.processLogin)
+router.get('/logout', usersController.processLogout)
 
-// Users login
-router.get('/login',usersController.login)
-router.post('/login',loginValidator,usersController.processLogin)
-
-// Users profile y usamos session
-router.get('/profile',authMiddelware, usersController.profile)
-router.get('/logout',usersController.cerrarSesion)
-//cerraar sesion
-//router.post('/profile', usersController.cerrarSesion)
-//req.session.destroy()
-//res.redirect(/home)
+// Users profile
+router.get('/profile', authMiddleware, usersController.profile)
+router.get('/edit', authMiddleware, usersController.edit)
+router.post('/edit', upload.single('avatar'), editValidator, usersController.udpate)
 
 module.exports = router;
