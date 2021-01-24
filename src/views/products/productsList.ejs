@@ -6,7 +6,7 @@
 <body >
     <%- include('../partials/header.ejs') %>
     <% if ( usuarioLogueado && usuarioLogueado.email == 'admin@biogarden.com') { %>
-    <div class="container list">
+    <div class="main-container list">
         <div class="list-header">
             <h1 class = "titulo">Tus Productos</h1>
             <a href="/products/create"><button>Crear nuevo producto</button></a>
@@ -37,7 +37,7 @@
         <% } %>
     </div>  
     <% } else { %>      
-    <div class="container list">
+    <div class="main-container list">
         <div class="list-header">
             <h1 class = "titulo">Nuestros productos</h1>
         </div>

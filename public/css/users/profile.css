@@ -1,14 +1,14 @@
-.container .header {
+.main-container .header {
     text-align: center;
 }
 
-.container .profile-box {
+.main-container .profile-box {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.container .profile-box .profile-image {
+.main-container .profile-box .profile-image {
     width: 25%;
 }

@@ -23,7 +23,7 @@ a {
 }
 
 /* Anchos máximos de los componentes website */
-.container {
+.main-container {
     max-width: 980px;
     margin: 0 auto;
 }
@@ -100,6 +100,10 @@ header .brand .cart-and-account > *{
     padding: 5px;
 }
 
+header .brand .cart-and-account a .button-cart {
+    width: 100%;
+}
+
 header .brand .cart-and-account .account ul {
     display: flex;
     flex-direction: row;
@@ -128,6 +132,7 @@ header .nav-bar {
 header .nav-bar ul {
     width: 100%;
     padding: 5px;
+    margin: 0;
     text-align: center;
     display: flex;
     flex-direction: row;
