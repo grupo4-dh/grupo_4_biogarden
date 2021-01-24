@@ -1,29 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Quienes Somos </title>
-  <meta charset="utf-8">
-  
-
-  <%- include('./partials/head.ejs', { title: 'Nosotros', stylesheet: 'quienesSomos.css'}); %>
+    <%- include('./partials/head.ejs', { title: 'Quienes Somos', stylesheet: 'quienesSomos.css'}); %>
 </head>
-
 <body>
-  <%- include('./partials/header.ejs') %>
-<div class="contenido">
-
- 
-     <h1>NOSOTROS</h1>
-     <p>Somos un grupo dedicado a este mundo verde. El amor por las plantas, la naturaleza y la decoración nos unió. 
-         Nos encanta innovar con la naturaleza, y así poder llevar vida a sus espacios.</p>
-         <p>curiosidad es la esencia de la marca. Bio Garden no es sólo una tienda, es una comunidad.</p>
-         
-        <img class=imagen src="/Images/plantaquienessomos.jpg" alt="imagen">
-         
-  
-</div>
-  
-<%- include('./partials/footer.ejs') %>
-
+    <%- include('./partials/header.ejs') %>
+    <div class="contenido">
+        <h1>NOSOTROS</h1>
+        <p>Somos un grupo dedicado a este mundo verde. El amor por las plantas, la naturaleza y la decoración nos unió. 
+            Nos encanta innovar con la naturaleza, y así poder llevar vida a sus espacios.</p>
+        <p>curiosidad es la esencia de la marca. Bio Garden no es sólo una tienda, es una comunidad.</p>
+        <img class=imagen src="/images/plantaquienessomos.jpg" alt="imagen">
+    </div>
+    <%- include('./partials/footer.ejs') %>
 </body>
 </html>

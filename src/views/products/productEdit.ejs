@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <%- include('../partials/head.ejs', { title: 'Editar producto', stylesheet: 'products/productEdit.css'}); %>
-    <body>
-        <%- include('../partials/header.ejs') %>
-        <div class= "container container-1">
-            <h2 class ="titulo">EDITAR PRODUCTOS</h2>
-            <P class="descripcion">Completar los siguientes campos:</P>
-            <div class= "caja-container-1">
-                <form method="POST" action="/products/edit<%producto.id %> " enctype="multipart/form-data"> 
-                    <p><label for="nombre">Nombre del Producto</label></p>
-                    <input type="text" name="title" id="title" value="<%=producto.title %>"><br>
-                    <p><label for="nombre">Cantidad</label></p>
-                    <input type="text" name="quantity" id="quantity" value="<%=producto.quantity %>"><br>
-                    <p><label for="nombre">Precio</label></p>
-                    <input type="text" name="price" id="price" placeholder="precio" value="<%= producto.price %>"><br>
-                    <p><label for="nombre">Tamano</label></p>
-                    <select name="id_size" id="id_size">
-                    <% for (let i=0; i < sizes.length;i++) { %> 
-                        <option value ="<%=sizes[i].id%>">
-                            <%=sizes[i].name%>
-                        </option>
-                    <%}%>
-                    </select>              
-                    <p><label for="nombre">Categoria</label></p>
-                    <select name="id_category" id="id_category">
-                    <% for (let i=0; i<categorias.length;i++) { %> 
-                        <option value ="<%=categorias[i].id%>">
-                            <%=categorias[i].name%>
-                        </option>
-                    <%}%>
-                    <p><label for="nombre">Color</label></p>
-                    <select name="id_colour" id="id_colour">
-                    <% for (let i=0; i<colores.length;i++) { %> 
-                        <option value ="<%=colores[i].id%>">
-                        <%=colores[i].name%>
-                        </option>
-                    <%}%>
-                    <p><label for="Descripcion">Descripcion</label></p>
-                    <textarea name="description" id="description" cols="20" rows="10"><%= producto.description %></textarea><br>
-                    <input type="file" id ="image"  name="image" class = "imagen" placeholder = "Cargar imagen"><br><br>
-                    <button type="submit" class= "EditarProducto">Editar producto</button>
-                </form>
-            </div>
-        </div> 
-        <%- include('../partials/footer.ejs') %>
-    </body>
+</head>
+<body>
+    <%- include('../partials/header.ejs') %>
+    <div class= "container container-1">
+        <h2 class ="titulo">EDITAR PRODUCTOS</h2>
+        <P class="descripcion">Completar los siguientes campos:</P>
+        <div class= "caja-container-1">
+            <form method="POST" action="/products/edit<%producto.id %> " enctype="multipart/form-data"> 
+                <p><label for="nombre">Nombre del Producto</label></p>
+                <input type="text" name="title" id="title" value="<%=producto.title %>"><br>
+                <p><label for="nombre">Cantidad</label></p>
+                <input type="text" name="quantity" id="quantity" value="<%=producto.quantity %>"><br>
+                <p><label for="nombre">Precio</label></p>
+                <input type="text" name="price" id="price" placeholder="precio" value="<%= producto.price %>"><br>
+                <p><label for="nombre">Tamano</label></p>
+                <select name="id_size" id="id_size">
+                <% for (let i=0; i < sizes.length;i++) { %> 
+                    <option value ="<%=sizes[i].id%>">
+                        <%=sizes[i].name%>
+                    </option>
+                <%}%>
+                </select>              
+                <p><label for="nombre">Categoria</label></p>
+                <select name="id_category" id="id_category">
+                <% for (let i=0; i<categorias.length;i++) { %> 
+                    <option value ="<%=categorias[i].id%>">
+                        <%=categorias[i].name%>
+                    </option>
+                <%}%>
+                <p><label for="nombre">Color</label></p>
+                <select name="id_colour" id="id_colour">
+                <% for (let i=0; i<colores.length;i++) { %> 
+                    <option value ="<%=colores[i].id%>">
+                    <%=colores[i].name%>
+                    </option>
+                <%}%>
+                <p><label for="Descripcion">Descripcion</label></p>
+                <textarea name="description" id="description" cols="20" rows="10"><%= producto.description %></textarea><br>
+                <input type="file" id ="image"  name="image" class = "imagen" placeholder = "Cargar imagen"><br><br>
+                <button type="submit" class= "EditarProducto">Editar producto</button>
+            </form>
+        </div>
+    </div> 
+    <%- include('../partials/footer.ejs') %>
+</body>
 </html>

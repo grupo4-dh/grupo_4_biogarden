@@ -1,70 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <%- include('../partials/head.ejs', { title: 'Mi carrito', stylesheet: 'products/productCart.css'}); %>
-    <body>
-        <main class="principal">
-            <section class="fondo"></section>
-            <section class="carrito">
-                <div class="header">
-                    <h2 class="titulo">Carrito de compras</h2> 
-                    <button class="boton1"type="submit">X</button>
-                </div>
-                
-                <div class="subtitulos">
-                    <h3 class="producto">Producto</h3>
-                    <h3 class="subtotal">Subtotal</h3>
-                </div>
-                
-                <div class="contenedorProductos">
-                    <% for (product of products) { %>
-                        <article class="articulo">
-                            <div class="imagen">
-                                <img class="suculenta2" height="150 px" width="150 px" src="/uploads/productos/<%= product.image %> "alt="<%= product.name %>">
-                            </div>
-                            <div class="centro"> 
-                                <div class="caja1">
-                                    <a href="/products/<%= product.id %> "><%= product.name %></a>
-                                    <h4 class="precio">
-                                        $<%= product.price %>
-                                    </h4>
-                                </div>
-                                
-                                <div class="caja2">
-                                    <button>
-                                        -
-                                    </button>
-                                    <input type="number" name="quantity" value="0" >
-                                    <button>
-                                        +
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="precioSubtotal1">
-                                <span>$<%= product.price %></span>
-                                <button><i class="fas fa-trash-alt"></i></button>
-                            </div>
-                        </article>                       
-                        
-                    <% } %>     
-                    <div class="final">
-                        <div class="final1">
-                            <h5>Subtotal(sin envío)</h5>
-                            <span class="Subtotal">$<%= total %>
+</head>    
+<body>
+    <main class="principal">
+        <section class="fondo"></section>
+        <section class="carrito">
+            <div class="header">
+                <h2 class="titulo">Carrito de compras</h2> 
+                <button class="boton1"type="submit">X</button>
+            </div>
+            
+            <div class="subtitulos">
+                <h3 class="producto">Producto</h3>
+                <h3 class="subtotal">Subtotal</h3>
+            </div>
+            
+            <div class="contenedorProductos">
+                <% for (product of products) { %>
+                    <article class="articulo">
+                        <div class="imagen">
+                            <img class="suculenta2" height="150 px" width="150 px" src="/uploads/productos/<%= product.image %> "alt="<%= product.name %>">
                         </div>
-                        <div class="final2">
-                            <h4 class="total">Total:</h4>
-                            <h4 class="precioTotal">$<%= total %></h4>
-                        </div>
-                        <div class="final3">
+                        <div class="centro"> 
+                            <div class="caja1">
+                                <a href="/products/<%= product.id %> "><%= product.name %></a>
+                                <h4 class="precio">
+                                    $<%= product.price %>
+                                </h4>
+                            </div>
                             
-                            <a href="/views/productDetail"> Ver mas Productos</a>
-                            <button type="submit">INICIAR COMPRA</button>
+                            <div class="caja2">
+                                <button>
+                                    -
+                                </button>
+                                <input type="number" name="quantity" value="0" >
+                                <button>
+                                    +
+                                </button>
+                            </div>
                         </div>
+                        <div class="precioSubtotal1">
+                            <span>$<%= product.price %></span>
+                            <button><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </article>                       
                     
+                <% } %>     
+                <div class="final">
+                    <div class="final1">
+                        <h5>Subtotal(sin envío)</h5>
+                        <span class="Subtotal">$<%= total %>
                     </div>
+                    <div class="final2">
+                        <h4 class="total">Total:</h4>
+                        <h4 class="precioTotal">$<%= total %></h4>
+                    </div>
+                    <div class="final3">
+                        
+                        <a href="/views/productDetail"> Ver mas Productos</a>
+                        <button type="submit">INICIAR COMPRA</button>
+                    </div>
+                
                 </div>
-            </section>
-        </main>
-    </body>
-
+            </div>
+        </section>
+    </main>
+</body>
 </html>

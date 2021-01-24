@@ -8,6 +8,7 @@ const router = express.Router();
 // Validators
 const registerValidator = require('../validations/registerValidator');
 const loginValidator = require('../validations/loginValidator')
+const editValidator = require('../validations/editValidator')
 
 // Middlewares
 const authMiddleware = require('../middlewares/authMiddleware');
@@ -27,9 +28,11 @@ router.post('/register', upload.single('avatar'), registerValidator, usersContro
 // Users login and logout
 router.get('/login', guestMiddleware, usersController.login)
 router.post('/login', loginValidator, usersController.processLogin)
-router.post('/logout', authMiddleware, usersController.processLogout)
+router.get('/logout', usersController.processLogout)
 
 // Users profile
 router.get('/profile', authMiddleware, usersController.profile)
+router.get('/edit', authMiddleware, usersController.edit)
+router.post('/edit', upload.single('avatar'), editValidator, usersController.udpate)
 
 module.exports = router;

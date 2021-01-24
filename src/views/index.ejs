@@ -1,42 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <%- include('./partials/head.ejs', { title: 'Home', stylesheet: 'index.css'}); %>
-    <body>
-        <%- include('./partials/header.ejs') %>
-        <div class="container main">
-            <div class="banner">
-                <span class="left">
-                    <i class="fas fa-tags"></i><p><strong>10% off en todos los productos</strong><br>Abonando vía transferencia bancaria</p>
-                </span>
-                <span class="middle">
-                    <i class="fas fa-home"></i><p><strong>Quedate en casa</strong><br><a href="https://www.argentina.gob.ar/salud/coronavirus-COVID-19">Información sobre COVID-19</a></p>
-                </span>
-                <span class="right">
-                    <i class="fas fa-map-pin"></i><p><strong>Locales</strong><br><a href="https://goo.gl/maps/BskZFPBJc9bGTiLq6">Buenos Aires</a><br><a href="https://goo.gl/maps/aBShuoiXxbaFa3V88">Córdoba</a></p>
-                </span>
-            </div>
-            <div class="categories">
-                <a href="#"><img src="/Images/index/green-world.png" alt="Mundo verde"></a>
-                <a href="#"><img src="/Images/index/deco.png" alt="Deco y objetos únicos"></a>
-                <a href="#"><img src="/Images/index/workshops.png" alt="Workshops"></a>
-            </div>
-            <div class="products">
-                <section>
-                    <% for ( product of products) { %> 
-                        <article>
-                            <a href="/products/<%= product.id %>"><img src="/uploads/products/<%= product.image %> "alt="<%= product.title %>"></a>
-                            <div class="item-info">
-                                <p class="name"><%= product.title %></p>
-                                <p class="price">$<%= product.price %></p>
-                            </div>
-                        </article>
-                    <% } %>
-                </section>
-                <div class="all-products">
-                    <a href="/products">Ver todos los productos</a>
-                </div>
+</head>
+<body>
+    <%- include('./partials/header.ejs') %>
+    <div class="container main">
+        <div class="banner">
+            <span class="left">
+                <i class="fas fa-tags"></i><p><strong>10% off en todos los productos</strong><br>Abonando vía transferencia bancaria</p>
+            </span>
+            <span class="middle">
+                <i class="fas fa-home"></i><p><strong>Quedate en casa</strong><br><a href="https://www.argentina.gob.ar/salud/coronavirus-COVID-19">Información sobre COVID-19</a></p>
+            </span>
+            <span class="right">
+                <i class="fas fa-map-pin"></i><p><strong>Locales</strong><br><a href="https://goo.gl/maps/BskZFPBJc9bGTiLq6">Buenos Aires</a><br><a href="https://goo.gl/maps/aBShuoiXxbaFa3V88">Córdoba</a></p>
+            </span>
+        </div>
+        <div class="categories">
+            <a href="#"><img src="/Images/index/green-world.png" alt="Mundo verde"></a>
+            <a href="#"><img src="/Images/index/deco.png" alt="Deco y objetos únicos"></a>
+            <a href="#"><img src="/Images/index/workshops.png" alt="Workshops"></a>
+        </div>
+        <div class="products">
+            <section>
+                <% for ( product of products) { %> 
+                    <article>
+                        <a href="/products/<%= product.id %>"><img src="/uploads/products/<%= product.image %> "alt="<%= product.title %>"></a>
+                        <div class="item-info">
+                            <p class="name"><%= product.title %></p>
+                            <p class="price">$<%= product.price %></p>
+                        </div>
+                    </article>
+                <% } %>
+            </section>
+            <div class="all-products">
+                <a href="/products">Ver todos los productos</a>
             </div>
         </div>
-        <%- include('./partials/footer.ejs') %> 
-    </body>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+</body>
 </html>

@@ -70,7 +70,7 @@ module.exports = {
                     req.session.usuarioLogueado = userToLogin;
                                         
                     if (remember != undefined) {
-                        res.cookie("remember",usuarioALoguearse.email, {maxAge:60000});
+                        res.cookie("remember",userToLogin.email, {maxAge:60000});
                     }
                     return res.redirect("/");
                 }
@@ -90,8 +90,49 @@ module.exports = {
     profile: function(req, res) {
         return res.render('users/profile');
     },
+    edit: function(req, res) {
+        return res.render('users/edit');
+    },
+    udpate: function(req, res) {
+        let errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.render('users/edit', { erorrs: errors.mapped() })
+        } else{
+            // Subimos el archivo al disco
+            if (req.file) {
+                req.file.filename = req.body.email + path.extname(req.file.originalname);
+                fs.writeFileSync(path.join(__dirname,'../../public/uploads/avatars', req.file.filename), req.file.buffer, function(err) {
+                    if(err) {
+                        return console.log(err);
+                    }
+                    console.log("The file was saved!");
+                }); 
+            }
+            
+            db.Users.update({
+                name: req.body.name,
+                lastname: req.body.last_name,
+                email: req.body.email,
+                avatar: (req.file ? req.file.filename : req.session.usuarioLogueado.avatar),
+            },{
+                where: {
+                    id: req.session.usuarioLogueado.id
+                }
+            })
+            .then(function(user) {
+                req.session.usuarioLogueado.name = req.body.name;
+                req.session.usuarioLogueado.lastname = req.body.lastname;
+                req.session.usuarioLogueado.email = req.body.email;
+                req.session.usuarioLogueado.avatar = (req.file ? req.file.filename : req.session.usuarioLogueado.avatar);
+                                    
+                if (req.cookies.remember != undefined) {
+                    res.cookie.remember = req.body.email;
+                }
+                return res.redirect("/");
+            })
+            .catch((error) => {
+                return res.render("users/login", { errors: [{ msg: "Credenciales no válidas" }] })
+            });
+        }
+    },
 }
-
-
-
-
