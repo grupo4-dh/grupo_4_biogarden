@@ -3,6 +3,7 @@ const path = require('path')
 
 const db = require('../database/models')
 
+
 module.exports = {
     index: function(req, res) {
         db.Producto.findAll({
@@ -27,21 +28,37 @@ module.exports = {
     contacto:function(req,res){
         return res.render('contacto.ejs');
     },
-    processContacto:function(req,res){
-        let contacto = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/contacto.json'),'utf8'))
-        let nuevoContacto = {
+    processContacto: function (req,res){
+      db.Contact.create({
+        name: req.body.name,
+        email: req.body.email,
+        comment: req.body.comment
+                                  
+    })
+      .then((result) => {
+        return res.redirect('/');
+    })
+    .catch((error) => {
+        res.send(error)
+    })
+},
+
+   // processContacto:function(req,res){
+     //   let contacto = JSON.parse(fs.readFileSync(path.join(__dirname,'../database/contacto.json'),'utf8'))
+       // let nuevoContacto = {
             //guardo la BBDD del usuario
-            name: req.body.name,
-            email: req.body.email,
-            comentario: req.body.comentario,
-        }
-        console.log(nuevoContacto);
-        contacto.push(nuevoContacto);
-        fs.writeFileSync(path.join(__dirname,'../database/contacto.json'), JSON.stringify(contacto,null,4));
-        res.redirect('/')
-    },
+         //   name: req.body.name,
+           // email: req.body.email,
+            //omentario: req.body.comentario,
+        //}
+        //console.log(nuevoContacto);
+       // contacto.push(nuevoContacto);
+        //fs.writeFileSync(path.join(__dirname,'../database/contacto.json'), JSON.stringify(contacto,null,4));
+        //res.redirect('/')
+    //},
     test: function(req, res){
        res.send('For testing')
     }
 }
+
 
