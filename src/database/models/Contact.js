@@ -26,16 +26,5 @@ let config={
 }
     let Contact =sequelize.define(alias, cols,config);
 
-    Order.associate=function(models){
-        Order.belongsToMany(models.Producto,{
-            as:"productos",
-            through:"orders_details",
-            foreignKey:"id_order",
-            otherkey:"id_product",
-            timestamps:false
-        });
-    }
-
-
-    return Order;
+    return Contact;
 }
