@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: biogarden
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.17-MariaDB
+-- Server version	5.5.5-10.4.14-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -295,7 +295,7 @@ CREATE TABLE `products` (
   CONSTRAINT `fk_products_colours1` FOREIGN KEY (`id_colour`) REFERENCES `colours` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_products_products_categories1` FOREIGN KEY (`id_category`) REFERENCES `products_categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_products_sizes1` FOREIGN KEY (`id_size`) REFERENCES `sizes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -304,7 +304,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Suculentas variadas ',749.99,'product_1.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,2,10,1),(2,'Suculenta chica',599.99,'product_2.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,1,10,1),(3,'Planta de interior',1299.99,'product_3.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,3,10,1),(4,'Planta acuática',1400.00,'product_4.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,3,10,1),(5,'Planta acuática',899.99,'product_5.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,2,10,1),(6,'Planta de exterior',1799.99,'product_6.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,4,10,1),(7,'Suculentas deco',849.99,'product_7.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',2,5,2,10,1),(8,'Maceta estilo terrario',1299.99,'product_8.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',2,5,3,10,1),(9,'Taller de suculentas - Principiantes',1500.00,'product_9.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',3,NULL,NULL,10,1),(10,'Taller de decoración - Principiantes',2000.00,'product_10.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',3,NULL,NULL,10,1);
+INSERT INTO `products` VALUES (1,'Suculentas variadas ',749.99,'product_1.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,2,10,1),(2,'Suculenta chica',599.99,'product_2.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,1,10,1),(3,'Planta de interior',1299.99,'product_3.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,3,10,1),(4,'Planta acuática',1400.00,'product_4.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,3,10,1),(5,'Planta acuática',899.99,'product_5.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,2,10,1),(6,'Planta de exterior',1799.99,'product_6.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,4,10,1),(7,'Suculentas deco',849.99,'product_7.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',2,5,2,10,1),(8,'Maceta estilo terrario',1299.99,'product_8.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',2,5,3,10,1),(9,'Taller de suculentas - Principiantes',1500.00,'product_9.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',3,NULL,NULL,10,1),(10,'Taller de decoración - Principiantes',2000.00,'product_10.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',3,NULL,NULL,10,1),(11,'Bandeja Arce',1000.00,'product_11.jpg','DESCRIPCIÓN:\r\nBandeja de fibras naturales con agarraderas. Producto importado.\r\nMEDIDAS:\r\nCHICA: 40x8cm\r\nGRANDE: 45X9cm',2,5,3,2,0),(12,'home spray botanico',400.00,'product_12.jpg','Difusor home spray ideal para ambientes y textiles. Envase pet de 250cc. Vienen en bolsita de tela.',2,5,3,4,0);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -387,6 +387,29 @@ INSERT INTO `states` VALUES (1,'Buenos Aires',1),(2,'Capital Federal',1),(3,'Có
 UNLOCK TABLES;
 
 --
+-- Table structure for table `user_categories`
+--
+
+DROP TABLE IF EXISTS `user_categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `user_categories` (
+  `id_category` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id_category`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `user_categories`
+--
+
+LOCK TABLES `user_categories` WRITE;
+/*!40000 ALTER TABLE `user_categories` DISABLE KEYS */;
+/*!40000 ALTER TABLE `user_categories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `users`
 --
 
@@ -406,7 +429,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `fk_users_user_categories1_idx` (`id_category`),
   CONSTRAINT `fk_users_user_categories1` FOREIGN KEY (`id_category`) REFERENCES `users_categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -415,7 +438,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Admin','Biogarden','admin@biogarden.com','$2b$12$UQYWx.n4nGJ6xsuI51pdguuFjtdw4RM1Mp6t0698xuSoKJ6KncqYu',2,'admin@biogarden.com.jpg'),(2,'Roberto','Gomez','rgomez@gmail.com','$2b$12$sURo4ZfiBkN6uZ6rDSBRFeymn/MuFT1m7Aw2so7vSLybz9U3/.peO',1,'rgomez@gmail.com.jpg'),(3,'Martina','Torres','mtorres@gmail.com','$2b$12$RD9Mg13/2CGyD9DrpMjBLewEskVrOYxHO1SER8hvGmQnK3KlFt5dW',1,'mtorres@gmail.com.jpg');
+INSERT INTO `users` VALUES (1,'Admin','Biogarden','admin@biogarden.com','$2b$12$UQYWx.n4nGJ6xsuI51pdguuFjtdw4RM1Mp6t0698xuSoKJ6KncqYu',2,'admin@biogarden.com.jpg'),(2,'Roberto','Gomez','rgomez@gmail.com','$2b$12$sURo4ZfiBkN6uZ6rDSBRFeymn/MuFT1m7Aw2so7vSLybz9U3/.peO',1,'rgomez@gmail.com.jpg'),(3,'Martina','Torres','mtorres@gmail.com','$2b$12$RD9Mg13/2CGyD9DrpMjBLewEskVrOYxHO1SER8hvGmQnK3KlFt5dW',1,'mtorres@gmail.com.jpg'),(4,'florencia','bornancini','fbornancini@hotmail.com','$2b$12$ftiE2NgXaE7UeayefI46U.66E6B6IjZVyh15vht55quCQHko.WqWu',1,'fbornancini@hotmail.com.svg');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -483,4 +506,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-23 16:26:13
+-- Dump completed on 2021-01-25 16:58:59

@@ -81,7 +81,7 @@ module.exports = {
             title:req.body.title,
             price:req.body.price,
             image:req.body.image,
-            description:req.body.descripcion,
+            description:req.body.description,
             id_category:req.body.id_category,
             id_colour:req.body.id_colour,
             id_size:req.body.id_size,
