@@ -97,11 +97,11 @@ module.exports = {
         for (product of productsCart) {
             total += product.price
         }
-        return res.render('products/productsCart', { products: productsCart, total: total } )
+        return res.render('products/productsCart')
     },
     
     // Devuelve la vista de Edición de producto segun el ID
-    edit: function(req, res){
+    edit: function(req, res){// esta mal porque da error el codigo--- REVISARLO!!!
 
         db.Producto.findByPk(req.params.id,{ include: { all: true }})
         .then(function(producto){
