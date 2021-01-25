@@ -1,34 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Cómo Comprar </title>
-  <meta charset="utf-8">
-  
-
-  <%- include('./partials/head.ejs', { title: 'Como Comprar', stylesheet: 'comoComprar.css'}); %>
+    <%- include('./partials/head.ejs', { title: 'Como Comprar', stylesheet: 'comoComprar.css'}); %>
 </head>
-
 <body>
-  <%- include('./partials/header.ejs') %>
-<div class="contenido">
-
- 
-     <h1> COMO COMPRAR </h1>
-     <ul>
-         <li>Elegí el producto que deseas comprar.</li>
-         <li>Hacé clic en el botón de "Agregar al carrito". Esto agregará el producto a tu carrito y te llevará al mismo.</li>
-         <li>Podés seguir agregando otros productos al carrito o sino hacé clic en "Iniciar Compra".</li>
-        <li>Luego completá tus datos y elegí el método de pago que quieras, finalmente 
-         vas a recibir un e-mail con la confirmación de la compra o del pedido realizado.</li>
-         </ul>
-         
-         
-        <img class=imagen src="/Images/comocomprar.png" alt="imagen">
-         
-  
-</div>
-  
-<%- include('./partials/footer.ejs') %>
-
+    <%- include('./partials/header.ejs') %>
+    <div class="main-container contenido">
+        <h1> COMO COMPRAR </h1>
+        <ul>
+            <li>Elegí el producto que deseas comprar.</li>
+            <li>Hacé clic en el botón de "Agregar al carrito". Esto agregará el producto a tu carrito y te llevará al mismo.</li>
+            <li>Podés seguir agregando otros productos al carrito o sino hacé clic en "Iniciar Compra".</li>
+            <li>Luego completá tus datos y elegí el método de pago que quieras, finalmente 
+            vas a recibir un e-mail con la confirmación de la compra o del pedido realizado.</li>
+        </ul>
+        <img class=imagen src="/images/comocomprar.png" alt="imagen">
+    </div>
+    <%- include('./partials/footer.ejs') %>
 </body>
 </html>
