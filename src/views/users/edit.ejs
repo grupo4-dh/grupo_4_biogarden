@@ -1,38 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <%- include('../partials/head.ejs', { title: 'Crear cuenta', stylesheet: 'users/register.css'}); %>
+    <%- include('../partials/head.ejs', { title: 'Editar mi perfil', stylesheet: 'users/edit.css'}); %>
 </head>
 <body>
     <%- include('../partials/header.ejs') %>
     <div class="main-container register">
-        <h2>REGISTRATE</h2>
+        <h2>Edita tus datos</h2>
         <form action="" method="post" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="name">Nombre</label>
-                <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" name="name">
+                <input type="text" class="form-control" id="name" value="<%= usuarioLogueado.name %>" name="name">
                 <small class= "error" style="color:red"><%=(locals.errors && errors.name) ? errors.name.msg : ""%></small>
             </div>
             <div class="form-group">
                 <label for="last_name">Apellido</label>
-                <input type="text" class="form-control" id="last_name" placeholder="Ingresa tu apellido" name="last_name">
+                <input type="text" class="form-control" id="last_name" value="<%= usuarioLogueado.lastname %>" name="last_name">
                 <small class= "error" style="color:red"><%=(locals.errors && errors.name) ? errors.name.msg : ""%></small>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" placeholder="Ingresa tu email" name="email">
+                <input type="email" class="form-control" id="email" value="<%= usuarioLogueado.email %>" name="email">
                 <small class= "error" style="color:red"><%=(locals.errors && errors.email) ? errors.email.msg : ""%></small>
-            </div>
-            <div class="form-group">
-                <label for="pwd">Contraseña</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Ingresa tu contraseña" name="password">
-                <small class= "error" style="color:red"><%=(locals.errors && errors.password) ? errors.password.msg : ""%></small>
             </div>
             <div class="form-group">
                 <label for="pwd">Foto de perfil</label>
                 <input type="file" class="form-control-file" id="avatar" name="avatar">
             </div>
-            <button type="submit" class="btn btn-success">Registrarse</button>
+            <button type="submit" class="btn btn-success">Guardar cambios</button>
         </form>
     </div>
     <%- include('../partials/footer.ejs') %>

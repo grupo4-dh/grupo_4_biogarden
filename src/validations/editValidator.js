@@ -16,10 +16,6 @@ module.exports = [
     check("email")
     .notEmpty().withMessage('El campo no puede estar vacío')
     .isEmail().withMessage("Debes ingresar un email válido"),
-    
-    check("password")
-    .notEmpty().withMessage('El campo no puede estar vacío')
-    .isLength({ min:6, max:15 }).withMessage("La contraseña debe contener como mínimo 6 caracteres"),
         
     body("email").custom(function(value) {
         return true
