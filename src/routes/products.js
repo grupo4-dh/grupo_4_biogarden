@@ -31,7 +31,7 @@ router.get('/search',productsController.search);
 
 //  Creación de productos
 router.get('/create', adminMiddleware, productsController.create);            // Formulario de creación de productos
-router.post('/create', upload.single('imagen'), productsController.save);              // Acción de creación de producto
+router.post('/create', upload.single('image'), productsController.save);              // Acción de creación de producto
 
 //  Carrito de compras-----SOLO RENDERIZA LA VISTA , HAY QUE MEJORARLA
 router.get('/cart', productsController.cart);               // Vista del Carrito de compras
