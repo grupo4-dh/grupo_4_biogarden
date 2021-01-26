@@ -15,8 +15,10 @@ module.exports = {
         .then(function(products) {
             if (req.session.usuarioLogueado && req.session.usuarioLogueado.user_category.id == 2) {
                 return res.render('products/productsListAdmin', { products: products }); //recibe la ruta y el array
+            }else{
+                return res.render('products/productsList', { products: products }); //recibe la ruta y el array
             }
-            return res.render('products/productsList', { products: products }); //recibe la ruta y el array
+           
         })
         .catch((error) => {
             return res.send(error)
@@ -133,7 +135,7 @@ module.exports = {
             title:req.body.title,
             price:req.body.price,
             image:req.body.image,
-            description:req.body.descripcion,
+            description:req.body.description,
             id_category:req.body.id_category,
             id_colour:req.body.id_colour,
             id_size:req.body.id_size,
