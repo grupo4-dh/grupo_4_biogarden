@@ -105,7 +105,7 @@ module.exports = {
         let total = 0;
         for (product of productsCart) {
             total += product.price
-        //}
+        }
         return res.render('products/productsCart')
     },
     
