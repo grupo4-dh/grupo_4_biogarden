@@ -14,7 +14,7 @@ const router = express.Router()
 // Configuramos multer en la variable upload para subida de archivos
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname,'../../public/uploads/productos'))
+        cb(null, path.join(__dirname,'../../public/uploads/products'))
     },
     filename: function (req, file, cb) {
         cb(null, 'product_' + Date.now() + path.extname(file.originalname))             // Recordar lo de la extensión

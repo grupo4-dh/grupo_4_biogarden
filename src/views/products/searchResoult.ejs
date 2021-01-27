@@ -17,9 +17,10 @@
         <% } %> 
     </section>
     <section class="productoBuscado">
-        <% for (let i=0; productos[i].length;i++){%>
+        <% for (let i=0; i< productos.length;i++){%>
             <article>
-                <h2><%productos[i].title %> </h2>
+                <h2><%=productos[i].title %></h2>
+                <img src="/uploads/products/<%=productos[i].image %>" alt="">
                 <a href=<%="/products/" + productos[i].id %>><button style="cursor:pointer"> Ingresa a los detalles del producto que buscas</button></a>
             </article>
 

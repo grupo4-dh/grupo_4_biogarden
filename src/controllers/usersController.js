@@ -69,7 +69,7 @@ module.exports = {
                     req.session.usuarioLogueado = userToLogin;
                                         
                     if (remember != undefined) {
-                        res.cookie("remember",userToLogin.email, {maxAge:60000});
+                        res.cookie("remember",userToLogin.email, {maxAge:1000*60*60});
                     }
                     return res.redirect("/");
                 }

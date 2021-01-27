@@ -82,16 +82,22 @@ module.exports = {
         db.Producto.create({
             title:req.body.title,
             price:req.body.price,
-            image:req.body.image,
+            image:req.file.filename,
             description:req.body.description,
             id_category:req.body.id_category,
             id_colour:req.body.id_colour,
             id_size:req.body.id_size,
-            quantity:req.body.quantity
+            quantity:req.body.quantity,
+            status:1
 
         })
-       
-      res.redirect('products/productsList');
+        .then(function(){
+            res.redirect('/products')
+
+        })
+        .catch((error) => {
+            return res.send(error)  
+        });
     },
     // Devuelve la vista del Carrito de compras
     cart: function(req, res) {
@@ -134,31 +140,38 @@ module.exports = {
         db.Producto.update({
             title:req.body.title,
             price:req.body.price,
-            image:req.body.image,
+            image:req.file.filename,
             description:req.body.description,
             id_category:req.body.id_category,
             id_colour:req.body.id_colour,
             id_size:req.body.id_size,
             quantity:req.body.quantity
 
-        },{
+        },
+        {
             where:{
                 id:req.params.id
             }
         });
         
-        res.redirect('products/productsList' + req.params.id)
+        res.redirect('/products/' + req.params.id)
 
       
     },
     // eliminar  un producto de la BBDD
     delete: function(req, res) {
-        db.Producto.destroy({
+        db.Producto.update({
+            status:0
+        },
+        {
             where:{
                 id:req.params.id
             }
         })
-        res.redirect('products/productList');
-        
+        .then(function(){
+            res.redirect('/products');
+
+        })
     }
+           
 }

@@ -4,6 +4,7 @@
 const db = require('../database/models')
 
 module.exports = (req, res, next) => {
+    console.log("se ejecuto authmiddelware")
     if (req.session.usuarioLogueado != undefined) {
         next();
     } else {
