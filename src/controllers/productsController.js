@@ -82,7 +82,7 @@ module.exports = {
         db.Producto.create({
             title:req.body.title,
             price:req.body.price,
-            image:req.file.filename,
+            image:req.file.filename,//asociado al multer
             description:req.body.description,
             id_category:req.body.id_category,
             id_colour:req.body.id_colour,
@@ -145,18 +145,19 @@ module.exports = {
             id_category:req.body.id_category,
             id_colour:req.body.id_colour,
             id_size:req.body.id_size,
-            quantity:req.body.quantity
+            quantity:req.body.quantity,
+            status:1
 
         },
         {
             where:{
                 id:req.params.id
             }
-        });
-        
-        res.redirect('/products/' + req.params.id)
+        })
+        .then(function(){
+            res.redirect('/products/' + req.params.id)
 
-      
+        })  
     },
     // eliminar  un producto de la BBDD
     delete: function(req, res) {

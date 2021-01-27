@@ -9,7 +9,7 @@
         <h2 class ="titulo">EDITAR PRODUCTOS</h2>
         <P class="descripcion">Completar los siguientes campos:</P>
         <div class= "caja-container-1">
-            <form method="POST" action="/products/<%producto.id %>/edit> " enctype="multipart/form-data"> 
+            <form method="POST" action="/products/<%=producto.id %>/edit" enctype="multipart/form-data"> 
                 <p><label for="nombre">Nombre del Producto</label></p>
                 <input type="text" name="title" id="title" value="<%=producto.title %>"><br>
                 <p><label for="nombre">Cantidad</label></p>
@@ -42,7 +42,7 @@
                 </select>              
                 <p><label for="Descripcion">Descripcion</label></p>
                 <textarea name="description" id="description" cols="20" rows="10"><%= producto.description %></textarea><br>
-                <input type="file" id ="image"  name="image" class = "imagen" placeholder = "Cargar imagen"><br><br>
+                <input type="file" id ="image"  name="image" class = "image" placeholder = "Cargar imagen"><br><br>
                 <button type="submit" class= "EditarProducto">Editar producto</button>
             </form>
         </div>

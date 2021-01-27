@@ -41,7 +41,7 @@ router.get('/:id', productsController.detail);       // Vista del Detalle de pro
 
 //  Edición y borrado de producto
 router.get('/:id/edit', adminMiddleware, productsController.edit);    // Vista del Formulario de edición de productos
-router.post('/:id/edit', upload.single('producto'), productsController.update);        // Acción de edición de producto
+router.post('/:id/edit', upload.single('image'), productsController.update);        // Acción de edición de producto
 router.post('/:id/delete', productsController.delete);    // Acción de borrado de producto
 
 module.exports = router; 
