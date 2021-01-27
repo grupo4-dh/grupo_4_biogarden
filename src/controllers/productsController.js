@@ -5,7 +5,7 @@ const db = require("../database/models")
 module.exports = { 
     // Devuelve la vista del Listado de productos
     all: function(req, res) {
-        db.Producto.findAll({
+        db.Producto.findAll({//podemos agregar que ordene por producto de creacion con orderby
             where: {
                 status: 1
             },
@@ -99,12 +99,13 @@ module.exports = {
             return res.send(error)  
         });
     },
+
     // Devuelve la vista del Carrito de compras
     cart: function(req, res) {
         let total = 0;
         for (product of productsCart) {
             total += product.price
-        }
+        //}
         return res.render('products/productsCart')
     },
     
@@ -155,7 +156,7 @@ module.exports = {
             }
         })
         .then(function(){
-            res.redirect('/products/' + req.params.id)
+            res.redirect('/products/'+ req.params.id)
 
         })  
     },

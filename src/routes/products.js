@@ -44,4 +44,8 @@ router.get('/:id/edit', adminMiddleware, productsController.edit);    // Vista d
 router.post('/:id/edit', upload.single('image'), productsController.update);        // Acción de edición de producto
 router.post('/:id/delete', productsController.delete);    // Acción de borrado de producto
 
+//comentario del detalle por el usuario
+//router.post('/comments', productsController.comments);
+
+
 module.exports = router; 
