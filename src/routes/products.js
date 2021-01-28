@@ -46,6 +46,9 @@ router.post('/:id/delete', productsController.delete);    // Acción de borrado 
 
 //comentario del detalle por el usuario
 //router.post('/comments', productsController.comments);
+//crear el modelo segun la tabla
+//realizar el metodo en el controller
+
 
 
 module.exports = router; 
