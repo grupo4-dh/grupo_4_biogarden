@@ -72,10 +72,12 @@ module.exports = {
                         res.cookie("remember",userToLogin.email, {maxAge:1000*60*60});
                     }
                     return res.redirect("/");
+                } else {
+                    return res.render("users/login", { errors: { error: { msg: "Credenciales no válidas" } } })
                 }
             })
             .catch((error) => {
-                return res.render("users/login", { errors: [{ msg: "Credenciales no válidas" }] })
+                return res.render("users/login", { errors: { error: { msg: error } } })
             });
         }
     },

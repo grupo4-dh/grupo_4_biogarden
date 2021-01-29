@@ -4,8 +4,10 @@ const { check } = require("express-validator");
 
 module.exports = [
     check("email")
+    .notEmpty().withMessage('El campo no puede estar vacío')
     .isEmail().withMessage("Debes ingresar un email válido"),
         
     check("password")
-    .isLength({ min:6, max:15 }).withMessage("La contraseña debe contener como mínimo 6 caracteres")
+    .notEmpty().withMessage('El campo no puede estar vacío')
+    .isLength({ min:6, max:15 }).withMessage("La contraseña debe contener como mínimo 6 caracteres"),
 ]

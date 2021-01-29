@@ -9,6 +9,7 @@
     <div class="main-container login">
         <h2>LOGIN</h2>
         <form class="form-login" action="" method="POST">
+            <small class= "error" style="color:red"><%=(locals.errors && errors.error) ? errors.error.msg : ""%></small>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" placeholder="Ingresa tu email" name="email">
