@@ -9,8 +9,7 @@ module.exports = {
             where: {
                 status: 1
             },
-            include:[
-                {association:"colores"},{association:"tamanos"},{association:"categorias"},{association:"ordenes"}]
+            include: { all: true }
         })
         .then(function(products) {
             if (req.session.usuarioLogueado && req.session.usuarioLogueado.user_category.id == 2) {
@@ -18,7 +17,6 @@ module.exports = {
             }else{
                 return res.render('products/productsList', { products: products }); //recibe la ruta y el array
             }
-           
         })
         .catch((error) => {
             return res.send(error)
@@ -141,7 +139,7 @@ module.exports = {
         db.Producto.update({
             title:req.body.title,
             price:req.body.price,
-            image:req.file.filename,
+            image:(req.file ? req.file.filename : req.body.image),
             description:req.body.description,
             id_category:req.body.id_category,
             id_colour:req.body.id_colour,

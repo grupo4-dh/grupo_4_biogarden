@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: biogarden
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.14-MariaDB
+-- Server version	5.5.5-10.4.17-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -129,52 +129,54 @@ INSERT INTO `colours` VALUES (1,'Rojo','FF0000'),(2,'Verde','00FF00'),(3,'Amaril
 UNLOCK TABLES;
 
 --
--- Table structure for table `comment`
+-- Table structure for table `comments`
 --
 
-DROP TABLE IF EXISTS `comment`;
+DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `comment` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `comments` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `comment` text NOT NULL,
   `email` varchar(80) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `comment`
+-- Dumping data for table `comments`
 --
 
-LOCK TABLES `comment` WRITE;
-/*!40000 ALTER TABLE `comment` DISABLE KEYS */;
-/*!40000 ALTER TABLE `comment` ENABLE KEYS */;
+LOCK TABLES `comments` WRITE;
+/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
+/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `contact`
+-- Table structure for table `contacts`
 --
 
-DROP TABLE IF EXISTS `contact`;
+DROP TABLE IF EXISTS `contacts`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `contact` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `contacts` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `comment` text NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `contact`
+-- Dumping data for table `contacts`
 --
 
-LOCK TABLES `contact` WRITE;
-/*!40000 ALTER TABLE `contact` DISABLE KEYS */;
-/*!40000 ALTER TABLE `contact` ENABLE KEYS */;
+LOCK TABLES `contacts` WRITE;
+/*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
+/*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -344,7 +346,7 @@ CREATE TABLE `products` (
   CONSTRAINT `fk_products_colours1` FOREIGN KEY (`id_colour`) REFERENCES `colours` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_products_products_categories1` FOREIGN KEY (`id_category`) REFERENCES `products_categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_products_sizes1` FOREIGN KEY (`id_size`) REFERENCES `sizes` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -353,7 +355,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Suculentas variadas ',749.99,'product_1.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,2,10,1),(2,'Suculenta chica',599.99,'product_2.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,1,10,1),(3,'Planta de interior',1299.99,'product_3.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,3,10,1),(4,'Planta acuática',1400.00,'product_4.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,3,10,1),(5,'Planta acuática',899.99,'product_5.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,2,10,1),(6,'Planta de exterior',1799.99,'product_6.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,4,10,1),(7,'Suculentas deco',849.99,'product_7.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',2,5,2,10,1),(8,'Maceta estilo terrario',1299.99,'product_8.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',2,5,3,10,1),(9,'Taller de suculentas - Principiantes',1500.00,'product_9.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',3,NULL,NULL,10,1),(10,'Taller de decoración - Principiantes',2000.00,'product_10.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',3,NULL,NULL,10,1),(11,'Bandeja Arce',1000.00,'product_11.jpg','DESCRIPCIÓN:\r\nBandeja de fibras naturales con agarraderas. Producto importado.\r\nMEDIDAS:\r\nCHICA: 40x8cm\r\nGRANDE: 45X9cm',2,5,3,2,1),(12,'home spray botanico',400.00,'product_12.jpg','Difusor home spray ideal para ambientes y textiles. Envase pet de 250cc. Vienen en bolsita de tela.',2,5,3,4,1),(13,'home spray botanico',300.00,'product_1611706607181.jpg','asdsdasd',2,6,3,2,0),(14,'home spray botanico',400.00,'product_1611706716894.jpg','dfsdfd',2,5,2,2,0),(15,'home spray botanico',300.00,'product_1611706879638.jpg','asdasd',2,5,1,2,0),(16,'home spray botanico',300.00,'product_1611707199759.jpg','asdasd',2,5,1,2,0),(17,'home spray botanico',300.00,'product_1611707516377.jpg','sdasdasd',2,5,2,2,0);
+INSERT INTO `products` VALUES (1,'Suculentas variadas',759.99,'product_1.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,7,6,10,1),(2,'Suculenta chica',599.99,'product_2.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,1,10,1),(3,'Planta de interior',1299.99,'product_3.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,3,10,1),(4,'Planta acuática',1400.00,'product_4.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,3,10,1),(5,'Planta acuática',899.99,'product_5.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,2,10,1),(6,'Planta de exterior',1799.99,'product_6.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',1,NULL,4,10,1),(7,'Suculentas deco',849.99,'product_7.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',2,5,2,10,1),(8,'Maceta estilo terrario',1299.99,'product_8.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',2,5,3,10,1),(9,'Taller de suculentas - Principiantes',1500.00,'product_9.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',3,NULL,NULL,10,1),(10,'Taller de decoración - Principiantes',2000.00,'product_10.jpg','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec leo lacus, consequat dictum volutpat nec, feugiat quis lorem. Maecenas ornare arcu in massa tincidunt, in scelerisque nisl venenatis. Proin augue orci, convallis quis accumsan eget, euismod quis mi. Donec tristique porttitor laoreet. Etiam efficitur, leo sed condimentum blandit, massa purus.',3,NULL,NULL,10,1),(11,'Bandeja Arce',1000.00,'product_11.jpg','DESCRIPCIÓN:\r\nBandeja de fibras naturales con agarraderas. Producto importado.\r\nMEDIDAS:\r\nCHICA: 40x8cm\r\nGRANDE: 45X9cm',2,5,3,2,1),(12,'Home spray botanico',400.00,'product_12.jpg','Difusor home spray ideal para ambientes y textiles. Envase pet de 250cc. Vienen en bolsita de tela.',2,5,3,4,1),(13,'Home spray botanico',300.00,'product_1611706607181.jpg','Difusor home spray ideal para ambientes y textiles. Envase pet de 350cc. Vienen en bolsita de tela.',2,6,3,2,0),(14,'Home spray botanico',400.00,'product_1611706716894.jpg','Difusor home spray ideal para ambientes y textiles. Envase pet de 550cc. Vienen en bolsita de tela.',2,5,2,2,0),(15,'Home spray botanico',300.00,'product_1611706879638.jpg','Difusor home spray ideal para ambientes y textiles. Envase pet de 650cc. Vienen en bolsita de tela.',2,5,1,2,0),(16,'Home spray botanico',300.00,'product_1611707199759.jpg','Difusor home spray ideal para ambientes y textiles. Envase pet de 750cc. Vienen en bolsita de tela.',2,5,1,2,0),(17,'Home spray botanico',300.00,'product_1611707516377.jpg','Difusor home spray ideal para ambientes y textiles. Envase pet de 850cc. Vienen en bolsita de tela.',2,5,2,2,0);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -436,29 +438,6 @@ INSERT INTO `states` VALUES (1,'Buenos Aires',1),(2,'Capital Federal',1),(3,'Có
 UNLOCK TABLES;
 
 --
--- Table structure for table `user_categories`
---
-
-DROP TABLE IF EXISTS `user_categories`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `user_categories` (
-  `id_category` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`id_category`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `user_categories`
---
-
-LOCK TABLES `user_categories` WRITE;
-/*!40000 ALTER TABLE `user_categories` DISABLE KEYS */;
-/*!40000 ALTER TABLE `user_categories` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `users`
 --
 
@@ -478,7 +457,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `fk_users_user_categories1_idx` (`id_category`),
   CONSTRAINT `fk_users_user_categories1` FOREIGN KEY (`id_category`) REFERENCES `users_categories` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -555,4 +534,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-01-28 19:37:35
+-- Dump completed on 2021-01-29  0:26:53

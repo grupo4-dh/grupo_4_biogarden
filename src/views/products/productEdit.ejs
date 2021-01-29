@@ -42,7 +42,7 @@
                 </select>              
                 <p><label for="Descripcion">Descripcion</label></p>
                 <textarea name="description" id="description" cols="20" rows="10"><%= producto.description %></textarea><br>
-                <input type="file" id ="image"  name="image" class = "image" placeholder = "Cargar imagen"><br><br>
+                <input type="file" id="image"  name="image" class="image" value="<%=producto.image%>"><br><br>
                 <button type="submit" class= "EditarProducto">Editar producto</button>
             </form>
         </div>
