@@ -6,8 +6,9 @@
 <body>
     <%- include('../partials/header.ejs') %>
     <div class="main-container register">
+       
         <h2>REGISTRATE</h2>
-        <form action="" method="post" enctype="multipart/form-data" id="form"></form>
+        <form action="" method="post" enctype="multipart/form-data" class="formulario" >
             <div class="form-group">
                 <label for="name">Nombre</label>
                 <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" name="name">
@@ -40,13 +41,14 @@
             <button type="submit" class="btn btn-success" id="submit">Registrarse</button>
             
         </form>
-        <div class='errores'>
-            <ul><li>
-
-            </li></ul>
-        </div>
 
     </div>
+    <div class='errores'>
+        <ul><li>
+
+        </li></ul>
+    </div>
+
     <%- include('../partials/footer.ejs') %>
     <script src= "/jsfront/validacionUsuario.js"></script>
 </body>
