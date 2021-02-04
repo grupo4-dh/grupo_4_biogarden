@@ -46,7 +46,7 @@ module.exports = {
     // Devuelve la vista de Detalle de producto segun el id 
     detail: function(req, res) {
         db.Producto.findByPk(req.params.id,{
-            include: { all: true }
+            include: { all: true }//incluir las asociaciones
         })
         .then(function(product) {
             return res.render('products/productDetail', { product: product })

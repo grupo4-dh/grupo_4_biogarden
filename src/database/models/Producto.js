@@ -38,7 +38,8 @@ module.exports=function(sequelize,dataTypes){
 
     let config={
         tableName: "products",
-        timestamps: false
+        timestamps: false,
+        underscored:true
     }
     let Producto = sequelize.define(alias, cols, config);
 
@@ -60,7 +61,8 @@ module.exports=function(sequelize,dataTypes){
             through:"orders_details",
             foreignKey:"id_product",
             otherkey:"id_order",
-            timestamps:false
+            timestamps:false,
+            underscored:true
         }
     )};
     return Producto;

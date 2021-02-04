@@ -6,8 +6,9 @@
 <body>
     <%- include('../partials/header.ejs') %>
     <div class="main-container register">
+       
         <h2>REGISTRATE</h2>
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post" enctype="multipart/form-data" class="formulario" >
             <div class="form-group">
                 <label for="name">Nombre</label>
                 <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" name="name">
@@ -30,16 +31,25 @@
             </div>
             <div class="form-group">
                 <label for="pwd">Confirmar contraseña</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Reingresa tu contraseña" name="repassword">
+                <input type="password" class="form-control" id="repwd" placeholder="Reingresa tu contraseña" name="repassword">
                 <small class= "error" style="color:red"><%=(locals.errors && errors.repassword) ? errors.repassword.msg : ""%></small>
             </div>
             <div class="form-group">
                 <label for="pwd">Foto de perfil</label>
                 <input type="file" class="form-control-file" id="avatar" name="avatar">
             </div>
-            <button type="submit" class="btn btn-success">Registrarse</button>
+            <button type="submit" class="btn btn-success" id="submit">Registrarse</button>
+            
         </form>
+
     </div>
+    <div class='errores'>
+        <ul><li>
+
+        </li></ul>
+    </div>
+
     <%- include('../partials/footer.ejs') %>
+    <script src= "/jsfront/validacionUsuario.js"></script>
 </body>
 </html>

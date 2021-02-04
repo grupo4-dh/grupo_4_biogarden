@@ -7,11 +7,11 @@ const db = require('../database/models')
 module.exports = [
     check("name")
     .notEmpty().withMessage('El campo no puede estar vacío')
-    .isLength({ min: 3, max: 20 }).withMessage('El nombre tiene que tener como mínimo 3 caracteres'),
+    .isLength({ min: 2, max: 20 }).withMessage('El nombre tiene que tener como mínimo 2 caracteres'),
 
     check("last_name")
     .notEmpty().withMessage('El campo no puede estar vacío')
-    .isLength({ min: 3, max: 20 }).withMessage('El nombre tiene que tener como mínimo 3 caracteres'),
+    .isLength({ min: 2, max: 20 }).withMessage('El nombre tiene que tener como mínimo 2 caracteres'),
 
     check("email")
     .notEmpty().withMessage('El campo no puede estar vacío')
