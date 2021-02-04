@@ -57,19 +57,19 @@ module.exports = {
             return res.render('users/login', { erorrs: errors.mapped() })
         } else{
             let { email, password, remember } = req.body;
-            let userToLogin;
-            db.Users.findOne({
+           
+            db.Users.findOne({//hago consulta a la BBDD
                 where: { email: email },
                 include: { all: true }
             })
-            .then(function(user) {
+            .then(function(user) {//user es la variable que guarda lo que recupero de la promesa
                 if (bcrypt.compareSync(password, user.password)) {
-                    userToLogin = user
-                    delete userToLogin.password
-                    req.session.usuarioLogueado = userToLogin;
+                    
+                    delete user.password
+                    req.session.usuarioLogueado = user;//lo guardo en la session
                                         
                     if (remember != undefined) {
-                        res.cookie("remember",userToLogin.email, {maxAge:1000*60*60});
+                        res.cookie("remember",user.email, {maxAge:1000*60*60});
                     }
                     return res.redirect("/");
                 } else {
