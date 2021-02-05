@@ -11,7 +11,7 @@ module.exports = [
 
     check("last_name")
     .notEmpty().withMessage('El campo no puede estar vacío')
-    .isLength({ min: 2, max: 20 }).withMessage('El nombre tiene que tener como mínimo 2 caracteres'),
+    .isLength({ min: 2, max: 20 }).withMessage('El apellido tiene que tener como mínimo 2 caracteres'),
 
     check("email")
     .notEmpty().withMessage('El campo no puede estar vacío')
