@@ -12,28 +12,29 @@
             <div class="form-group">
                 <label for="name">Nombre</label>
                 <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" name="name">
-                <small class= "error" style="color:red"><%=(locals.errors && errors.name) ? errors.name.msg : ""%></small>
+                <small class= "error" id="errornombre" style="color:red"><%=(locals.errors && errors.name) ? errors.name.msg : ""%></small>
+
                 
             </div>
             <div class="form-group">
                 <label for="last_name">Apellido</label>
                 <input type="text" class="form-control" id="last_name" placeholder="Ingresa tu apellido" name="last_name">
-                <small class= "error" style="color:red"><%=(locals.errors && errors.name) ? errors.name.msg : ""%></small>
+                <small class= "error" id="errorapellido"style="color:red"><%=(locals.errors && errors.name) ? errors.name.msg : ""%></small>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" placeholder="Ingresa tu email" name="email">
-                <small class= "error" style="color:red"><%=(locals.errors && errors.email) ? errors.email.msg : ""%></small>
+                <small class= "error" id="erroremail" style="color:red"><%=(locals.errors && errors.email) ? errors.email.msg : ""%></small>
             </div>
             <div class="form-group">
                 <label for="pwd">Contraseña</label>
-                <input type="password" class="form-control" id="pwd" placeholder="Ingresa tu contraseña" name="password">
-                <small class= "error" style="color:red"><%=(locals.errors && errors.password) ? errors.password.msg : ""%></small>
+                <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" name="password">
+                <small class= "error"id="errorcontrasena" style="color:red"><%=(locals.errors && errors.password) ? errors.password.msg : ""%></small>
             </div>
             <div class="form-group">
                 <label for="pwd">Confirmar contraseña</label>
-                <input type="password" class="form-control" id="repwd" placeholder="Reingresa tu contraseña" name="repassword">
-                <small class= "error" style="color:red"><%=(locals.errors && errors.repassword) ? errors.repassword.msg : ""%></small>
+                <input type="password" class="form-control" id="repassword" placeholder="Reingresa tu contraseña" name="repassword">
+                <small class= "error"id="errorcontrasena2" style="color:red"><%=(locals.errors && errors.repassword) ? errors.repassword.msg : ""%></small>
             </div>
             <div class="form-group">
                 <label for="pwd">Foto de perfil</label>
