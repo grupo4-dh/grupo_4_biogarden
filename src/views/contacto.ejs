@@ -7,14 +7,16 @@
     <%- include('./partials/header.ejs') %>
     <div class="main-container contacto">
         <span style="text-align:center;"><h2>CONTACTO</h2></span>
-        <form action="" method="POST">
+        <form id ="form" action="" method="POST">
             <div class="form-group">
                 <label for="nombre">Nombre</label>
                 <input type="text" class="form-control" id="name" placeholder="Ingresa tu nombre" name="name">
+                <small ></small>
             </div>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" placeholder="Ingresa tu email" name="email">
+                <small ></small>
             </div>
             <div class="form-group">
                 <label for="comment">Comentarios</label>
@@ -22,7 +24,13 @@
             </div>
             <button type="submit" class="btn btn-success">ENVIAR</button>
         </form>
+        
+    </div>
+    <div class= "errores ">
+        <ul><li></li></ul>
+    </div>
     </div>
     <%- include('./partials/footer.ejs') %>
 </body>
+<script src = /jsfront/validacionContactoP.js></script>
 </html>
