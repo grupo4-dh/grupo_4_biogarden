@@ -54,6 +54,13 @@ header .brand {
     justify-content: space-between;
     align-items: center;
 }
+.usuarioLogueado{
+    margin-top: 40px;
+    margin-right: 70px;
+    background-color:red;
+    font-style: italic;
+    font-weight:100px ;
+}
 
 /* Search */
 
