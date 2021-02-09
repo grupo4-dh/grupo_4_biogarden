@@ -3,9 +3,9 @@
 const db = require('../database/models')
 
 module.exports = (req, res, next) => {
-    console.log("se ejecuto rememberM")
+    //console.log("se ejecuto rememberM")
     console.log(req.cookies)
-    if (req.cookies.remember != undefined && req.session.usuarioLogueado == undefined) {
+    if (req.cookies.remember && (! req.session.usuarioLogueado)) {
         console.log('se busca un usuario')
         db.Users.findOne({
             where: {

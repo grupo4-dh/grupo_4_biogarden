@@ -25,10 +25,10 @@
 
 .container-1 .caja-container-1 form {
     display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .container-1 .caja-container-1 form > * {
@@ -37,9 +37,10 @@
 
 .container-1 .caja-container-1 form .crearProducto {
     width: 25%;
-    padding: 5px;
-    font-size: 15px; 
-    background-color:blue;
-    color:white;
-    font-size:15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container-1 .caja-container-1 form select {
+    width: 100%
 }

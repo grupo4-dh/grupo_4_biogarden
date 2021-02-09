@@ -7,20 +7,14 @@ const path = require('path');
 const productsController = require('../controllers/productsController')
 
 const adminMiddleware = require('../middlewares/adminMiddleware');
+const productCreateValidator = require('../validations/productCreateValidator')
 
 // Creamos el router
 const router = express.Router()
 
 // Configuramos multer en la variable upload para subida de archivos
-var storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, path.join(__dirname,'../../public/uploads/products'))
-    },
-    filename: function (req, file, cb) {
-        cb(null, 'product_' + Date.now() + path.extname(file.originalname))             // Recordar lo de la extensión
-    }
-})
-var upload = multer({ storage: storage })
+var storage = multer.memoryStorage();
+var upload = multer({ storage: storage });
 
 //  --- RUTAS --- 
 //  Listado de productos
@@ -30,8 +24,8 @@ router.get('/', productsController.all);                    // Vista del Listado
 router.get('/search',productsController.search);
 
 //  Creación de productos
-router.get('/create', adminMiddleware, productsController.create);            // Formulario de creación de productos
-router.post('/create', upload.single('image'), productsController.save);              // Acción de creación de producto
+router.get('/create', productsController.create);            // Formulario de creación de productos
+router.post('/create', upload.single('image'), productCreateValidator, productsController.save);              // Acción de creación de producto
 
 //  Carrito de compras-----SOLO RENDERIZA LA VISTA , HAY QUE MEJORARLA
 router.get('/cart', productsController.cart);               // Vista del Carrito de compras

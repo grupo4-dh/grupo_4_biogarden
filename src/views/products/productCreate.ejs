@@ -10,47 +10,63 @@
         <p class="descripcion">Completar los siguientes campos:</p>
         <div class= "caja-container-1">
             <form action="/products/create" method="POST" enctype="multipart/form-data">
-                <p><label  for="nombre">Nombre del Producto</label></p>
-                <input type="text" name="title" id="title" ><br>
-                <p><label  for="nombre">Precio</label></p>
-                <input type="text" name="price" id="price" placeholder="precio"><br>
-                <p><label  for="nombre">Categoria</label></p>
-                <select name="id_category"id="id_category" >
-                    <%for(let i=0; i<categorias.length;i++){ %>
-                <option value ="<%=categorias[i].id%>">
-                    <%=categorias[i].name%>
-                    </option>
-    
-                    <%}%>
-                </select>    
-                
-                <p ><label  for="nombre">Color</label></p>
-                <select name="id_colour"id="id_colour" >
-                    <%for(let i=0; i<colores.length;i++){ %>
-                <option value ="<%=colores[i].id%>">
-                    <%=colores[i].name%>
-                    </option>
-    
-                    <%}%>
-                </select>  
-                
-                <p ><label  for="nombre">Cantidad</label></p>
-                <input type="text" name="quantity" id="quantity" placeholder="cantidad"><br>
-                <p ><label  for="nombre">Tamano</label></p>
-                <select name="id_size"id="id_size" >
-                    <%for(let i=0; i<sizes.length;i++){ %>
-                <option value ="<%=sizes[i].id%>">
-                    <%=sizes[i].name%>
-                    </option>
-    
-                    <%}%>
-                </select>               
-                <p ><label  for="Descripcion">Descripcion</label></p><textarea name="description" id="description" cols="20" rows="10"></textarea><br>
-                <input type="file" id ="image"  name="image" class = "imagen" placeholder = "Cargar imagen"><br><br>
-                <button type="submit" class= "crearProducto">Crear Nuevo Producto</button>
+                <small class= "error" style="color:red"><%=(locals.errors && errors.error) ? errors.error.msg : ""%></small>
+                <div class="form-group">
+                    <label for="title">Nombre</label>
+                    <input type="text" class="form-control" id="title" name="title" placeholder="Ingresa el nombre">
+                    <small class= "error" style="color:red"><%=(locals.errors && errors.title) ? errors.title.msg : ""%></small>
+                </div>
+                <div class="form-group">
+                    <label for="price">Precio</label>
+                    <input type="text" class="form-control" id="price" name="price" placeholder="Ingresa el precio">
+                    <small class= "error" style="color:red"><%=(locals.errors && errors.price) ? errors.price.msg : ""%></small>
+                </div>
+                <div class="form-group">
+                    <label for="quantity">Cantidad</label>
+                    <input type="text" class="form-control" id="quantity" name="quantity" placeholder="Cantidad">
+                    <small class= "error" style="color:red"><%=(locals.errors && errors.quantity) ? errors.quantity.msg : ""%></small>
+                </div>
+                <div class="form-group">
+                    <label for="id_category">Categoría</label><br>
+                    <select class="form-select" id="id_category" name="id_category">
+                        <option selected>Elegir categoría</option>
+                    <% for(let i=0; i < categorias.length; i++) { %>
+                        <option value="<%=categorias[i].id%>"><%=categorias[i].name%></option>
+                    <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="id_category">Color</label><br>
+                    <select class="form-select" id="id_colour" name="id_colour">
+                        <option selected>Elegir color</option>
+                    <% for(let i=0; i < colores.length; i++) { %>
+                        <option value="<%=colores[i].id%>"><%=colores[i].name%></option>
+                    <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="id_size">Tamaño</label><br>
+                    <select class="form-select" id="id_size" name="id_size">
+                        <option selected>Elegir tamaño</option>
+                    <% for(let i=0; i < sizes.length; i++) { %>
+                        <option value="<%=sizes[i].id%>"><%=sizes[i].name%></option>
+                    <% } %>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción</label>
+                    <textarea class="form-control" id="description" name="description" cols="20" rows="10" placeholder="Descripción del producto"></textarea>
+                    <small class= "error" style="color:red"><%=(locals.errors && errors.description) ? errors.description.msg : ""%></small>
+                </div>
+                <div class="form-group">
+                    <input type="file" class="form-control-file" id="image" name="image">
+                    <small class= "error" style="color:red"><%=(locals.errors && errors.image) ? errors.image.msg : ""%></small>
+                </div>
+                <button type="submit" class="btn btn-success crearProducto" id="submit">Crear Nuevo Producto</button>
             </form>
         </div>
     </div>  
     <%- include('../partials/footer.ejs') %>
+    <script src= "/jsfront/validacionProductCreate.js"></script>
 </body>
 </html>

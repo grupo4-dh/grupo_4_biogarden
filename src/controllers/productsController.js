@@ -1,6 +1,7 @@
 const fs = require('fs')
 const path = require('path')
 const db = require("../database/models")
+const { validationResult } = require('express-validator');
 
 module.exports = { 
     // Devuelve la vista del Listado de productos
@@ -77,25 +78,55 @@ module.exports = {
     },
     // Guarda el producto que viaja en el body en la BBDD 
     save: function(req, res) {
-        db.Producto.create({
-            title:req.body.title,
-            price:req.body.price,
-            image:req.file.filename,//asociado al multer
-            description:req.body.description,
-            id_category:req.body.id_category,
-            id_colour:req.body.id_colour,
-            id_size:req.body.id_size,
-            quantity:req.body.quantity,
-            status:1
-
-        })
-        .then(function(){
-            res.redirect('/products')
-
-        })
-        .catch((error) => {
-            return res.send(error)  
-        });
+        // Validamos los datos del form
+        let errors = validationResult(req);                                 
+        if(! errors.isEmpty()) {                                                // Si hay errores, cargamos la vista anterior con los errores 
+            db.Psize.findAll()
+            .then(function(sizes){
+                db.Pcategoria.findAll()
+                .then(function(categorias){
+                    db.Pcolour.findAll()
+                    .then(function(colores) {
+                        return res.render('products/productCreate', {
+                            sizes: sizes,
+                            categorias: categorias,
+                            colores: colores,
+                            errors: errors.mapped()
+                        })
+                    })
+                })
+            })
+        } else {
+            // Subimos el archivo al disco
+            req.file.filename = 'product_' + Date.now() + path.extname(req.file.originalname);
+            fs.writeFileSync(path.join(__dirname,'../../public/uploads/avatars', req.file.filename), req.file.buffer, function(err) {
+                if(err) {
+                    return console.log(err);
+                }
+                console.log("The file was saved!");
+            }); 
+            
+            db.Producto.create({
+                title: req.body.title,
+                price: req.body.price,
+                image: req.file.filename,    //asociado al multer
+                description: req.body.description,
+                id_category: req.body.id_category,
+                id_colour: req.body.id_colour,
+                id_size: req.body.id_size,
+                quantity: req.body.quantity,
+                status:1
+            })
+            .then(function(){
+                res.redirect('/products')
+    
+            })
+            .catch((error) => {
+                return res.send(error)  
+            });
+        }
+        
+        
     },
 
     // Devuelve la vista del Carrito de compras
