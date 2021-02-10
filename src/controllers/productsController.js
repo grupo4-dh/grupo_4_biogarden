@@ -15,12 +15,12 @@ module.exports = {
         .then(function(products) {
             if (req.session.usuarioLogueado && req.session.usuarioLogueado.user_category.id == 2) {
                 return res.render('products/productsListAdmin', { products: products }); //recibe la ruta y el array
-            }else{
+            } else {
                 return res.render('products/productsList', { products: products }); //recibe la ruta y el array
             }
         })
         .catch((error) => {
-            return res.send(error)
+            return res.send(error + "HOLA")
         });
     },
 
@@ -99,7 +99,7 @@ module.exports = {
         } else {
             // Subimos el archivo al disco
             req.file.filename = 'product_' + Date.now() + path.extname(req.file.originalname);
-            fs.writeFileSync(path.join(__dirname,'../../public/uploads/avatars', req.file.filename), req.file.buffer, function(err) {
+            fs.writeFileSync(path.join(__dirname,'../../public/uploads/products', req.file.filename), req.file.buffer, function(err) {
                 if(err) {
                     return console.log(err);
                 }

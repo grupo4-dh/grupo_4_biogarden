@@ -8,7 +8,7 @@ const db = require('../database/models')
 module.exports = [
     check("title")
     .notEmpty().withMessage('El campo no puede estar vacío')
-    .isLength({ min: 5, max: 45 }).withMessage('El título tiene que tener como mínimo 5 caracteres'),
+    .isLength({ min: 5, max: 45 }).withMessage('El nombre tiene que tener como mínimo 5 caracteres'),
 
     check("description")
     .notEmpty().withMessage('El campo no puede estar vacío')
@@ -16,7 +16,6 @@ module.exports = [
 
     check("image")
     .custom( (value, {req}) => { 
-        console.log(req.file)
         if (! req.file ) {
             throw new Error ("Tienes que cargar una imagen del producto")
         }
@@ -47,6 +46,24 @@ module.exports = [
     .custom( (value) => { 
         if (value == "Elegir categoría") {
             throw new Error ("Tienes que elegir una categoría")
+        } else {
+            return true
+        }
+    }),
+
+    check("id_colour")
+    .custom( (value) => { 
+        if (value == "Elegir color") {
+            throw new Error ("Tienes que elegir un color o no aplica")
+        } else {
+            return true
+        }
+    }),
+
+    check("id_size")
+    .custom( (value) => { 
+        if (value == "Elegir tamaño") {
+            throw new Error ("Tienes que elegir un tamaño o no aplica")
         } else {
             return true
         }
