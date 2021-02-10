@@ -2,7 +2,7 @@
 window.addEventListener('load', function(){
     
     
-    let formulario= document.qgetElementById("form");
+    let formulario= document.getElementById("form");
 
     
     formulario.addEventListener('submit',function(evento){

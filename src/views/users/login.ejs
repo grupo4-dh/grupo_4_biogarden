@@ -8,17 +8,17 @@
     <%- include('../partials/header.ejs') %>
     <div class="main-container login">
         <h2>LOGIN</h2>
-        <form class="form-login" action="" method="POST">
+        <form id ="form" class="form-login" action="" method="POST">
             <small class= "error" style="color:red"><%=(locals.errors && errors.error) ? errors.error.msg : ""%></small>
             <div class="form-group">
                 <label for="email">Email</label>
                 <input type="email" class="form-control" id="email" placeholder="Ingresa tu email" name="email">
-                <small class= "error" style="color:red"><%=(locals.errors && errors.email) ? errors.email.msg : ""%></small>
+                <small class= "erroremail" style="color:red"><%=(locals.errors && errors.email) ? errors.email.msg : ""%></small>
             </div>
             <div class="form-group">
                 <label for="pwd">Contraseña</label>
                 <input type="password" class="form-control" id="password" placeholder="Ingresa tu contraseña" name="password">
-                <small class= "error" style="color:red"><%=(locals.errors && errors.password) ? errors.password.msg : ""%></small>
+                <small class= "errorpass" style="color:red"><%=(locals.errors && errors.password) ? errors.password.msg : ""%></small>
             </div>
             <div class="checkbox">
                 <label><input type="checkbox" name="remember">Recordame</label>
