@@ -2,20 +2,15 @@
 
 const db = require('../database/models')
 
-module.exports = (req, res, next) => {
-    //console.log("se ejecuto rememberM")
-    console.log(req.cookies)
+module.exports = async (req, res, next) => {
     if (req.cookies.remember && (! req.session.usuarioLogueado)) {
-        console.log('se busca un usuario')
-        db.Users.findOne({
-            where: {
-                email: req.cookies.remember
-            }
+        await db.Users.findOne({
+            where: { email: req.cookies.remember },
+            include: { all: true }
         })
         .then(function(user) {
             delete user.password                    // Por seguridad, borramos el password
             req.session.usuarioLogueado = user;     // Crea la session
-            next();
         })
         .catch((error) => {
             return res.send(error)

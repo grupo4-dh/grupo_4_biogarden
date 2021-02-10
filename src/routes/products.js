@@ -3,7 +3,6 @@
 // Módulos y controlador
 const express = require('express')
 const multer = require('multer');
-const path = require('path');
 const productsController = require('../controllers/productsController')
 
 const adminMiddleware = require('../middlewares/adminMiddleware');
@@ -42,7 +41,5 @@ router.post('/:id/delete', productsController.delete);    // Acción de borrado 
 //router.post('/comments', productsController.comments);
 //crear el modelo segun la tabla
 //realizar el metodo en el controller
-
-
 
 module.exports = router; 

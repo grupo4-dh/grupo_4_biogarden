@@ -34,6 +34,7 @@
                         <option value="<%=categorias[i].id%>"><%=categorias[i].name%></option>
                     <% } %>
                     </select>
+                    <small class= "error" style="color:red"><%=(locals.errors && errors.id_category) ? errors.id_category.msg : ""%></small>
                 </div>
                 <div class="form-group">
                     <label for="id_category">Color</label><br>
