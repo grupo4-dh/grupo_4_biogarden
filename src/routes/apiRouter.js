@@ -5,15 +5,15 @@ const apiController = require('../controllers/apiController');
 
 //RUTAS DE PRODUCTOS
 
+router.get('/products',apiController.count);
 router.get('/products',apiController.listado);
-router.get('/products',apiController.categoria);
 
 //  Detalle de producto
-router.get('/products/:id', productsController.detalle); 
+router.get('/products/:id',apiController.detalle); 
 
 //creacion, edicion y borrado de productos
-router.post('/create', notasController.create);
-router.put('/edit/:id',notasController.update);
-router.delete('/delete/:id',notasController.delete)
+router.post('/create', apiController.create);
+router.put('/edit/:id',apiController.update);
+router.delete('/delete/:id',apiController.delete)
 
 module.exports = router;
