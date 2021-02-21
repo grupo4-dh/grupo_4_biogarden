@@ -4,6 +4,7 @@ const path = require('path');
 // Express
 const express = require('express');
 const app = express();
+const bodyParser=require ('body-parser');
 
 // Session & Cookies
 const session = require('express-session');
@@ -15,7 +16,8 @@ const usuarioRender = require('./middlewares/usuarioRender');
 
 // Configuramos el entorno para poder capturar los datos que viajan via formulario y los transformamos
 // en un objeto literal
-app.use(express.urlencoded({extended : false}))
+app.use(bodyParser.json());//DEPENDENCIAS DE LAS API PARA POST
+app.use(express.urlencoded({extended : true}))
 app.use(express.json())
 
 // Configuramos el motor de vistas y la carpeta de vistas
@@ -40,9 +42,15 @@ const mainRouter = require('./routes/main');
 const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 
+//API
+const apiRouter=require('./routes/apiRouter');
+
 app.use('/', mainRouter);
 app.use('/users', usersRouter); 
 app.use('/products', productsRouter); 
+
+//API
+app.use('/api',apiRouter);
 
 // Levantamos el server en el puerto indicado en la variable de entorno PORT, o en el puerto 3000 si no hay nada ahí.
 // Más info en: https://stackoverflow.com/questions/18864677/what-is-process-env-port-in-node-js
