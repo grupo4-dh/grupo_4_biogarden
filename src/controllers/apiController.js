@@ -5,8 +5,8 @@ module.exports={
 
     count:function(req,res){
         return res.json({
-            count:Producto.length
-            //countByCategory:Pcategoria.length?//propiedad por categoria  con el total de producto?
+            count:Producto.length,
+            countByCategory:Pcategoria.length//???propiedad por categoria  con el total de producto?
 
         })
     },
