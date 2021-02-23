@@ -43,14 +43,17 @@ const usersRouter = require('./routes/users');
 const productsRouter = require('./routes/products');
 
 //API
-const apiRouter=require('./routes/apiRouter');
+const apiRouterProducto=require('./routes/apiRouterProducto');
 
+
+//BBDD
 app.use('/', mainRouter);
 app.use('/users', usersRouter); 
 app.use('/products', productsRouter); 
 
 //API
-app.use('/api',apiRouter);
+app.use('/api',apiRouterProducto);
+
 
 // Levantamos el server en el puerto indicado en la variable de entorno PORT, o en el puerto 3000 si no hay nada ahí.
 // Más info en: https://stackoverflow.com/questions/18864677/what-is-process-env-port-in-node-js
