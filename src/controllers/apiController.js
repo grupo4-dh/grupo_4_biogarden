@@ -33,7 +33,7 @@ module.exports={
 
         return res.json({
             products:products,
-            //urlImagen:// como hago la url de la imagen?
+            //urlImagen:???
         })
 
     }
