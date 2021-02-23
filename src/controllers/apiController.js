@@ -3,40 +3,40 @@ const Producto = require('../database/models/Producto');
 
 module.exports={
 
-    count:function(req,res){
-        return res.json({
-            count:Producto.length,
-            countByCategory:Pcategoria.length//???propiedad por categoria  con el total de producto?
-
-        })
-    },
-    listado: async function (req,res){
+    productos:async function(req,res){
         const products = await db.Producto.findAll({
             where: {
                 status: 1
             },
-            include: { all: true }
+            include:{ all: true }
+
         });
 
-        return res.json({
-            products:products,
-            //detail:// url con el detalle?
-        });
+         const countByCategory= db.sequelize.query ('SELECT C.NAME, COUNT(*) AS "CANTIDAD"FROM PRODUCTS_CATEGORIES C JOIN PRODUCTS P ON C.ID = P.ID_CATEGORY GROUP BY C.NAME')
+        .then(function(resultados){
+             
+         res.json({
+            count:Producto.length,
+            countByCategory:resultados[0],//???propiedad por categoria  con el total de producto?
+            products:products
+         
+        })
+    })
     },
-    detalle: async function(req,res){
-        const products = await db.Producto.findByPk({
-            where:{
-                id:req.params.id},
-                include: { all: true }
+    detalle:async function(req,res){
+        const products = await db.Producto.findByPk(req.params.id,{
+        
+                include: {all: true}
                 //array por cada relacion de uno a muchos?
         });
-
         return res.json({
             products:products,
-            //urlImagen:// como hago la url de la imagen?
+            urlImagen:`/public/uploads/products/${products.image}`
         })
 
     }
 
 }
+
+
 
