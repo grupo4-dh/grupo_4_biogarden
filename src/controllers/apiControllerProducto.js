@@ -1,6 +1,6 @@
 let db = require('../database/models/index');
-const Producto = require('../database/models/Producto');
-const User = require('../database/models/User');
+//const Producto = require('../database/models/Producto');
+//const User = require('../database/models/User');
 
 module.exports={
 
@@ -41,7 +41,7 @@ module.exports={
     },
     //-------USUARIOS----//
     usuarios: async function(req,res){
-        const usuario=await db.User.findAll({
+        const usuario=await db.Users.findAll({
             where: {
                 id_category:1
             },
@@ -50,14 +50,14 @@ module.exports={
         })
 
      res.json({
-        count:User.length,
+        count:usuario.length,
         usuario:usuario,
-        urlDetalle:`/api/users/${users.params}`
+        urlDetalle:`/api/users/${usuario.params}`
     })
     },
 
     usuariosDetalle: async function (req,res){
-        const users = await db.User.findByPk(req.params.id,{
+        const users = await db.Users.findByPk(req.params.id,{
         
             include: {all: true}
             //array por cada relacion de uno a muchos?

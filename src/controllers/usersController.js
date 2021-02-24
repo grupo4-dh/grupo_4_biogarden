@@ -7,7 +7,7 @@ const bcrypt = require('bcrypt');
 const { validationResult } = require('express-validator');
 
 // Database
-const db = require('../database/models');
+const db = require('../database/models/index');
 
 module.exports = {
     
