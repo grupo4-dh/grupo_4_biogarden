@@ -49,10 +49,11 @@ module.exports={
 
         })
 
-     res.json({
+     res.status(200).json({
         count:usuario.length,
         usuario:usuario,
-        urlDetalle:`/api/users/${usuario.params}`
+        urlDetalle:`/api/users/${usuario.params}`,
+        status:200
     })
     },
 
