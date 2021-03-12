@@ -7,7 +7,7 @@ window.addEventListener('load', function(){
     formulario.addEventListener('submit',function(evento){
         evento.preventDefault();
 
-        //ELEMENTOS
+        //ELEMENTOS nuevos
         
         let nombre= document.getElementById('name');
         let lastName=document.getElementById('last_name');
