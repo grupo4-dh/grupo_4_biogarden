@@ -1,5 +1,6 @@
 // Modules
 const path = require('path');
+const cors =require("cors");
 
 
 // Express
@@ -31,6 +32,7 @@ app.use(methodOverride('_method'))
 
 // Seteamos la carpeta public con contenido estático
 app.use(express.static(path.join(__dirname, '../public')));
+app.use(cors())
 
 // Seteamos session
 app.use(session({ secret:'secret' }));
