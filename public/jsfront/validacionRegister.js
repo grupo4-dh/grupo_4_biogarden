@@ -18,11 +18,11 @@ window.addEventListener('load', function(){
         let avatar=document.getElementById('avatar')
 
         //ERRORES
-        let errorNombre=querySelector('#errornombre')
-        let errorApellido=querySelector('#errorapellido')
-        let errorEmail=querySelector('#erroremail')
-        let errorPassword=querySelector('#errorpassword')
-        let errorRePassword=querySelector('#errorpassword2')
+        let errorNombre=document.getElementById('errornombre')
+        let errorApellido=document.getElementById('errorapellido')
+        let errorEmail=document.getElementById('erroremail')
+        let errorPassword=document.getElementById('errorpassword')
+        let errorRePassword=document.getElementById('errorpassword2')
 
         //ARRAY DE ERRORES -SIEMPRE ADENTRO DEL ADDEVENT
         let errores =[];
@@ -43,7 +43,7 @@ window.addEventListener('load', function(){
             errores.push('El campo apellido tiene que estar completo');
             errorApellido.innerText=errores.lastName;
             
-        }else if (lastname.value.length<2){
+        }else if (lastName.value.length<2){
             errores.push('El campo apellido tiene que tener al menos 2 caracteres');
             errorApellido.innerText=errores.lastName;
         }
