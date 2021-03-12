@@ -1,6 +1,11 @@
 // Modules
 const path = require('path');
+<<<<<<< HEAD
 const cors = require('cors');//intercambio de recursos cruzados en ambito de la prueba.
+=======
+const cors =require("cors");
+
+>>>>>>> 5875f7bcf3a7baee7a3232b3620f7f61abaca30a
 
 // Express
 const express = require('express');

@@ -1,4 +1,3 @@
-
 window.addEventListener('load', function(){
     
     
@@ -27,7 +26,7 @@ window.addEventListener('load', function(){
         //ARRAY DE ERRORES -SIEMPRE ADENTRO DEL ADDEVENT
         let errores =[];
         
-        let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        let mailformat = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
 
     //VALIDACIONES NOMBRE
         if(nombre.value.length == 0){
