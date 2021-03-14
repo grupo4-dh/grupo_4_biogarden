@@ -20,8 +20,8 @@ window.addEventListener('load', function(){
         let errorNombre=document.getElementById('errornombre')
         let errorApellido=document.getElementById('errorapellido')
         let errorEmail=document.getElementById('erroremail')
-        let errorPassword=document.getElementById('errorpassword')
-        let errorRePassword=document.getElementById('errorpassword2')
+        let errorPassword=document.getElementById('errorcontrasena')
+        let errorRePassword=document.getElementById('errorcontrasena2')
 
         //ARRAY DE ERRORES -SIEMPRE ADENTRO DEL ADDEVENT
         let errores ={
@@ -69,13 +69,14 @@ window.addEventListener('load', function(){
         }
         
         
-        if (errores.nombre =="" && errores.apellido=="" && errores.password=="" && errores.repassword){
+        if (errores.nombre =="" && errores.apellido=="" && errores.password=="" ){
             //let ulErrores = document.querySelector("div.errores ul")
         
             //for (let i=0; i<errores.length; i++){
                 //ulErrores.innerHTML+='<li>' + errores[i] + '</li>'
            
-                formulario.submit()
+                formulario.submit();
+
            //}
         
         }
