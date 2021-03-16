@@ -113,7 +113,7 @@ module.exports = {
                 let product = products[0]
     
                 // Agrego urlImagen y quito campos que no quiero visualizar
-                product.dataValues.urlImagen = `/public/uploads/products/${product.dataValues.image}`
+                product.dataValues.urlImagen = `/uploads/products/${product.dataValues.image}`
                 delete product.dataValues.image
                 delete product.dataValues.id_category
                 delete product.dataValues.id_size
