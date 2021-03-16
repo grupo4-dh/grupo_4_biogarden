@@ -20,11 +20,11 @@ window.addEventListener('load', function() {
 
          //validacion contrasena
         if (pass.value == 0) {
-            errorpass.innerHTML = '* Este campo es obligatorio'
+            errorpass.innerHTML = ' Este campo es obligatorio'
             errores.pass = true;
 
         } else if (pass.value < 6) {
-            errorpass.innerHTML = '* La contraseña debe tener un mínimo de 6 caracteres';
+            errorpass.innerHTML = 'La contraseña debe tener un mínimo de 6 caracteres';
             errores.pass = true;
         } else {
             errorpass.innerHTML = '';
@@ -33,10 +33,10 @@ window.addEventListener('load', function() {
     //validacion email
 
         if (email.value == 0) {
-            erroremail.innerHTML = '* Este campo es obligatorio'
+            erroremail.innerHTML = 'Este campo es obligatorio'
             errores.email = true;
         } else if (!regEx.test(email.value)) {
-            erroremail.innerHTML = '* Debes ingresar un email correcto';
+            erroremail.innerHTML = 'Debes ingresar un email correcto';
             errores.email = true;
         } else {
             erroremail.innerHTML = '';

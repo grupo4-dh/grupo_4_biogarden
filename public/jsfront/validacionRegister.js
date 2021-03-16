@@ -1,4 +1,3 @@
-
 window.addEventListener('load', function(){
     
     
@@ -8,7 +7,7 @@ window.addEventListener('load', function(){
     formulario.addEventListener('submit',function(evento){
         evento.preventDefault();
 
-        //ELEMENTOS
+        //ELEMENTOS nuevos
         
         let nombre= document.getElementById('name');
         let lastName=document.getElementById('last_name');
@@ -18,63 +17,70 @@ window.addEventListener('load', function(){
         let avatar=document.getElementById('avatar')
 
         //ERRORES
-        let errorNombre=querySelector('#errornombre')
-        let errorApellido=querySelector('#errorapellido')
-        let errorEmail=querySelector('#erroremail')
-        let errorPassword=querySelector('#errorpassword')
-        let errorRePassword=querySelector('#errorpassword2')
+        let errorNombre=document.getElementById('errornombre')
+        let errorApellido=document.getElementById('errorapellido')
+        let errorEmail=document.getElementById('erroremail')
+        let errorPassword=document.getElementById('errorcontrasena')
+        let errorRePassword=document.getElementById('errorcontrasena2')
 
         //ARRAY DE ERRORES -SIEMPRE ADENTRO DEL ADDEVENT
-        let errores =[];
+        let errores ={
+            nombre:"",
+            apellido:"",
+            email:"",
+            password:"",
+            repassword:""
+
+        };
         
-        let mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        let mailformat = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
 
     //VALIDACIONES NOMBRE
-        if(nombre.value.length == 0){
-            errores.push('El campo Nombre tiene que estar completo');
-            errorNombre.innerText=errores.nombre;
-            
-        }else if (nombre.value.length<2){
-            errores.push('Nombre tiene que tener al menos 2 caracteres');
-            errorNombre.innerText=errores.nombre;
+        if(nombre.value.length < 2){
+           
+      //errores.push('El campo Nombre tiene que estar completo');
+            errorNombre.innerText="El campo Nombre tiene que estar completo"
+        
         }
         //VALIDACIONES APELLIDO
-        if(lastName.value == ""){
-            errores.push('El campo apellido tiene que estar completo');
-            errorApellido.innerText=errores.lastName;
+        if(lastName.value.length <2){
             
-        }else if (lastname.value.length<2){
-            errores.push('El campo apellido tiene que tener al menos 2 caracteres');
-            errorApellido.innerText=errores.lastName;
+            //errores.push('El campo apellido tiene que estar completo');
+            errorApellido.innerText="El campo apellido tiene que estar completo";
+            
+        
         }
          //VALIDACIONES EMAIL
         if (!mailformat.test(email.value)){
-            errores.push('El email no es valido');
-            errorEmail.innerText=errores.email;
+           // errores.push('El email no es valido');
+            errorEmail.innerText="el email debe ser valido";
         }
         
           //VALIDACIONES CONTraseña
         if(pw.value.length<6){
-            errores.push('Contrasena deberia tener minimo 6 caracteres');
-            errorPassword.innerText=errores.pw;
+            
+            errorPassword.innerText="la contrasena debe tener como minimo 6 caracteres";
         }
 
          //VALIDACIONES RECONTraseña
         if(repw.value!==pw.value){
-            errores.push('las contrasenas deben coincidir');
-            errorRePassword.innerText=errores.repw;
+            
+            errorRePassword.innerText="las contrasenas deben ser iguales";
         }
         
         
-        if (errores.length != 0){
-            let ulErrores = document.querySelector("div.errores ul")
+        if (errores.nombre =="" && errores.apellido=="" && errores.password=="" ){
+            //let ulErrores = document.querySelector("div.errores ul")
         
-            for (let i=0; i<errores.length; i++){
-                ulErrores.innerHTML+='<li>' + errores[i] + '</li>'
-           } 
-        }else{
-            formulario.submit();
+            //for (let i=0; i<errores.length; i++){
+                //ulErrores.innerHTML+='<li>' + errores[i] + '</li>'
+           
+                formulario.submit();
+
+           //}
+        
         }
+        
         
     })
 });
