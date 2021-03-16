@@ -101,35 +101,65 @@ module.exports = {
     // Products detail
     detalle: async function(req,res){
         // Busco el producto por ID
-        await db.Producto.findByPk(req.params.id, {
-            include: { all: true }}
-        )
-        .then(function(product){            
-            // Si no lo encuentro, devuelvo 'Product not found' con status 404 Not Found
-            if (product == null) {
-                res.status(404).json({
-                    status: 404,
-                    message: 'Product not found',
-                })
-            }
 
-            // Agrego urlImagen y quito campos que no quiero visualizar
-            product.dataValues.urlImagen = `/public/uploads/products/${product.dataValues.image}`
-            delete product.dataValues.image
-            delete product.dataValues.id_category
-            delete product.dataValues.id_size
-            delete product.dataValues.id_colour
-            
-            // Devuelvo el producto con status 200 OK
-            res.status(200).json(product)
-        })
-        // Si el callback falla, devuelvo el error con status 500 Internal Server Error
-        .catch(function(e){
-            res.status(500).json({
-                status: 500,
-                message: e.toString(),
+        if (req.params.id == 'last') {
+            await db.Producto.findAll({
+                limit: 1,
+                order: [[ 'createdAt', 'DESC']],
+                include: { all: true },
             })
-        });
+            .then(function(products){            
+                // Guardo el producto en una variable 
+                let product = products[0]
+    
+                // Agrego urlImagen y quito campos que no quiero visualizar
+                product.dataValues.urlImagen = `/public/uploads/products/${product.dataValues.image}`
+                delete product.dataValues.image
+                delete product.dataValues.id_category
+                delete product.dataValues.id_size
+                delete product.dataValues.id_colour
+                
+                // Devuelvo el producto con status 200 OK
+                res.status(200).json(product)
+            })
+            // Si el callback falla, devuelvo el error con status 500 Internal Server Error
+            .catch(function(e){
+                res.status(500).json({
+                    status: 500,
+                    message: e.toString(),
+                })
+            });
+        } else {
+            await db.Producto.findByPk(req.params.id, {
+                include: { all: true }}
+            )
+            .then(function(product){            
+                // Si no lo encuentro, devuelvo 'Product not found' con status 404 Not Found
+                if (product == null) {
+                    res.status(404).json({
+                        status: 404,
+                        message: 'Product not found',
+                    })
+                }
+    
+                // Agrego urlImagen y quito campos que no quiero visualizar
+                product.dataValues.urlImagen = `/public/uploads/products/${product.dataValues.image}`
+                delete product.dataValues.image
+                delete product.dataValues.id_category
+                delete product.dataValues.id_size
+                delete product.dataValues.id_colour
+                
+                // Devuelvo el producto con status 200 OK
+                res.status(200).json(product)
+            })
+            // Si el callback falla, devuelvo el error con status 500 Internal Server Error
+            .catch(function(e){
+                res.status(500).json({
+                    status: 500,
+                    message: e.toString(),
+                })
+            });
+        }
     },
 
     // Users list
