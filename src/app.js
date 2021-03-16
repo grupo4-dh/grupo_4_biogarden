@@ -1,7 +1,6 @@
 // Modules
 const path = require('path');
-const cors =require("cors");
-
+const cors = require('cors');
 
 // Express
 const express = require('express');
