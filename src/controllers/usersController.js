@@ -63,8 +63,11 @@ module.exports = {
                 include: { all: true }
             })
             .then(function(user) {//user es la variable que guarda lo que recupero de la promesa
-                if (bcrypt.compareSync(password, user.password)) {
-                    
+                if (!user) {
+                    return res.render("users/login", { errors: { error: { msg: "Credenciales no válidas" } } })
+                } else if (!bcrypt.compareSync(password, user.password)) {
+                    return res.render("users/login", { errors: { error: { msg: "Credenciales no válidas" } } })
+                } else {
                     delete user.password
                     req.session.usuarioLogueado = user;//lo guardo en la session
                                         
@@ -72,11 +75,10 @@ module.exports = {
                         res.cookie("remember",user.email, {maxAge:1000*60*60});
                     }
                     return res.redirect("/");
-                } else {
-                    return res.render("users/login", { errors: { error: { msg: "Credenciales no válidas" } } })
                 }
             })
             .catch((error) => {
+                console.log('3')
                 return res.render("users/login", { errors: { error: { msg: error } } })
             });
         }

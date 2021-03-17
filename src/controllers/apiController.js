@@ -16,6 +16,14 @@ module.exports = {
             db.Pcategoria.findAll()
             .then(function(categories) {
                 
+                // Response
+                let response = {
+                    count: 0,
+                    countByCategory: {},
+                    products: [],
+                    paging: {},
+                }
+
                 // Total de productos
                 let count = products.length
                 
@@ -36,50 +44,73 @@ module.exports = {
                     offset: 0,
                 }
                 
-                if ( req.query.page == undefined || req.query.page == '1' || isNaN(parseInt(req.query.page)) ) {
+                // Cuando la página es 'all', mostramos todos los productos
+                if (req.query.page === 'all') {
+                    for (let i = 0; i < products.length; i++){
+                        let product = products[i];
+                        product.dataValues.urlImagen = `/uploads/products/${product.dataValues.image}`
+                        product.dataValues.detail = `http://${req.headers.host}/api/products/${products[i].id}`
+                        delete product.dataValues.image
+                        delete product.dataValues.id_category
+                        delete product.dataValues.id_size
+                        delete product.dataValues.id_colour
+                        productsJson.push(product)
+                    }
+                    paging = null
+                } else if ( req.query.page == undefined || req.query.page == '1' || isNaN(parseInt(req.query.page)) ) {
                 // Cuando no se indica página, se indica pero no es un número o se indica y es 1, mostramos los primeros 10 elementos
                     if (products.length > 10) {
                         paging.next = `http://${req.headers.host}/api/products?page=2`
                     }
                     products = products.slice(0,10)
                     for (let i = 0; i < products.length; i++){
-                        productsJson.push({
-                            id: products[i].id,
-                            name: products[i].title,
-                            description: products[i].description,
-                            detail: `http://${req.headers.host}/api/products/${products[i].id}`,
-                        })
+                        let product = products[i];
+                        product.dataValues.urlImagen = `/uploads/products/${product.dataValues.image}`
+                        product.dataValues.detail = `http://${req.headers.host}/api/products/${products[i].id}`
+                        delete product.dataValues.image
+                        delete product.dataValues.id_category
+                        delete product.dataValues.id_size
+                        delete product.dataValues.id_colour
+                        productsJson.push(product)
                     }
                 } else {
                 // Cuando la página es mayor a 1, mostramos los productos de esa página
                 // Página 2: productos del 11 al 20, Página 3: productos del 21 al 30
                     let offset = (parseInt(req.query.page) - 1) * 10
                     paging.offset = offset
-                    if (count > (offset + 10)) {
-                        paging.next = `http://${req.headers.host}/api/products?page=${parseInt(req.query.page) + 1}`
-                        products.slice(offset, offset + 10)
-                    } else {
-                        products = products.slice(offset, products.length)
-                    }
+                    
                     if (count - offset > 0) {
                         paging.previous = `http://${req.headers.host}/api/products?page=${parseInt(req.query.page) - 1}`
                     }
+                    
+                    if (count > (offset + 10)) {
+                        paging.next = `http://${req.headers.host}/api/products?page=${parseInt(req.query.page) + 1}`
+                        products = products.slice(offset, offset + 10)
+                    } else {
+                        products = products.slice(offset, products.length)
+                    }
+                    
                     for (let i = 0; i < products.length; i++){
-                        productsJson.push({
-                            id: products[i].id,
-                            name: products[i].title,
-                            description: products[i].description,
-                            detail: `http://${req.headers.host}/api/products/${products[i].id}`,
-                        })
+                        let product = products[i];
+                        product.dataValues.urlImagen = `/uploads/products/${product.dataValues.image}`
+                        product.dataValues.detail = `http://${req.headers.host}/api/products/${products[i].id}`
+                        delete product.dataValues.image
+                        delete product.dataValues.id_category
+                        delete product.dataValues.id_size
+                        delete product.dataValues.id_colour
+                        productsJson.push(product)
                     }
                 }
                 // Devuelvo los productos con status 200 OK
-                res.status(200).json({
-                    count: count,
-                    countByCategory: countByCategory,
-                    products: productsJson,
-                    paging: paging,
-                })
+                response.count = count;
+                response.countByCategory = countByCategory;
+                response.products = productsJson;
+                if (!paging) {
+                    delete response.paging
+                } else {
+                    response.paging = paging
+                }
+                res.status(200).json(response)
             })
             // Si el callback falla, devuelvo el error con status 500 Internal Server Error
             .catch(function(e){
@@ -113,7 +144,7 @@ module.exports = {
                 let product = products[0]
     
                 // Agrego urlImagen y quito campos que no quiero visualizar
-                product.dataValues.urlImagen = `/public/uploads/products/${product.dataValues.image}`
+                product.dataValues.urlImagen = `/uploads/products/${product.dataValues.image}`
                 delete product.dataValues.image
                 delete product.dataValues.id_category
                 delete product.dataValues.id_size
