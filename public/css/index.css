@@ -141,6 +141,10 @@
     border-radius: 20px;
 }
 
+.cardProduct:hover {
+    transform: scale(1.1);
+}
+
 .main .products section article .item-info p.price {
     font-size: 15px;
 }
