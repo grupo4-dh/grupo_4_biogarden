@@ -8,9 +8,4 @@ window.addEventListener('load', function(){
         let nombreUsuario=sessionStorage.getItem("nombre");
         document.querySelector('.hola').innerHTML = "Bienvenida/o a nuestra pagina " + " " + nombreUsuario;
     }
-  
-
-
-
-
 });
