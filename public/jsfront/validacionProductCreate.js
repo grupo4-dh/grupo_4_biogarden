@@ -1,4 +1,6 @@
 window.addEventListener('load', function(){
+    
+    // Obtengo el form y los elementos que quiero validar
     const form = document.querySelector('#form')
     const title = document.querySelector('#title')
     const description = document.querySelector('#description')
@@ -9,18 +11,27 @@ window.addEventListener('load', function(){
     const idColour = document.querySelector('#id_colour')
     const idSize = document.querySelector('#id_size')
     
+    // Agrego un evento con las validaciones al submit del form 
     form.addEventListener('submit', (e) => {
+        
+        // Pausamos la ejecución del evento
         e.preventDefault();
+        
+        // Chequeamos los errores
         let errores = checkInputs()
-        console.log(errores)
         if (Object.entries(errores).length == 0) {
+            
+            // Si no hay errores, ejecuto el submit
             form.submit()
         }
     });
     
+    // checkInputs hace las validaciones de los elementos
     function checkInputs(){
+        
         let errores = {}
-        //chequeamos los inputs
+        
+        // Obtengo el valor de cada elemento
         let titleValue = title.value.trim()
         let descriptionValue = description.value.trim()
         let imageValue = image.value.trim()
@@ -30,6 +41,7 @@ window.addEventListener('load', function(){
         let idColourValue = idColour.value
         let idSizeValue = idSize.value
         
+        // Validación title
         if(titleValue === '') {
             let message = 'El campo no puede estar vacío'
             errores.title = message;
@@ -42,6 +54,7 @@ window.addEventListener('load', function(){
             setSuccessFor(title);
         }
         
+        // Validación description
         if(descriptionValue === '') {
             let message = 'El campo no puede estar vacío'
             errores.description = message;
@@ -54,6 +67,7 @@ window.addEventListener('load', function(){
             setSuccessFor(description);
         }
 
+        // Validación imagen
         if(imageValue === '') {
             let message = 'Tienes que cargar una imagen del producto'
             errores.image = message;
@@ -66,7 +80,11 @@ window.addEventListener('load', function(){
             setSuccessFor(image);
         }
 
+        // Validación price
+
+        // RegEx para validar precio
         let priceFormat = /^\d+(.\d{1,2})?$/;
+
         if(priceValue === '') {
             let message = 'El campo no puede estar vacío'
             errores.price = message;
@@ -78,7 +96,10 @@ window.addEventListener('load', function(){
         } else {
             setSuccessFor(price);
         }
+        
+        // Validación quantity
 
+        // RegEx para validar numeros y numeros positivos
         let numberFormat = /^\d+$/;
         let positiveNumberFormat = /^[1-9]\d*$/;
 
@@ -98,6 +119,7 @@ window.addEventListener('load', function(){
             setSuccessFor(quantity);
         }
 
+        // Validación category
         if(idCategoryValue === '') {
             let message = 'El campo no puede estar vacío'
             errores.idCategory = message;
@@ -110,6 +132,7 @@ window.addEventListener('load', function(){
             setSuccessFor(idCategory);
         }
 
+        // Validación colour
         if(idColourValue === '') {
             let message = 'El campo no puede estar vacío'
             errores.idColour = message;
@@ -122,6 +145,7 @@ window.addEventListener('load', function(){
             setSuccessFor(idColour);
         }
 
+        // Validación size
         if(idSizeValue === '') {
             let message = 'El campo no puede estar vacío'
             errores.idSize = message;
@@ -137,18 +161,21 @@ window.addEventListener('load', function(){
         return errores
     }
     
+    // setErrorFor agrega el mensaje de error en el elemento
     function setErrorFor(input, message) {
         const formControl = input.parentElement
         const small = formControl.querySelector('small')
         small.innerText = message;
     }
     
+    // setErrorFor borra el mensaje de error en el elemento
     function setSuccessFor(input) {
         const formControl = input.parentElement
         const small = formControl.querySelector('small')
         small.innerText = '';
     }
 
+    // validateExtension valida la extensión de la imagen
     function validateExtension(imageValue) {
         let extension = imageValue.substring(imageValue.indexOf('.'), imageValue.length).toLowerCase();
         return ['.jpg', '.jpeg', '.png', '.gif'].includes(extension)

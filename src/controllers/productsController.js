@@ -14,13 +14,28 @@ module.exports = {
         })
         .then(function(products) {
             if (req.session.usuarioLogueado && req.session.usuarioLogueado.user_category.id == 2) {
-                return res.render('products/productsListAdmin', { products: products }); //recibe la ruta y el array
+                let page = 1;
+                let total = products.length;
+                if ( req.query.page == undefined || req.query.page == '1' || isNaN(parseInt(req.query.page)) ) {
+                // Cuando no se indica página, se indica pero no es un número o se indica y es 1, mostramos los primeros 10 elementos
+                    products = products.slice(0,10)
+                } else {
+                // Cuando la página es mayor a 1, mostramos los productos de esa página
+                // Página 2: productos del 11 al 20, Página 3: productos del 21 al 30
+                    page = parseInt(req.query.page)
+                    if (products.length > (page * 10)) {
+                        products = products.slice(((page - 1) * 10 ), (page * 10))
+                    } else {
+                        products = products.slice(((page - 1) * 10 ), products.length)
+                    }
+                }
+                return res.render('products/productsListAdmin', { products: products, page: page, total: total }); //recibe la ruta y el array
             } else {
                 return res.render('products/productsList', { products: products }); //recibe la ruta y el array
             }
         })
         .catch((error) => {
-            return res.send(error + "HOLA")
+            return res.send(error)
         });
     },
 

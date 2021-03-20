@@ -1,86 +1,148 @@
-window.addEventListener('load', function(){
+window.addEventListener('load', function() {
     
+    // Obtengo el form y los elementos que quiero validar
+    let formulario = document.getElementById('form');
+    let name = document.getElementById('name');
+    let lastName = document.getElementById('last_name');
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
+    let repassword = document.getElementById('repassword');
+    let avatar = document.getElementById('avatar')
     
-    let formulario= document.getElementById("form");
+    // Agrego un evento con las validaciones al submit del form 
+    formulario.addEventListener('btnSubmit', (e) => {
+        
+        // Pausamos la ejecución del evento
+        e.preventDefault();
+        
+        // Chequeamos los errores
+        let errores = checkInputs()
+        if (Object.entries(errores).length == 0) {
+            
+            // Si no hay errores, ejecuto el submit
+            formulario.submit()
+        }
+    });
 
+    // checkInputs hace las validaciones de los elementos
+    function checkInputs(){
+        
+        let errores = {}
+        
+        // Obtengo el valor de cada elemento
+        let nameValue = name.value.trim()
+        let lastNameValue = lastName.value.trim()
+        let emailValue = email.value.trim()
+        let passwordValue = password.value.trim()
+        let repasswordValue = repassword.value.trim()
+        let avatarValue = avatar.value
+        
+        // Validación name
+        if(nameValue === '') {
+            let message = 'El campo no puede estar vacío'
+            errores.name = message;
+            setErrorFor(name, message);
+        } else if (nameValue.length <= 2 ) {
+            let message = 'El nombre tiene que tener como mínimo 2 caracteres'
+            errores.name = message;
+            setErrorFor(name, message);
+        } else {
+            setSuccessFor(name);
+        }
+        
+        // Validación lastName
+        if(lastNameValue === '') {
+            let message = 'El campo no puede estar vacío'
+            errores.lastName = message;
+            setErrorFor(lastName, message);
+        } else if (lastNameValue.length <= 2 ) {
+            let message = 'El nombre tiene que tener como mínimo 2 caracteres'
+            errores.lastName = message;
+            setErrorFor(lastName, message);
+        } else {
+            setSuccessFor(lastName);
+        }
+        
+        // Validación email
+
+        // RegEx para validar emails
+        let emailFormat = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
+
+        if(emailValue === '') {
+            let message = 'El campo no puede estar vacío'
+            errores.email = message;
+            setErrorFor(email, message);
+        } else if (! emailFormat.test(emailValue)) {
+            let message = 'Debes ingresar un email válido'
+            errores.email = message;
+            setErrorFor(email, message);
+        } else {
+            setSuccessFor(email);
+        }
+
+        // Validación password
+        if(passwordValue === '') {
+            let message = 'El campo no puede estar vacío'
+            errores.password = message;
+            setErrorFor(password, message);
+        } else if (passwordValue.length < 8 ) {
+            let message = 'La contraseña debe contener como mínimo 8 caracteres'
+            errores.password = message;
+            setErrorFor(password, message);
+        } else {
+            setSuccessFor(password);
+        }
+        
+        // Validación repassword
+        if(repasswordValue === '') {
+            let message = 'El campo no puede estar vacío'
+            errores.repassword = message;
+            setErrorFor(repassword, message);
+        } else if (repasswordValue.length < 8 ) {
+            let message = 'La contraseña debe contener como mínimo 8 caracteres'
+            errores.repassword = message;
+            setErrorFor(repassword, message);
+        } else if (repasswordValue !== passwordValue ) {
+            let message = 'Las contraseñas deben ser iguales'
+            errores.repassword = message;
+            setErrorFor(repassword, message);
+        } else {
+            setSuccessFor(repassword);
+        }
+
+        // Validación avatar
+        if(avatarValue === '') {
+            let message = 'Tienes que cargar tu avatar'
+            errores.avatar = message;
+            setErrorFor(avatar, message);
+        } else if (! validateExtension(avatarValue)) {
+            let message = 'El formato de imagen no es válido'
+            errores.avatar = message;
+            setErrorFor(avatar, message);
+        } else {
+            setSuccessFor(avatar);
+        }
+        
+        return errores
+    }
     
-    formulario.addEventListener('submit',function(evento){
-        evento.preventDefault();
+    // setErrorFor agrega el mensaje de error en el elemento
+    function setErrorFor(input, message) {
+        const formControl = input.parentElement
+        const small = formControl.querySelector('small')
+        small.innerText = message;
+    }
+    
+    // setErrorFor borra el mensaje de error en el elemento
+    function setSuccessFor(input) {
+        const formControl = input.parentElement
+        const small = formControl.querySelector('small')
+        small.innerText = '';
+    }
 
-        //ELEMENTOS nuevos
-        
-        let nombre= document.getElementById('name');
-        let lastName=document.getElementById('last_name');
-        let email =document.getElementById('email');
-        let pw=document.getElementById('pwd');
-        let repw =document.getElementById('repwd');
-        let avatar=document.getElementById('avatar')
-
-        //ERRORES
-        let errorNombre=document.getElementById('errornombre')
-        let errorApellido=document.getElementById('errorapellido')
-        let errorEmail=document.getElementById('erroremail')
-        let errorPassword=document.getElementById('errorcontrasena')
-        let errorRePassword=document.getElementById('errorcontrasena2')
-
-        //ARRAY DE ERRORES -SIEMPRE ADENTRO DEL ADDEVENT
-        let errores ={
-            nombre:"",
-            apellido:"",
-            email:"",
-            password:"",
-            repassword:""
-
-        };
-        
-        let mailformat = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
-
-    //VALIDACIONES NOMBRE
-        if(nombre.value.length < 2){
-           
-      //errores.push('El campo Nombre tiene que estar completo');
-            errorNombre.innerText="El campo Nombre tiene que estar completo"
-        
-        }
-        //VALIDACIONES APELLIDO
-        if(lastName.value.length <2){
-            
-            //errores.push('El campo apellido tiene que estar completo');
-            errorApellido.innerText="El campo apellido tiene que estar completo";
-            
-        
-        }
-         //VALIDACIONES EMAIL
-        if (!mailformat.test(email.value)){
-           // errores.push('El email no es valido');
-            errorEmail.innerText="el email debe ser valido";
-        }
-        
-          //VALIDACIONES CONTraseña
-        if(pw.value.length<6){
-            
-            errorPassword.innerText="la contrasena debe tener como minimo 6 caracteres";
-        }
-
-         //VALIDACIONES RECONTraseña
-        if(repw.value!==pw.value){
-            
-            errorRePassword.innerText="las contrasenas deben ser iguales";
-        }
-        
-        
-        if (errores.nombre =="" && errores.apellido=="" && errores.password=="" ){
-            //let ulErrores = document.querySelector("div.errores ul")
-        
-            //for (let i=0; i<errores.length; i++){
-                //ulErrores.innerHTML+='<li>' + errores[i] + '</li>'
-           
-                formulario.submit();
-
-           //}
-        
-        }
-        
-        
-    })
+    // validateExtension valida la extensión de la imagen
+    function validateExtension(avatarValue) {
+        let extension = avatarValue.substring(avatarValue.indexOf('.'), avatarValue.length).toLowerCase();
+        return ['.jpg', '.jpeg', '.png', '.gif'].includes(extension)
+    }
 });

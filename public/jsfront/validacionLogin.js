@@ -1,52 +1,79 @@
 window.addEventListener('load', function() {
 
-    let formulario= document.getElementById("form");
-    let email = document.querySelector('#email');
-    let pass = document.querySelector('#password');
+    // Obtengo el form y los elementos que quiero validar
+    let formulario = document.getElementById('form');
+    let email = document.getElementById('email');
+    let password = document.getElementById('password');
 
+    // Agrego un evento con las validaciones al submit del form 
+    formulario.addEventListener('submit', (e) => {
+        
+        // Pausamos la ejecución del evento
+        e.preventDefault();
+        
+        // Chequeamos los errores
+        let errores = checkInputs()
+        if (Object.entries(errores).length == 0) {
+            
+            // Si no hay errores, ejecuto el submit
+            formulario.submit()
+        }
+    });
 
-    let errores = {};
+    // checkInputs hace las validaciones de los elementos
+    function checkInputs(){
+        
+        let errores = {}
+        
+        // Obtengo el valor de cada elemento
+        let emailValue = email.value.trim()
+        let passwordValue = password.value.trim()
+        
+        // Validación email
 
-    let regEx = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+        // RegEx para validar emails
+        let emailFormat = /^[a-zA-Z0-9.!#$%&'+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)$/;
 
-    formulario.addEventListener('submit', function(evento){
-
-        evento.preventDefault();
-
-         //ERRORES
-         let erroremail=querySelector('.erroremail')
-         let errorpass=querySelector('.errorpass')
-
-
-         //validacion contrasena
-        if (pass.value == 0) {
-            errorpass.innerHTML = ' Este campo es obligatorio'
-            errores.pass = true;
-
-        } else if (pass.value < 6) {
-            errorpass.innerHTML = 'La contraseña debe tener un mínimo de 6 caracteres';
-            errores.pass = true;
+        if(emailValue === '') {
+            let message = 'El campo no puede estar vacío'
+            errores.email = message;
+            setErrorFor(email, message);
+        } else if (! emailFormat.test(emailValue)) {
+            let message = 'Debes ingresar un email válido'
+            errores.email = message;
+            setErrorFor(email, message);
         } else {
-            errorpass.innerHTML = '';
-            delete errores.pass;
+            setSuccessFor(email);
         }
-    //validacion email
 
-        if (email.value == 0) {
-            erroremail.innerHTML = 'Este campo es obligatorio'
-            errores.email = true;
-        } else if (!regEx.test(email.value)) {
-            erroremail.innerHTML = 'Debes ingresar un email correcto';
-            errores.email = true;
+        // Validación password
+        if(passwordValue === '') {
+            let message = 'El campo no puede estar vacío'
+            errores.password = message;
+            setErrorFor(password, message);
+        } else if (passwordValue.length < 8 ) {
+            let message = 'La contraseña debe contener como mínimo 8 caracteres'
+            errores.password = message;
+            setErrorFor(password, message);
         } else {
-            erroremail.innerHTML = '';
-            delete errores.email;
+            setSuccessFor(password);
         }
 
-        if(Object.keys(errores).length != 0) {
-            formulario.submit();
-           
-        }
-    })
+        return errores
+    }
+    
+    // setErrorFor agrega el mensaje de error en el elemento
+    function setErrorFor(input, message) {
+        const formControl = input.parentElement
+        const small = formControl.querySelector('small')
+        small.innerText = message;
+    }
+    
+    // setErrorFor borra el mensaje de error en el elemento
+    function setSuccessFor(input) {
+        const formControl = input.parentElement
+        const small = formControl.querySelector('small')
+        small.innerText = '';
+    }
 
 });
