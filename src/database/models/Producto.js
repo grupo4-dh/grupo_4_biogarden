@@ -61,7 +61,7 @@ module.exports=function(sequelize,dataTypes){
             through:"orders_details",
             foreignKey:"id_product",
             otherkey:"id_order",
-            timestamps:false,
+            timestamps:true,
             underscored:true
         }
     )};
