@@ -15,6 +15,7 @@ router.get("/contacto", mainController.contacto)
 router.post("/contacto", mainController.processContacto)
 router.get("/quienesSomos", mainController.quienesSomos)
 router.get("/comoComprar", mainController.comoComprar)
+router.get("/carrito",mainController.carrito)
 
 // For test
 router.get("/test", mainController.test);

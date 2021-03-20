@@ -47,6 +47,7 @@ const apiRouter = require('./routes/api');
 
 // Route
 app.use('/', mainRouter);
+app.use('/carrito',mainRouter);
 app.use('/users', usersRouter); 
 app.use('/products', productsRouter); 
 app.use('/api',apiRouter);

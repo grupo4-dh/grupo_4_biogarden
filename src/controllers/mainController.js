@@ -28,6 +28,17 @@ module.exports = {
     contacto:function(req,res){
         return res.render('contacto.ejs');
     },
+    carrito:function(req,res){
+        db.Producto.findByPk(4,{
+          
+        })
+        .then(function(product){
+            return res.render('products/productsCart.ejs',{products:[product],total:10})
+
+        })
+        
+
+    },
     processContacto: function (req,res){
       db.Contact.create({
         name: req.body.name,
