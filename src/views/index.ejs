@@ -57,7 +57,11 @@
             <a href="#"><img src="/images/index/deco.png" alt="Deco y objetos únicos"></a>
             <a href="#"><img src="/images/index/workshops.png" alt="Workshops"></a>
         </div> -->
+       
         <div class="products">
+            <div class="all-products">
+                <a href="/products"><button class="btn btn-success">Ver todos los productos</button></a>
+            </div>
             <section>
                 <% for ( product of products) { %> 
                     <article class="cardProduct">
@@ -69,9 +73,7 @@
                     </article>
                 <% } %>
             </section>
-            <div class="all-products">
-                <a href="/products"><button class="btn btn-success">Ver todos los productos</button></a>
-            </div>
+            
         </div>
     </div>
     <%- include('./partials/footer.ejs') %>

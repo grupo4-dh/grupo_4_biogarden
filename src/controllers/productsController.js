@@ -218,6 +218,26 @@ module.exports = {
             res.redirect('/products');
 
         })
+    },
+
+    comments:function(req,res){
+        //res.send(req.body.comment)
+        
+        db.Comment.create({//llamo al modelo comment
+            comment: req.body.comment,
+            email: req.body.email,
+          
+        })
+       
+        .then((result) => {
+            return res.redirect('/');
+            console.log(result)
+
+        })
+        .catch((error) => {
+            return res.send(error)  
+        });
+
     }
            
 }

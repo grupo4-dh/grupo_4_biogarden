@@ -1,0 +1,33 @@
+.container{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+h1{
+    font-size:30px;
+    align-items: center;
+    }
+.productoBuscado.h2{
+       font-size:30px;
+        align-items: center;
+}
+
+
+.productoBuscado{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.productoBuscado.img{
+    width: 30%;
+}
+
+
+@media (max-width: 375px) {
+    .flex-item-right, .flex-item-left {
+      flex: 100%;
+    }
+  }

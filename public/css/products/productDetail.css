@@ -16,6 +16,13 @@
     display: flex;
     flex-direction: column;
 }
+.form{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+
+
+}
 
 .product .product-left-col img.image {
     width: 100%;

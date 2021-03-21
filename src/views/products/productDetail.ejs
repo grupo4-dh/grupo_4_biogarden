@@ -10,14 +10,21 @@
             <img class="image" src="/uploads/products/<%= product.image %> "alt="<%= product.title %>">
             <h3>Descripción:</h3>
             <p class="desc-content"><%= product.description %></p>
-            <h3>Dejános tu comentario:</h3>
-            <form class="comments" action="" method="POST">
-                <textarea id="comment" name="comment" rows="1" placeholder="Escribí tu comentario..."></textarea>
-                <label for="name">Ingresa tu email para poder brindarte una respuesta</label>
-                <input type="email" class="email" id="email" placeholder="Ingresa tu email" name="email">
-                <input type="submit" value="Enviar">
+          
+                <form id ="form" action="" method="POST" >
+                <div class="form-group">
+                 <label for="comment">Dejanos tu comentario:</label>
+                 <textarea type="text" class="form-control" rows="5" id="comment" name="comment" placeholder="Dejanos tu comentario"></textarea>
+                 </div>
+                 <div class="form-group">
+                 <label for="usr">Email:</label>
+                 <input type="email" class="form-control" id="email" name="email"></input>
+                </div>
+                    <button type="submit" class="btn btn-outline-primary center-block" >Enviar</button>
             </form>
+        
         </div>
+        
         <div class="product-right-col">
             <h2 class="name"><%= product.title %></h2>
             <h2 class ="price">$<%= product.price %> </h2>
@@ -32,7 +39,7 @@
 
                 <p><a href="#"><h4 class="titulo6">Ver medios de pago</h4></a></p>
             </div>
-            <form class="add-to-cart" action="/products/carr/add" method="POST">
+            <form class="add-to-cart" action="#" method="POST">
                 <label for="Tamaño">Tamaño</label>
                 <select id="tamano" name="tamano" >
                     <option value="S">Pequeño</option>

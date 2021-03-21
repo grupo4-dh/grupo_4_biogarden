@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <%- include('../partials/head.ejs', { title: 'Productos', stylesheet: 'products/productsList.css'}); %>
+    <link rel="stylesheet" href="/css/products/searchProduct.css"> 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,26 +9,26 @@
 </head>
 <body>
     <%- include('../partials/header.ejs',{buquedaUsuario:queryString}) %>
-    <main>
+    <div class="container">
     <section class= 'busqueda'>
         <% if(productos.length<=0) {%> 
             <h1>No encontramos el productos que estas buscando!... Intenta nuevamente!!!</h1>
             <% }else {%>
-        <h1>Este es el resultado de tu Busqueda:<%=queryString %></h1>
+        <h1 >Este es el resultado de tu Busqueda:<%=queryString %></h1>
         <% } %> 
     </section>
     <section class="productoBuscado">
         <% for (let i=0; i< productos.length;i++){%>
             <article>
                 <h2><%=productos[i].title %></h2>
-                <img src="/uploads/products/<%=productos[i].image %>" alt="">
-                <a href=<%="/products/" + productos[i].id %>><button style="cursor:pointer"> Ingresa a los detalles del producto que buscas</button></a>
+                <img src="/uploads/products/<%=productos[i].image %>" alt=""  class="img-thumbnail">
+                <a href=<%="/products/" + productos[i].id %>><button style="cursor:pointer" class="btn btn-primary center-block"> Ingresa al detalle del producto</button></a>
             </article>
 
         <% } %> 
 
     </section>
-    </main>
+</div>
     
     <%- include('../partials/footer.ejs') %>
 </body>

@@ -27,7 +27,7 @@ router.get('/create', adminMiddleware, productsController.create);            //
 router.post('/create', upload.single('image'), productCreateValidator, productsController.save);              // Acción de creación de producto
 
 //  Carrito de compras-----SOLO RENDERIZA LA VISTA , HAY QUE MEJORARLA
-router.get('/cart', productsController.cart);               // Vista del Carrito de compras
+//router.get('/cart', productsController.cart);               // Vista del Carrito de compras
 
 //  Detalle de producto
 router.get('/:id', productsController.detail);       // Vista del Detalle de producto
@@ -38,7 +38,7 @@ router.post('/:id/edit', upload.single('image'), productsController.update);    
 router.post('/:id/delete', productsController.delete);    // Acción de borrado de producto
 
 //comentario del detalle por el usuario
-//router.post('/comments', productsController.comments);
+router.post('/:id', productsController.comments);
 //crear el modelo segun la tabla
 //realizar el metodo en el controller
 
