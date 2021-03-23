@@ -31,7 +31,23 @@ module.exports = {
                 }
                 return res.render('products/productsListAdmin', { products: products, page: page, total: total }); //recibe la ruta y el array
             } else {
-                return res.render('products/productsList', { products: products }); //recibe la ruta y el array
+                let page = 1;
+                let total = products.length;
+                if ( req.query.page == undefined || req.query.page == '1' || isNaN(parseInt(req.query.page)) ) {
+                // Cuando no se indica página, se indica pero no es un número o se indica y es 1, mostramos los primeros 12 elementos
+                    products = products.slice(0,12)
+                } else {
+                // Cuando la página es mayor a 1, mostramos los productos de esa página
+                // Página 2: productos del 13 al 24, Página 3: productos del 25 al 36
+                    page = parseInt(req.query.page)
+                    if (products.length >= (page * 12)) {
+                        products = products.slice(((page - 1) * 12 ), (page * 12))
+                    } else {
+                        products = products.slice(((page - 1) * 12 ), products.length)
+                    }
+                }
+                console.log(page + " " + total)
+                return res.render('products/productsList', { products: products, page: page, total: total }); //recibe la ruta y el array
             }
         })
         .catch((error) => {
