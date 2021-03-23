@@ -7,16 +7,13 @@
         <a href="/"><img class="logo" src="/images/logo.png" alt="Bio Garden"></a>
         <span class="cart-and-account">
             <div class="hola"></div>
-            <a href="/carrito"><button class="button-cart"><i class="fas fa-shopping-cart"></i> Carrito $0</button></a>
+            <a href="/carrito"><button class="button-cart"><i class="fas fa-shopping-cart"></i> Carrito $ 0</button></a>
             <nav class="account">
                 <ul>
                     <% if( usuarioLogueado != undefined) { %>
-                        <li><a href="/users/profile">Mi Perfil</a></li> | <li><a href="/users/logout">Cerrar Sesión</a></li>
-                        <br>
-                        <div class="usuarioLogueado">Bienvenido/a <%=usuarioLogueado.name%></div>
-                        
+                        <li><a href="/users/profile">Mi Perfil </a></li>|<li><a href="/users/logout"> Cerrar Sesión</a></li>                        
                     <% } else{ %>
-                        <li><a href="/users/register">Crear cuenta</a></li> | <li><a href="/users/login">Iniciar sesión</a></li>
+                        <li><a href="/users/register">Crear cuenta </a></li>|<li><a href="/users/login">Iniciar sesión</a></li>
                     <% } %>
                 </ul>
 

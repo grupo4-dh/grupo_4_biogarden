@@ -4,27 +4,43 @@
     justify-content: space-between;
     align-items: center;
 }
-h1{
+
+h1 {
     font-size:30px;
     align-items: center;
-    }
-.productoBuscado.h2{
-       font-size:30px;
-        align-items: center;
 }
 
+.productoBuscado .h2{
+    font-size:30px;
+    align-items: center;
+}
 
-.productoBuscado{
+.productoBuscado {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.productoBuscado article {
+    width: 25%;
+    padding: 10px 0px;
+    box-sizing: border-box;
+    text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center;
 }
 
-.productoBuscado.img{
-    width: 30%;
+.productoBuscado article:hover {
+    transform: scale(1.1);
 }
 
+.productoBuscado article img {
+    width: 100%;
+    padding: 5px;
+    border-radius: 20px;
+}
 
 @media (max-width: 375px) {
     .flex-item-right, .flex-item-left {

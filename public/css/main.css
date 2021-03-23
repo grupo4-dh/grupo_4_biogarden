@@ -121,11 +121,9 @@ header .brand .cart-and-account .account ul {
     flex-direction: row;
     justify-content: space-between;
     font-size: 12px;
-    
 }
 
 header .brand .cart-and-account .account ul li {
-    width: 50%;
     display: inline;
     text-align: center;
     text-transform: uppercase;

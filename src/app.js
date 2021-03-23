@@ -54,7 +54,7 @@ app.use('/api',apiRouter);
 
 // Levantamos el server en el puerto indicado en la variable de entorno PORT, o en el puerto 3000 si no hay nada ahí.
 // Más info en: https://stackoverflow.com/questions/18864677/what-is-process-env-port-in-node-js
-app.listen(process.env.PORT || 3000,function() {
+app.listen(process.env.PORT || 3030,function() {
     console.log("Server running...")
-    console.log("http://localhost:3000/")
+    console.log("http://localhost:3030/")
 })

@@ -5,28 +5,24 @@
     </head>
     <body >
         <%- include('../partials/header.ejs') %>   
-        <div class="main-container container list">
+        <div class="main-container list">
             <div class="list-header">
                 <h1 class = "titulo">Nuestros productos</h1>
             </div>
             <section>
                 <% for ( let i=0; i<products.length;i++) { %> 
-                    <article>
-                        <a href="/products/<%= products[i].id %>"><img src="/uploads/products/<%= products[i].image %> "alt="<%= products[i].title %>"></a>
-                        <div class="item-info">
-                            <p class="name"><%= products[i].title %></p>
-                            <p class="price">$<%= products[i].price %></p>
-                            <% if (products[i].colores) { %>
-                                <p class="color">$<%= products[i].colores.name %></p>
-                            <% } %> 
-                            <p class="categoria">$<%= products[i].categorias.name %></p>
-                            
-                            <% if (products[i].tamanos) { %>
-                                <p class="tamano">$<%= products[i].tamanos.name %></p>
-                            <% } %>
-                            
-                        </div>
-                    </article>
+                <!-- <article>
+                    <a href="/products/<%= products[i].id %>"><img class="img-thumbnail" src="/uploads/products/<%= products[i].image %> "alt="<%= products[i].title %>"></a>
+                    <div class="item-info">
+                        <h5 class="name"><%= products[i].title %></h5>
+                        <p class="price">$<%= products[i].price %></p>
+                    </div>
+                </article> -->
+                <article>
+                    <img src="/uploads/products/<%=products[i].image %>" alt="" class="img-thumbnail">
+                    <h4><%=products[i].title %></h2>
+                    <a href=<%="/products/" + products[i].id %>><button style="cursor:pointer" class="btn btn-primary center-block">Ver producto</button></a>
+                </article>
                 <% } %>
             </section>
             <nav aria-label="Page navigation example">

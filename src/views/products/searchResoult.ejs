@@ -1,34 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-    <%- include('../partials/head.ejs', { title: 'Productos', stylesheet: 'products/productsList.css'}); %>
-    <link rel="stylesheet" href="/css/products/searchProduct.css"> 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Producto de Busqueda:</title>
+    <%- include('../partials/head.ejs', { title: 'Busqueda', stylesheet: 'products/searchProduct.css'}); %>
 </head>
 <body>
-    <%- include('../partials/header.ejs',{buquedaUsuario:queryString}) %>
-    <div class="container">
-    <section class= 'busqueda'>
-        <% if(productos.length<=0) {%> 
-            <h1>No encontramos el productos que estas buscando!... Intenta nuevamente!!!</h1>
+    <%- include('../partials/header.ejs') %>
+    <div class="main-container">
+        <section class='busqueda'>
+            <% if(productos.length<=0) {%> 
+                <h1>¡No encontramos el productos que estas buscando!<br><br>Intenta nuevamente</h1>
             <% }else {%>
-        <h1 >Este es el resultado de tu Busqueda:<%=queryString %></h1>
-        <% } %> 
-    </section>
-    <section class="productoBuscado">
-        <% for (let i=0; i< productos.length;i++){%>
-            <article>
-                <h2><%=productos[i].title %></h2>
-                <img src="/uploads/products/<%=productos[i].image %>" alt=""  class="img-thumbnail">
-                <a href=<%="/products/" + productos[i].id %>><button style="cursor:pointer" class="btn btn-primary center-block"> Ingresa al detalle del producto</button></a>
-            </article>
-
-        <% } %> 
-
-    </section>
-</div>
+                <h1>Búsqueda: <%=queryString%></h1>
+                <p><%= productos.length %>  resultados</p>
+            <% } %> 
+        </section>
+        <section class="productoBuscado">
+            <% for (let i=0; i< productos.length;i++){%>
+                <article>
+                    <img src="/uploads/products/<%=productos[i].image %>" alt="" class="img-thumbnail">
+                    <h4><%=productos[i].title %></h2>
+                    <a href=<%="/products/" + productos[i].id %>><button style="cursor:pointer" class="btn btn-primary center-block">Ver producto</button></a>
+                </article>
+            <% } %> 
+        </section>
+    </div>
     
     <%- include('../partials/footer.ejs') %>
 </body>
